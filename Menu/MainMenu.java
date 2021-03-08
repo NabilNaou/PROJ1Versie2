@@ -5,20 +5,35 @@ public class MainMenu {
         System.out.println("Menu");
         System.out.println(" 1) Lijst met examens");
         System.out.println(" 2) Lijst met studenten");
-        System.out.println(" 3) Nieuw studenten inschrijven");
+        System.out.println(" 3) Nieuw Inschrijving");
         System.out.println(" 4) Student Verwijderen");
-        System.out.println(" 5) Examen afnemen");
-        System.out.println(" 6) Is student geslaagd voor test?");
-        System.out.println(" 7) Welke student heeft de meeste examens gehaald?");
+        System.out.println(" 5) Examen Inschrijven");
+        System.out.println(" 6) Examen afnemen");
+        System.out.println(" 7) Is student geslaagd voor test?");
+        System.out.println(" 8) Is student voor het examen geslaagd?");
+        System.out.println(" 9) Student Meeste Gehaald");
+        System.out.println(" 10) Login");
         System.out.println(" 0) Exit");
         System.out.println("Uw keuze:");
     }
 
     public static void Keuze(String keuze){
         switch (keuze) {
-            case "0" -> System.out.println("Succesful Exit App...");
-            case "2" -> System.out.println("Menu selectie 2 werkt nog niet");
-            default -> System.out.println("Niks Gekozen");
+            case "1" -> System.out.println();
+            case "2" -> System.out.println();
+            case "3" -> System.out.println();
+            case "4" -> System.out.println();
+            case "5" -> System.out.println();
+            case "6" -> System.out.println();
+            case "7" -> System.out.println();
+            case "8" -> System.out.println();
+            case "9" -> System.out.println();
+            case "10" -> System.out.println();
+            case "0" -> {
+                System.out.println("Succesful Exit App...");
+                System.exit(0);
+            }
+            default -> System.out.println("Niets Gekozen...");
         }
     }
 
