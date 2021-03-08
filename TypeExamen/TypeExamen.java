@@ -1,20 +1,20 @@
 public class TypeExamen {
-    private Integer Id;
+    private Integer id;
     private String theorieExamen;
     private String praktijkExamen;
 
     public TypeExamen(Integer id, String theorieExamen, String praktijkExamen) {
-        this.Id = id;
+        this.id = id;
         this.theorieExamen = theorieExamen;
         this.praktijkExamen = praktijkExamen;
     }
 
     public Integer getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Integer id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getTheorieExamen() {

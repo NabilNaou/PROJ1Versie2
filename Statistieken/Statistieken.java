@@ -1,9 +1,9 @@
 public class Statistieken {
-    public String ExamensGehaald(){
+    public String examensGehaald(){
         return null;
     }
 
-    public String MeesteGehaald(){
+    public String meesteGehaald(){
         return null;
     }
 }

@@ -1,14 +1,14 @@
 public class Student {
     private Integer Id;
-    private String Naam;
-    private String Achternaam;
-    private String Wachtwoord;
+    private String naam;
+    private String achternaam;
+    private String wachtwoord;
 
     public Student(Integer id, String naam, String achternaam, String wachtwoord) {
         this.Id = id;
-        this.Naam = naam;
-        this.Achternaam = achternaam;
-        this.Wachtwoord = wachtwoord;
+        this.naam = naam;
+        this.achternaam = achternaam;
+        this.wachtwoord = wachtwoord;
     }
 
     public Integer getId() {
@@ -20,26 +20,26 @@ public class Student {
     }
 
     public String getNaam() {
-        return Naam;
+        return naam;
     }
 
     public void setNaam(String naam) {
-        Naam = naam;
+        this.naam = naam;
     }
 
     public String getAchternaam() {
-        return Achternaam;
+        return achternaam;
     }
 
     public void setAchternaam(String achternaam) {
-        Achternaam = achternaam;
+        this.achternaam = achternaam;
     }
 
     public String getWachtwoord() {
-        return Wachtwoord;
+        return wachtwoord;
     }
 
     public void setWachtwoord(String wachtwoord) {
-        Wachtwoord = wachtwoord;
+        this.wachtwoord = wachtwoord;
     }
 }

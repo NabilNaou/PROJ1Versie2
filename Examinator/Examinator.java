@@ -1,45 +1,45 @@
 public class Examinator {
-    private Integer Id;
-    private String Name;
-    private String Achternaam;
-    private String Wachtwoord;
+    private Integer id;
+    private String name;
+    private String achternaam;
+    private String wachtwoord;
 
     public Examinator(Integer id, String name, String achternaam, String wachtwoord) {
-        this.Id = id;
-        this.Name = name;
-        this.Achternaam = achternaam;
-        this.Wachtwoord = wachtwoord;
+        this.id = id;
+        this.name = name;
+        this.achternaam = achternaam;
+        this.wachtwoord = wachtwoord;
     }
 
     public Integer getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Integer id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getAchternaam() {
-        return Achternaam;
+        return achternaam;
     }
 
     public void setAchternaam(String achternaam) {
-        Achternaam = achternaam;
+        this.achternaam = achternaam;
     }
 
     public String getWachtwoord() {
-        return Wachtwoord;
+        return wachtwoord;
     }
 
     public void setWachtwoord(String wachtwoord) {
-        Wachtwoord = wachtwoord;
+        this.wachtwoord = wachtwoord;
     }
 }

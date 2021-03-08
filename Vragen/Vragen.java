@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
 public class Vragen {
-    private ArrayList<String> Vragenlijst = new ArrayList();
+    private ArrayList<String> vragenlijst = new ArrayList();
 
     public ArrayList<String> getVragenlijst() {
-        return Vragenlijst;
+        return vragenlijst;
     }
 
     public void setVragenlijst(ArrayList<String> vragenlijst) {
-        Vragenlijst = vragenlijst;
+        this.vragenlijst = vragenlijst;
     }
 }

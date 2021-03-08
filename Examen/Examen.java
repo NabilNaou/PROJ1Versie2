@@ -1,11 +1,11 @@
 public class Examen {
-    private Integer ExamenCode;
-    private String Examennaam;
-    private String Status;
+    private Integer examenCode;
+    private String examenNaam;
+    private String status;
 
-    public Examen(Integer examenCode, String examennaam, String status) {
-        ExamenCode = examenCode;
-        Examennaam = examennaam;
-        Status = status;
+    public Examen(Integer examenCode, String examenNaam, String status) {
+        this.examenCode = examenCode;
+        this.examenNaam = examenNaam;
+        this.status = status;
     }
 }
