@@ -4,7 +4,6 @@ public class MainMenu {
 
     public static void LoginScherm() {
         if (!Login.checkEqual()) {
-            System.out.println("Log in alstublieft");
             Login.checkEqual();
         }
         //student       Examinator
@@ -30,22 +29,74 @@ public class MainMenu {
         switch (keuze) {
             case "1" -> {
                 System.out.println("Uw examenlijst...");
+                Scanner userInput = new Scanner(System.in);
+                String input = userInput.nextLine();
+                Keuze(input); // Input de keuze
                  }
             case "2" -> {
-                System.out.println();
+                if (Login.userInput.equals("examinator") || Login.userInput.equals("Examinator")) {
+                    System.out.println("StudentNr - Student");
+                    LedenLijst.getAllStudents();
+                } else {
+                    System.out.println("Unauthorised access");
+                }
+                Scanner userInput = new Scanner(System.in);
+                String input = userInput.nextLine();
+                Keuze(input); // Input de keuze
             }
-            case "3" -> System.out.println();
-            case "4" -> System.out.println();
-            case "5" -> System.out.println();
-            case "6" -> System.out.println();
-            case "7" -> System.out.println();
-            case "8" -> System.out.println();
-            case "9" -> System.out.println();
+            case "3" -> {
+                System.out.println("Nieuw Inschrijving");
+                Scanner userInput = new Scanner(System.in);
+                String input = userInput.nextLine();
+                Keuze(input); // Input de keuze
+            }
+            case "4" -> {
+                System.out.println("Student Verwijderen");
+                Scanner userInput = new Scanner(System.in);
+                String input = userInput.nextLine();
+                Keuze(input); // Input de keuze
+            }
+            case "5" -> {
+                System.out.println("Examen Inschrijven");
+                Scanner userInput = new Scanner(System.in);
+                String input = userInput.nextLine();
+                Keuze(input); // Input de keuze
+            }
+            case "6" -> {
+                System.out.println("Examen afnemen");
+                Scanner userInput = new Scanner(System.in);
+                String input = userInput.nextLine();
+                Keuze(input); // Input de keuze
+            }
+            case "7" -> {
+                System.out.println("Is student geslaagd voor test?");
+                Scanner userInput = new Scanner(System.in);
+                String input = userInput.nextLine();
+                Keuze(input); // Input de keuze
+            }
+            case "8" -> {
+                System.out.println("Is student voor het examen geslaagd?");
+                Scanner userInput = new Scanner(System.in);
+                String input = userInput.nextLine();
+                Keuze(input); // Input de keuze
+            }
+            case "9" -> {
+                System.out.println();
+                Scanner userInput = new Scanner(System.in);
+                String input = userInput.nextLine();
+                Keuze(input); // Input de keuze
+            }
             case "0" -> {
                 System.out.println("Succesful Exit App...");
                 System.exit(0);
             }
-            default -> System.out.println("Niets Gekozen...");
+            default -> {
+                System.out.println("Maak een keuze...");
+                Scanner userInput = new Scanner(System.in);
+                HoofdMenuText(); // Show Hoofd menu
+                String input = userInput.nextLine();
+                Keuze(input); // Input de keuze
+            }
         }
     }
 

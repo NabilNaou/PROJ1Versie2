@@ -42,4 +42,8 @@ public class Student {
     public void setWachtwoord(String wachtwoord) {
         this.wachtwoord = wachtwoord;
     }
+
+    public String getAllData() {
+        return (getId() + "         - " + getNaam() + " " + getAchternaam());
+    }
 }

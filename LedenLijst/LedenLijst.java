@@ -18,6 +18,14 @@ public class LedenLijst {
         }
     };
 
+    public static ArrayList<Student> getAllStudents() {
+        for (int i = 0; i < LedenLijst.studentenLijst.size(); i++) {
+            System.out.println(studentenLijst.get(i).getAllData());
+        }
+        return studentenLijst;
+    }
+
+
 //    public static String getUser(Student target) {
 //        for (Student index : studentenLijst) {
 //            if (index.equals(target)) {
