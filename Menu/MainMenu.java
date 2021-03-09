@@ -1,6 +1,15 @@
 import java.util.Scanner;
 
 public class MainMenu {
+
+    public static void LoginScherm() {
+        if (!Login.checkEqual()) {
+            System.out.println("Log in A.U.B..");
+            Login.checkEqual();
+        }
+        //naam = Bob
+        //ww = bob123
+    }
     public static void HoofdMenuText(){
         System.out.println("Menu");
         System.out.println(" 1) Lijst met examens");
@@ -11,15 +20,14 @@ public class MainMenu {
         System.out.println(" 6) Examen afnemen");
         System.out.println(" 7) Is student geslaagd voor test?");
         System.out.println(" 8) Is student voor het examen geslaagd?");
-        System.out.println(" 9) Student Meeste Gehaald");
-        System.out.println(" 10) Login");
+        System.out.println(" 9) Student met meeste exmans gehaald");
         System.out.println(" 0) Exit");
         System.out.println("Uw keuze:");
     }
 
     public static void Keuze(String keuze){
         switch (keuze) {
-            case "1" -> System.out.println();
+            case "1" -> System.out.println("Uw examenlijst...");
             case "2" -> System.out.println();
             case "3" -> System.out.println();
             case "4" -> System.out.println();
@@ -28,7 +36,6 @@ public class MainMenu {
             case "7" -> System.out.println();
             case "8" -> System.out.println();
             case "9" -> System.out.println();
-            case "10" -> System.out.println();
             case "0" -> {
                 System.out.println("Succesful Exit App...");
                 System.exit(0);
@@ -38,6 +45,7 @@ public class MainMenu {
     }
 
     public static void main(String[] args) {
+        LoginScherm();
         Scanner userInput = new Scanner(System.in);
         HoofdMenuText(); // Show Hoofd menu
         String input = userInput.nextLine();
