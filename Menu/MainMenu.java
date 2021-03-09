@@ -4,11 +4,12 @@ public class MainMenu {
 
     public static void LoginScherm() {
         if (!Login.checkEqual()) {
-            System.out.println("Log in A.U.B..");
+            System.out.println("Log in alstublieft");
             Login.checkEqual();
         }
-        //naam = Bob
-        //ww = bob123
+        //student       Examinator
+        //naam = Bob    Jan
+        //ww = bob123   jan123
     }
     public static void HoofdMenuText(){
         System.out.println("Menu");
@@ -27,8 +28,12 @@ public class MainMenu {
 
     public static void Keuze(String keuze){
         switch (keuze) {
-            case "1" -> System.out.println("Uw examenlijst...");
-            case "2" -> System.out.println();
+            case "1" -> {
+                System.out.println("Uw examenlijst...");
+                 }
+            case "2" -> {
+                System.out.println();
+            }
             case "3" -> System.out.println();
             case "4" -> System.out.println();
             case "5" -> System.out.println();
