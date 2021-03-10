@@ -4,6 +4,8 @@ public class MainMenu {
 
     public static void LoginScherm() {
         LedenLijst.getAllStudents(); // test purpose
+        System.out.println(" ----- ");
+        LedenLijst.getAllExaminators(); // test purpose
         if (Login.chooseLogin()) {
             while (!Login.checkEqual()) {
                 Login.checkEqual();

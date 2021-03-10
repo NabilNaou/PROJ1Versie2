@@ -42,7 +42,7 @@ public class Registreren {
             }
             case "2" -> {
                 Details();
-                //for (int i = 0; i < LedenLijst.examinatorLijst.size(); i++) {
+                userID = LedenLijst.examinatorLijst.size()+1;
                 Examinator newEx = new Examinator(userID, userName, userSurname, userPW);
                 LedenLijst.addEx(newEx);
                 System.out.println("examinator geregistreerd");
@@ -53,7 +53,5 @@ public class Registreren {
         System.out.println("Registratie voltooid!");
         return registrationComplete;
     }
-
     //A function that adds the users
-
 }

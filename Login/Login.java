@@ -58,7 +58,7 @@ public class Login {
                 }
             } else if (exCheck()) {
                 for (int i = 0; i < LedenLijst.examinatorLijst.size(); i++) {
-                    tempUser = LedenLijst.examinatorLijst.get(i).getName();
+                    tempUser = LedenLijst.examinatorLijst.get(i).getNaam();
                     tempPass = LedenLijst.examinatorLijst.get(i).getWachtwoord();
                     if (targetUser.equals(tempUser) & targetPassword.equals(tempPass)) {
                         currentUser = i;

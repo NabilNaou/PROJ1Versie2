@@ -1,12 +1,12 @@
 public class Examinator {
-    private Integer id;
-    private String name;
+    private int id;
+    private String naam;
     private String achternaam;
     private String wachtwoord;
 
-    public Examinator(Integer id, String name, String achternaam, String wachtwoord) {
+    public Examinator(int id, String naam, String achternaam, String wachtwoord) {
         this.id = id;
-        this.name = name;
+        this.naam = naam;
         this.achternaam = achternaam;
         this.wachtwoord = wachtwoord;
     }
@@ -19,12 +19,12 @@ public class Examinator {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNaam() {
+        return naam;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNaam(String naam) {
+        this.naam = naam;
     }
 
     public String getAchternaam() {

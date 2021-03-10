@@ -14,11 +14,11 @@ public class LedenLijst {
 
     public static ArrayList<Examinator> examinatorLijst = new ArrayList<>() {
         {
-            add(exLijst = new Examinator(91,"Jan","Wild", "jan123"));
+            add(exLijst = new Examinator(1,"Jan","Wild", "jan123"));
         }
     };
 
-    //returns all data (nid, name, surname) for every student
+    // Get all data for every student (id,name,lastname)
     public static ArrayList<Student> getAllStudents() {
         for (Student student : studentenLijst)
         {
@@ -27,13 +27,18 @@ public class LedenLijst {
         return studentenLijst;
     }
 
-    public static ArrayList<Student> getStudentenLijst() {
+    // Get all data for every student
+    public static ArrayList<Student> getAllExaminators() {
+        for (Examinator examinator : examinatorLijst)
+        {
+            System.out.println(examinator.getId() + " " + examinator.getNaam() + " " + examinator.getAchternaam());
+        }
         return studentenLijst;
     }
 
-    public static ArrayList<Examinator> getExaminatorLijst() {
-        return examinatorLijst;
-    }
+    // Get specific element
+    public static ArrayList<Student> getStudentenLijst() { return studentenLijst; }
+    public static ArrayList<Examinator> getExaminatorLijst() { return examinatorLijst; }
 
     // New student
     public static void addStudent(Student newStudent){
