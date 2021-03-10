@@ -26,6 +26,14 @@ public class LedenLijst {
         return studentenLijst;
     }
 
+    public static void addStudent(Student newStudent){
+        LedenLijst.studentenLijst.add(newStudent);
+    }
+
+    public static void addEx(Examinator newEx){
+        LedenLijst.examinatorLijst.add(newEx);
+    }
+
 
 //    public static String getUser(Student target) {
 //        for (Student index : studentenLijst) {

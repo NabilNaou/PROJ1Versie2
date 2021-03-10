@@ -8,6 +8,29 @@ public class Login {
     public static String targetPassword;
     public static String tempUser;
     public static String tempPass;
+
+    public static String userChoice;
+    public static boolean choseLogin;
+
+    public static boolean chooseLogin() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Wilt u: 1) inloggen " +
+                "of " +
+                "2) registreren");
+        userChoice = sc.nextLine();
+
+        switch (userChoice) {
+            case "1" -> {
+                choseLogin = true;
+                checkEqual();
+            }
+            case "2" -> Registreren.Registration();
+            default -> { System.out.println("Wilt u: 1) inloggen of 2) registreren");
+                userChoice = sc.nextLine();
+                choseLogin = false; }
+        }
+        return choseLogin;
+    }
     public static boolean checkEqual() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Bent u een examinator of student?");

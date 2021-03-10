@@ -3,11 +3,19 @@ import java.util.Scanner;
 public class MainMenu {
 
     public static void LoginScherm() {
-        while (!Login.checkEqual()) {
-            Login.checkEqual();
-        }
-        if (Login.checkEqual()) {
-            HoofdMenuText();
+
+        if (Login.chooseLogin()) {
+            while (!Login.checkEqual()) {
+                Login.checkEqual();
+            }
+            if (Login.checkEqual()) {
+                HoofdMenuText();
+            }
+        } else if (!Login.chooseLogin()) {
+            Registreren.Registration();
+//            if (Registreren.Registration()) {
+//                HoofdMenuText();
+//            }
         }
         //student       Examinator
         //naam = Bob    Jan
