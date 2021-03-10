@@ -3,30 +3,21 @@ import java.util.Scanner;
 public class MainMenu {
 
     public static void LoginScherm() {
-        LedenLijst.getAllStudents(); // test purpose
-        System.out.println(" ----- "); // test purpose
-        LedenLijst.getAllExaminators(); // test purpose
-
         if (Login.chooseLogin()) {
-            while (!Login.checkEqual()) {
+            if (!Login.checkEqual()) {
                 Login.checkEqual();
-            }
-            if (Login.checkEqual()) {
+            } else if (Login.checkEqual()) {
                 HoofdMenuText();
             }
         } else if (!Login.chooseLogin()) {
             Registreren.Registration();
-//            if (Registreren.Registration()) {
-//                HoofdMenuText();
-//            }
         }
+        // Still gotta figure out how to redirect straight to HoofdMenuText()
+        // right after registering, without logging in first
+
         //student       Examinator
         //naam = Bob    Jan
         //ww = bob123   jan123
-
-        LedenLijst.getAllStudents(); // test purpose
-        System.out.println(" ----- "); // test purpose
-        LedenLijst.getAllExaminators(); // test purpose
     }
 
     public static void StandardAction() {

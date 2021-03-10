@@ -27,7 +27,7 @@ public class LedenLijst {
         return studentenLijst;
     }
 
-    // Get all data for every student
+    // Get all data for every examinator
     public static ArrayList<Student> getAllExaminators() {
         for (Examinator examinator : examinatorLijst)
         {
