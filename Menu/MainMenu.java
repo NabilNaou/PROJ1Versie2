@@ -3,11 +3,10 @@ import java.util.Scanner;
 public class MainMenu {
 
     public static void LoginScherm() {
-        LedenLijst.getAllStudents();
+        LedenLijst.getAllStudents(); // test purpose
         if (Login.chooseLogin()) {
             while (!Login.checkEqual()) {
                 Login.checkEqual();
-                LedenLijst.getAllStudents();
             }
             if (Login.checkEqual()) {
                 HoofdMenuText();

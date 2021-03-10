@@ -20,14 +20,10 @@ public class LedenLijst {
 
     //returns all data (nid, name, surname) for every student
     public static ArrayList<Student> getAllStudents() {
-/*        for (int i = 0; i < LedenLijst.studentenLijst.size(); i++) {
-            System.out.println(studentenLijst.get(i).getAllData());
-        }*/
         for (Student student : studentenLijst)
         {
             System.out.println(student.getId() + " " + student.getNaam() + " " + student.getAchternaam());
         }
-
         return studentenLijst;
     }
 
@@ -39,6 +35,7 @@ public class LedenLijst {
         return examinatorLijst;
     }
 
+    // New student
     public static void addStudent(Student newStudent){
         LedenLijst.studentenLijst.add(newStudent);
     }
