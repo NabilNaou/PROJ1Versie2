@@ -4,15 +4,15 @@ public class MainMenu {
 
     public static void LoginScherm() {
         LedenLijst.getAllStudents(); // test purpose
-        System.out.println(" ----- ");
+        System.out.println(" ----- "); // test purpose
         LedenLijst.getAllExaminators(); // test purpose
+
         if (Login.chooseLogin()) {
             while (!Login.checkEqual()) {
                 Login.checkEqual();
             }
             if (Login.checkEqual()) {
                 HoofdMenuText();
-                LedenLijst.getAllStudents();
             }
         } else if (!Login.chooseLogin()) {
             Registreren.Registration();
@@ -23,7 +23,10 @@ public class MainMenu {
         //student       Examinator
         //naam = Bob    Jan
         //ww = bob123   jan123
-        LedenLijst.getAllStudents();
+
+        LedenLijst.getAllStudents(); // test purpose
+        System.out.println(" ----- "); // test purpose
+        LedenLijst.getAllExaminators(); // test purpose
     }
 
     public static void StandardAction() {

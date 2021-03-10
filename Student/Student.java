@@ -15,9 +15,7 @@ public class Student {
         return Id;
     }
 
-    public void setId(Integer id) {
-        Id = id;
-    }
+    public void setId(Integer id) { Id = id; }
 
     public String getNaam() {
         return naam;
@@ -41,9 +39,5 @@ public class Student {
 
     public void setWachtwoord(String wachtwoord) {
         this.wachtwoord = wachtwoord;
-    }
-
-    public String getAllData() {
-        return (getId() + "         - " + getNaam() + " " + getAchternaam());
     }
 }

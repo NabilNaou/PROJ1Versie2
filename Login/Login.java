@@ -8,15 +8,13 @@ public class Login {
     public static String targetPassword;
     public static String tempUser;
     public static String tempPass;
-
+    //
     public static String userChoice;
     public static boolean choseLogin;
 
     public static boolean chooseLogin() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Wilt u: 1) inloggen " +
-                "of " +
-                "2) registreren");
+        System.out.println("Wilt u: 1) inloggen " + "of " + "2) registreren");
         userChoice = sc.nextLine();
 
         switch (userChoice) {
@@ -46,9 +44,8 @@ public class Login {
             //Loops through ArrayList to see if entered user and password correspond with stored data
             if (studentCheck()) {
                 for (int i = 0; i < LedenLijst.studentenLijst.size(); i++) {
-                    //tempUser = LedenLijst.studentenLijst.get(i).getName();
-                    //tempPass = LedenLijst.studentenLijst.get(i).getWachtwoord();
-                    tempPass = LedenLijst.getStudentenLijst().get(i).getNaam();
+                    tempUser = LedenLijst.studentenLijst.get(i).getNaam();
+                    tempPass = LedenLijst.studentenLijst.get(i).getWachtwoord();
                     if (targetUser.equals(tempUser) & targetPassword.equals(tempPass)) {
                         currentUser = i;
                         correct = true;
