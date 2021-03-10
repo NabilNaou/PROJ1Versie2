@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Registreren {
     private Boolean isExaminator;
     private LedenLijst lijstLeden;
+    public static Integer id;
     public static String userInput;
     public static String userName;
     public static String userSurname;

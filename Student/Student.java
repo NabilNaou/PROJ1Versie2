@@ -1,8 +1,8 @@
 public class Student {
-    public Integer Id;
-    public String naam;
-    public String achternaam;
-    public String wachtwoord;
+    private Integer Id;
+    private String naam;
+    private String achternaam;
+    private String wachtwoord;
 
     public Student(Integer id, String naam, String achternaam, String wachtwoord) {
         this.Id = id;

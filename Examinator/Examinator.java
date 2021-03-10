@@ -1,8 +1,8 @@
 public class Examinator {
     private Integer id;
-    public String name;
+    private String name;
     private String achternaam;
-    public String wachtwoord;
+    private String wachtwoord;
 
     public Examinator(Integer id, String name, String achternaam, String wachtwoord) {
         this.id = id;

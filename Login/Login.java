@@ -46,8 +46,9 @@ public class Login {
             //Loops through ArrayList to see if entered user and password correspond with stored data
             if (studentCheck()) {
                 for (int i = 0; i < LedenLijst.studentenLijst.size(); i++) {
-                    tempUser = LedenLijst.studentenLijst.get(i).getNaam();
-                    tempPass = LedenLijst.studentenLijst.get(i).getWachtwoord();
+                    //tempUser = LedenLijst.studentenLijst.get(i).getName();
+                    //tempPass = LedenLijst.studentenLijst.get(i).getWachtwoord();
+                    tempPass = LedenLijst.getStudentenLijst().get(i).getNaam();
                     if (targetUser.equals(tempUser) & targetPassword.equals(tempPass)) {
                         currentUser = i;
                         correct = true;

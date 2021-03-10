@@ -26,6 +26,14 @@ public class LedenLijst {
         return studentenLijst;
     }
 
+    public static ArrayList<Student> getStudentenLijst() {
+        return studentenLijst;
+    }
+
+    public static ArrayList<Examinator> getExaminatorLijst() {
+        return examinatorLijst;
+    }
+
     public static void addStudent(Student newStudent){
         LedenLijst.studentenLijst.add(newStudent);
     }
