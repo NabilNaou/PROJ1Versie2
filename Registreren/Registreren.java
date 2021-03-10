@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Registreren {
     private Boolean isExaminator;
     private LedenLijst lijstLeden;
-    public static Integer id;
     public static String userInput;
     public static String userName;
     public static String userSurname;
@@ -35,7 +34,9 @@ public class Registreren {
                 // It's supposed to check the highest value of the id, then do id + 1 and add that to the new user, so there aren't duplicates
                 // nor that the new user can assign their own id
                 //for (int i = 0; i < LedenLijst.studentenLijst.size(); i++) {
-                Student newStudent = new Student(id, userName, userSurname, userPW);
+
+                
+                Student newStudent = new Student(1,userName, userSurname, userPW);
                 LedenLijst.addStudent(newStudent);
                 System.out.println("student geregistreerd");
                 //}
@@ -44,7 +45,7 @@ public class Registreren {
             case "2" -> {
                 Details();
                 //for (int i = 0; i < LedenLijst.examinatorLijst.size(); i++) {
-                Examinator newEx = new Examinator(id, userName, userSurname, userPW);
+                Examinator newEx = new Examinator(1, userName, userSurname, userPW);
                 LedenLijst.addEx(newEx);
                 System.out.println("examinator geregistreerd");
                 //}

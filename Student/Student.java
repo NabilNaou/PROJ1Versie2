@@ -1,11 +1,11 @@
 public class Student {
-    private Integer Id;
+    private int Id;
     private String naam;
     private String achternaam;
     private String wachtwoord;
 
-    public Student(Integer id, String naam, String achternaam, String wachtwoord) {
-        this.Id = id;
+    public Student(int Id, String naam, String achternaam, String wachtwoord) {
+        this.Id = Id;
         this.naam = naam;
         this.achternaam = achternaam;
         this.wachtwoord = wachtwoord;

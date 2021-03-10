@@ -3,13 +3,15 @@ import java.util.Scanner;
 public class MainMenu {
 
     public static void LoginScherm() {
-
+        LedenLijst.getAllStudents();
         if (Login.chooseLogin()) {
             while (!Login.checkEqual()) {
                 Login.checkEqual();
+                LedenLijst.getAllStudents();
             }
             if (Login.checkEqual()) {
                 HoofdMenuText();
+                LedenLijst.getAllStudents();
             }
         } else if (!Login.chooseLogin()) {
             Registreren.Registration();
@@ -20,6 +22,7 @@ public class MainMenu {
         //student       Examinator
         //naam = Bob    Jan
         //ww = bob123   jan123
+        LedenLijst.getAllStudents();
     }
 
     public static void StandardAction() {
