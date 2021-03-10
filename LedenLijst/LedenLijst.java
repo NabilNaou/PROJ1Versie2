@@ -18,6 +18,7 @@ public class LedenLijst {
         }
     };
 
+    //returns all data (nid, name, surname) for every student
     public static ArrayList<Student> getAllStudents() {
         for (int i = 0; i < LedenLijst.studentenLijst.size(); i++) {
             System.out.println(studentenLijst.get(i).getAllData());
