@@ -9,14 +9,11 @@ public class MainMenu {
             HoofdMenuText();
         }
     }
-        //student       Examinator
-        //naam = Bob    Jan
-        //ww = bob123   jan123
 
     public static void StandardAction() {
         Scanner userInput = new Scanner(System.in);
         String input = userInput.nextLine();
-        Keuze(input); // Input de keuze
+        Keuze(input);
     }
     public static void HoofdMenuText(){
         System.out.println("Menu");
@@ -90,7 +87,5 @@ public class MainMenu {
 
     public static void main(String[] args) {
         LoginScherm();
-        //HoofdMenuText(); // Show Hoofd menu
-        //StandardAction();
     }
 }
