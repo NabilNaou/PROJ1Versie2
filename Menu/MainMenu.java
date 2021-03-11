@@ -47,7 +47,7 @@ public class MainMenu {
                 StandardAction();
                  }
             case "2" -> {
-                if (Login.userInput.equals("examinator") || Login.userInput.equals("Examinator")) {
+                if (Login.userInput.equals("1")) {
                     System.out.println("StudentNr - Student");
                     LedenLijst.getAllStudents();
                 } else {
