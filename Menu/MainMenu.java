@@ -4,21 +4,15 @@ public class MainMenu {
 
     public static void LoginScherm() {
         if (Login.chooseLogin()) {
-            if (!Login.checkEqual()) {
-                Login.checkEqual();
-            } else if (Login.checkEqual()) {
-                HoofdMenuText();
+            HoofdMenuText();
+            } else if (Registreren.registered) {
+            HoofdMenuText();
             }
-        } else if (!Login.chooseLogin()) {
-            Registreren.Registration();
         }
-        // Still gotta figure out how to redirect straight to HoofdMenuText()
-        // right after registering, without logging in first
 
         //student       Examinator
         //naam = Bob    Jan
         //ww = bob123   jan123
-    }
 
     public static void StandardAction() {
         Scanner userInput = new Scanner(System.in);
@@ -38,6 +32,7 @@ public class MainMenu {
         System.out.println(" 9) Student met meeste exmans gehaald");
         System.out.println(" 0) Exit");
         System.out.println("Uw keuze:");
+        StandardAction();
     }
 
     public static void Keuze(String keuze){
@@ -47,7 +42,7 @@ public class MainMenu {
                 StandardAction();
                  }
             case "2" -> {
-                if (Login.userInput.equals("1")) {
+                if (Login.userInput.equals("2")) {
                     System.out.println("StudentNr - Student");
                     LedenLijst.getAllStudents();
                 } else {
