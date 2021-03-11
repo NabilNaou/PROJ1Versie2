@@ -4,21 +4,14 @@ public class MainMenu {
 
     public static void LoginScherm() {
         if (Login.chooseLogin()) {
-            if (!Login.checkEqual()) {
-                Login.checkEqual();
-            } else if (Login.checkEqual()) {
-                HoofdMenuText();
-            }
-        } else if (!Login.chooseLogin()) {
-            Registreren.Registration();
+            HoofdMenuText();
+        } else if (Registreren.registered) {
+            HoofdMenuText();
         }
-        // Still gotta figure out how to redirect straight to HoofdMenuText()
-        // right after registering, without logging in first
-
+    }
         //student       Examinator
         //naam = Bob    Jan
         //ww = bob123   jan123
-    }
 
     public static void StandardAction() {
         Scanner userInput = new Scanner(System.in);
