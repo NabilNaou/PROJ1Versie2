@@ -65,6 +65,7 @@ public class MainMenu {
             }
             case "5" -> {
                 System.out.println("Examen Inschrijven");
+                Examen.getAllExams();
                 StandardAction();
             }
             case "6" -> {
