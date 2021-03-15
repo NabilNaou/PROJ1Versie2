@@ -1,6 +1,10 @@
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class MainMenu {
+    private static Scanner userInput = new Scanner(System.in);
+    private static Examen examen = new Examen();
 
     public static void LoginScherm() {
         if (Login.chooseLogin()) {
@@ -15,7 +19,7 @@ public class MainMenu {
         //ww = bob123   jan123
 
     public static void StandardAction() {
-        Scanner userInput = new Scanner(System.in);
+
         String input = userInput.nextLine();
         Keuze(input); // Input de keuze
     }
@@ -63,7 +67,13 @@ public class MainMenu {
                 StandardAction();
             }
             case "6" -> {
-                System.out.println("Examen afnemen");
+                System.out.println("Welk examen wilt u afnemen?");
+                System.out.println("Type 1 voor auto theorie.");
+                System.out.println("Type 2 voor boot theorie. ");
+                int beslissing = userInput.nextInt();
+                if(beslissing == 1){
+                    examen.StartAutoExamen();
+                }
                 StandardAction();
             }
             case "7" -> {
@@ -89,9 +99,11 @@ public class MainMenu {
         }
     }
 
+
     public static void main(String[] args) {
-        LoginScherm();
-        //HoofdMenuText(); // Show Hoofd menu
+        //LoginScherm();
+
+        HoofdMenuText(); // Show Hoofd menu
         //StandardAction();
     }
 }
