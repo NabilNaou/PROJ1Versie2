@@ -78,6 +78,9 @@ public class Login {
         } else {
             System.out.println("Probeer opnieuw...");
         }
+        if (userAndPassCheck()) {
+            correct = true;
+        }
         return correct;
     }
 

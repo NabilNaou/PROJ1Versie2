@@ -1,19 +1,27 @@
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class MainMenu {
+    private static Scanner userInput = new Scanner(System.in);
+    private static Examen examen = new Examen();
 
     public static void LoginScherm() {
         if (Login.chooseLogin()) {
             HoofdMenuText();
-        } else if (Registreren.registered) {
+            } else if (Registreren.registered) {
             HoofdMenuText();
+            }
         }
-    }
+
+        //student       Examinator
+        //naam = Bob    Jan
+        //ww = bob123   jan123
 
     public static void StandardAction() {
-        Scanner userInput = new Scanner(System.in);
+
         String input = userInput.nextLine();
-        Keuze(input);
+        Keuze(input); // Input de keuze
     }
     public static void HoofdMenuText(){
         System.out.println("Menu");
@@ -28,6 +36,7 @@ public class MainMenu {
         System.out.println(" 9) Student met meeste exmans gehaald");
         System.out.println(" 0) Exit");
         System.out.println("Uw keuze:");
+        StandardAction();
     }
 
     public static void Keuze(String keuze){
@@ -37,7 +46,7 @@ public class MainMenu {
                 StandardAction();
                  }
             case "2" -> {
-                if (Login.userInput.equals("1")) {
+                if (Login.userInput.equals("2")) {
                     System.out.println("StudentNr - Student");
                     LedenLijst.getAllStudents();
                 } else {
@@ -55,11 +64,16 @@ public class MainMenu {
             }
             case "5" -> {
                 System.out.println("Examen Inschrijven");
-                Examen.getAllExams();
                 StandardAction();
             }
             case "6" -> {
-                System.out.println("Examen afnemen");
+                System.out.println("Welk examen wilt u afnemen?");
+                System.out.println("Type 1 voor auto theorie.");
+                System.out.println("Type 2 voor boot theorie. ");
+                int beslissing = userInput.nextInt();
+                if(beslissing == 1){
+                    examen.StartAutoExamen();
+                }
                 StandardAction();
             }
             case "7" -> {
@@ -85,7 +99,11 @@ public class MainMenu {
         }
     }
 
+
     public static void main(String[] args) {
-        LoginScherm();
+        //LoginScherm();
+
+        HoofdMenuText(); // Show Hoofd menu
+        //StandardAction();
     }
 }
