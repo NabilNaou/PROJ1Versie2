@@ -101,7 +101,7 @@ public class MainMenu {
 
 
     public static void main(String[] args) {
-        //LoginScherm();
+        LoginScherm();
 
         HoofdMenuText(); // Show Hoofd menu
         //StandardAction();
