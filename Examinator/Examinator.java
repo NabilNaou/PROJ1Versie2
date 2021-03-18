@@ -1,4 +1,7 @@
+import java.util.ArrayList;
+
 public class Examinator {
+    public static Examinator exLijst;
     private int id;
     private String naam;
     private String achternaam;
@@ -10,6 +13,18 @@ public class Examinator {
         this.achternaam = achternaam;
         this.wachtwoord = wachtwoord;
     }
+
+    public static ArrayList<Examinator> examinatorLijst = new ArrayList<>() {
+        {
+            add(exLijst = new Examinator(1,"Jan","Wild", "jan123"));
+        }
+    };
+
+    // New examinator
+    public static void addEx(Examinator newEx){
+        Examinator.examinatorLijst.add(newEx);
+    }
+
 
     public Integer getId() {
         return id;

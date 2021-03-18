@@ -48,7 +48,7 @@ public class MainMenu {
             case "2" -> {
                 if (Login.userInput.equals("2")) {
                     System.out.println("StudentNr - Student");
-                    LedenLijst.getAllStudents();
+                    Student.getAllStudents();
                 } else {
                     System.out.println("Unauthorised access");
                 }
@@ -101,9 +101,9 @@ public class MainMenu {
 
 
     public static void main(String[] args) {
-        //LoginScherm();
+        LoginScherm();
 
-        HoofdMenuText(); // Show Hoofd menu
+        //HoofdMenuText(); // Show Hoofd menu
         //StandardAction();
     }
 }
