@@ -1,0 +1,109 @@
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+public class MainMenu {
+    private static Scanner userInput = new Scanner(System.in);
+    private static Examen examen = new Examen();
+
+    public static void LoginScherm() {
+        if (Login.chooseLogin()) {
+            HoofdMenuText();
+            } else if (Registreren.registered) {
+            HoofdMenuText();
+            }
+        }
+
+        //student       Examinator
+        //naam = Bob    Jan
+        //ww = bob123   jan123
+
+    public static void StandardAction() {
+
+        String input = userInput.nextLine();
+        Keuze(input); // Input de keuze
+    }
+    public static void HoofdMenuText(){
+        System.out.println("Menu");
+        System.out.println(" 1) Lijst met examens");
+        System.out.println(" 2) Lijst met studenten");
+        System.out.println(" 3) Nieuw Inschrijving");
+        System.out.println(" 4) Student Verwijderen");
+        System.out.println(" 5) Examen Inschrijven");
+        System.out.println(" 6) Examen afnemen");
+        System.out.println(" 7) Is student geslaagd voor test?");
+        System.out.println(" 8) Is student voor het examen geslaagd?");
+        System.out.println(" 9) Student met meeste exmans gehaald");
+        System.out.println(" 0) Exit");
+        System.out.println("Uw keuze:");
+        StandardAction();
+    }
+
+    public static void Keuze(String keuze){
+        switch (keuze) {
+            case "1" -> {
+                System.out.println("Uw examenlijst...");
+                StandardAction();
+                 }
+            case "2" -> {
+                if (Login.userInput.equals("2")) {
+                    System.out.println("StudentNr - Student");
+                    LedenLijst.getAllStudents();
+                } else {
+                    System.out.println("Unauthorised access");
+                }
+                StandardAction();
+            }
+            case "3" -> {
+                System.out.println("Nieuw Inschrijving");
+                StandardAction();
+            }
+            case "4" -> {
+                System.out.println("Student Verwijderen");
+                StandardAction();
+            }
+            case "5" -> {
+                System.out.println("Examen Inschrijven");
+                StandardAction();
+            }
+            case "6" -> {
+                System.out.println("Welk examen wilt u afnemen?");
+                System.out.println("Type 1 voor auto theorie.");
+                System.out.println("Type 2 voor boot theorie. ");
+                int beslissing = userInput.nextInt();
+                if(beslissing == 1){
+                    examen.StartAutoExamen();
+                }
+                StandardAction();
+            }
+            case "7" -> {
+                System.out.println("Is student geslaagd voor test?");
+                StandardAction();
+            }
+            case "8" -> {
+                System.out.println("Is student voor het examen geslaagd?");
+                StandardAction();
+            }
+            case "9" -> {
+                System.out.println();
+                StandardAction();
+            }
+            case "0" -> {
+                System.out.println("Succesfull Exit App...");
+                System.exit(0);
+            }
+            default -> {
+                System.out.println("Maak een keuze...");
+                StandardAction();
+            }
+        }
+    }
+
+
+    public static void main(String[] args) {
+        LoginScherm();
+
+        HoofdMenuText(); // Show Hoofd menu
+        //StandardAction();
+    }
+}
