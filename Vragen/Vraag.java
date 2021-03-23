@@ -1,41 +1,54 @@
+import java.util.ArrayList;
+
 public class Vraag {
+    String Vraag;
+    String AntA;
+    String AntB;
+    String AntC;
+    String Antwoord;
 
-
-    private Integer ID;
-    private String descriptie;
-    private String ant1;
-    private String ant2;
-    private String ant3;
-    private String correctAntwoord;
-
-    public Vraag(String descriptie, String ant1, String ant2, String ant3, String correctAntwoord){
-        this.descriptie = descriptie;
-        this.ant1 = ant1;
-        this.ant2 = ant2;
-        this.ant3 = ant3;
-        this.correctAntwoord = correctAntwoord;
+    public Vraag(String vraag, String antA, String antB, String antC, String antwoord) {
+        Vraag = vraag;
+        AntA = antA;
+        AntB = antB;
+        AntC = antC;
+        Antwoord = antwoord;
+    }
+    public Vraag(String vraag, String antwoord){
+        Vraag = vraag;
+        Antwoord = antwoord;
     }
 
-    public String getDescriptie(){
-        return descriptie;
+    public String getVraag() {
+        return Vraag;
     }
 
-    public String getAnswer1(){
-        return ant1;
+    public void setVraag(String vraag) {
+        Vraag = vraag;
     }
 
-    public String getAnswer2(){
-        return ant2;
+    public String getAntA() {
+        return AntA;
     }
 
-    public String getAnswer3(){
-        return ant3;
+    public void setAntA(String antA) {
+        AntA = antA;
     }
-    public String getCorrectAntwoord(){
-        return correctAntwoord;
+
+    public String getAntB() {
+        return AntB;
     }
-    public Integer getID(){
-        return ID;
+
+    public void setAntB(String antB) {
+        AntB = antB;
+    }
+
+    public String getAntC() {
+        return AntC;
+    }
+
+    public void setAntC(String antC) {
+        AntC = antC;
     }
 }
 
