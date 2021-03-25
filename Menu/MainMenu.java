@@ -34,7 +34,7 @@ public class MainMenu {
         out.println(" 6) Examen afnemen");
         out.println(" 7) Is student geslaagd voor test?");
         out.println(" 8) Is student voor het examen geslaagd?");
-        out.println(" 9) Student met meeste exmans gehaald");
+        out.println(" 9) Student met meeste examens gehaald");
         out.println(" 0) Exit");
         out.println("Uw keuze:");
         StandardAction();
@@ -58,11 +58,11 @@ public class MainMenu {
             }
             case "3" -> {
                 out.println("Nieuw Inschrijving");
-                StandardAction();
+                Student.NieuweInschrijving();
             }
             case "4" -> {
                 out.println("Student Verwijderen");
-                StandardAction();
+                Student.StudentVerwijderen();
             }
             case "5" -> {
                 out.println("Examen Inschrijven");
