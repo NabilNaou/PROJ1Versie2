@@ -52,6 +52,7 @@ public class MainMenu {
                     Student.getAllStudents();
                 } else {
                     out.println("Unauthorised access");
+                    Student.getAllStudents();
                 }
                 StandardAction();
             }
@@ -80,6 +81,7 @@ public class MainMenu {
             case "7" -> {
                 out.println("Is student geslaagd voor test?");
                 StandardAction();
+                //TODO: actie aanmaken om te kijken of student boven de voldoende punten staat.
             }
             case "8" -> {
                 out.println("Is student voor het examen geslaagd?");

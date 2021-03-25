@@ -23,12 +23,11 @@ public class Student extends Gebruiker
     };
 
     // Get all data for every student (id,name,lastname)
-    public static ArrayList<Student> getAllStudents() {
+    public static void getAllStudents() {
         for (Student student : studentenLijst)
         {
             System.out.println(student.getId() + " " + student.getNaam() + " " + student.getAchternaam());
         }
-        return studentenLijst;
     }
 
     // Get specific element

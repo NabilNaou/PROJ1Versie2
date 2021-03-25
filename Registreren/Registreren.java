@@ -28,14 +28,14 @@ public class Registreren {
 
         if (userInput.equals("1")) {
             Details();
-            userID = Student.studentenLijst.size() + 1;
+            userID = Student.studentenLijst.size() + 1; //increment number
             Student newStudent = new Student(userID, userName, userSurname, userPW);
             Student.addStudent(newStudent);
             registered = true;
             System.out.println("Student geregistreerd");
         } else if (userInput.equals("2")) {
             Details();
-            userID = Examinator.examinatorLijst.size() + 1;
+            userID = Examinator.examinatorLijst.size() + 1; //increment number
             Examinator newEx = new Examinator(userID, userName, userSurname, userPW);
             Examinator.addEx(newEx);
             registered = true;
