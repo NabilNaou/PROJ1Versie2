@@ -1,21 +1,22 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Exam {
-
+public class Exam
+{
     private String ExamenNaam;
     private Integer Cijfer;
 
     private static ArrayList<Vraag> vragen;
-    private Integer StudentID;
+    private int StudentID;
     private Vraag vraag;
 
-    public Exam(Integer StudentID, ArrayList<Vraag> vragen, String ExamenNaam){
+    public Exam(int StudentID, ArrayList<Vraag> vragen, String ExamenNaam){
         this.StudentID = StudentID;
         this.vragen = vragen;
         this.ExamenNaam = ExamenNaam;
     }
-    public Integer startTest(){
+
+    public void startTest(){
         Scanner scan = new Scanner(System.in);
         int testLength = vragen.size();
         int i = 0;
@@ -23,7 +24,7 @@ public class Exam {
         while (i < testLength) {
             vraag = vragen.get(i);
             String correctAnswer = vraag.getAntwoord();
-            System.out.println(vraag.getAntwoord());
+            System.out.println(vraag.getVraag());
             System.out.println(vraag.getAntA());
             System.out.println(vraag.getAntB());
             System.out.println(vraag.getAntC());
@@ -36,7 +37,6 @@ public class Exam {
             i++;
         }
         System.out.println("Jouw cijfer is:" + Cijfer * (10 / testLength));
-
     }
     public Integer getStudentID(){
         return StudentID;
@@ -44,6 +44,4 @@ public class Exam {
     public Integer getCijfer(){
         return Cijfer;
     }
-
-
 }

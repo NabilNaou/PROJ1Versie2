@@ -19,6 +19,10 @@ public class Vraag {
         Antwoord = antwoord;
     }
 
+    public String getAntwoord() {
+        return Antwoord;
+    }
+
     public String getVraag() {
         return Vraag;
     }
