@@ -1,9 +1,19 @@
+import java.util.ArrayList;
+
 public class Statistieken {
-    public String examensGehaald(){
-        return null;
+    private ArrayList<Exam> examens;
+
+    public Integer getGemiddeldeByID(Integer StudentID)
+    {
+        int examensSize = examens.size();
+        int i = 0;
+     for(Exam exam : examens){
+        if(exam.getStudentID() == StudentID)
+        {
+            i = i + exam.getCijfer();
+        }
+    }
+     return i / examensSize;
     }
 
-    public String meesteGehaald(){
-        return null;
-    }
 }
