@@ -61,16 +61,16 @@ public class Login {
 
             //Loops through ArrayList to see if entered user and password correspond with stored data
             if (userInput.equals("1")) {
-                for (int i = 0; i < LedenLijst.studentenLijst.size(); i++) {
-                    tempUser = LedenLijst.studentenLijst.get(i).getNaam();
-                    tempPass = LedenLijst.studentenLijst.get(i).getWachtwoord();
+                for (int i = 0; i < Student.studentenLijst.size(); i++) {
+                    tempUser = Student.studentenLijst.get(i).getNaam();
+                    tempPass = Student.studentenLijst.get(i).getWachtwoord();
                     currentUser = i;
                     userAndPassCheck();
                 }
             } else if (userInput.equals("2")) {
-                for (int i = 0; i < LedenLijst.examinatorLijst.size(); i++) {
-                    tempUser = LedenLijst.examinatorLijst.get(i).getNaam();
-                    tempPass = LedenLijst.examinatorLijst.get(i).getWachtwoord();
+                for (int i = 0; i < Examinator.examinatorLijst.size(); i++) {
+                    tempUser = Examinator.examinatorLijst.get(i).getNaam();
+                    tempPass = Examinator.examinatorLijst.get(i).getWachtwoord();
                     currentUser = i;
                     userAndPassCheck();
                 }

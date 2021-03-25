@@ -3,17 +3,22 @@ import java.util.ArrayList;
 public class Statistieken {
     private ArrayList<Exam> examens;
 
-    public Integer getGemiddeldeByID(Integer StudentID)
+    public Integer getGemiddeldeByID(int StudentID)
     {
         int examensSize = examens.size();
-        int i = 0;
-     for(Exam exam : examens){
+        int cijfersOpgeteld = 0;
+    for(Exam exam : examens)
+    {
         if(exam.getStudentID() == StudentID)
         {
-            i = i + exam.getCijfer();
+            cijfersOpgeteld = cijfersOpgeteld + exam.getCijfer();
         }
     }
-     return i / examensSize;
+        return cijfersOpgeteld / examensSize;
     }
 
+    // Onvoldoendes filteren
+    // Voldoendes filteren
+    // Gemiddelde exames op basis van de naam van de id van een student (Done)
+    // Gemiddelde exames op basis van de naam van de examen
 }

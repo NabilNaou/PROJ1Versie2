@@ -6,7 +6,7 @@ public class Exam
     private String ExamenNaam;
     private Integer Cijfer;
 
-    private static ArrayList<Vraag> vragen;
+    private ArrayList<Vraag> vragen;
     private int StudentID;
     private Vraag vraag;
 

@@ -49,7 +49,7 @@ public class MainMenu {
             case "2" -> {
                 if (Login.userInput.equals("2")) {
                     out.println("StudentNr - Student");
-                    LedenLijst.getAllStudents();
+                    Student.getAllStudents();
                 } else {
                     out.println("Unauthorised access");
                 }

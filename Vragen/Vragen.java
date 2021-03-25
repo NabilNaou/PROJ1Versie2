@@ -1,15 +1,15 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 
-public class Vragen {
-
+public class Vragen
+{
     public static ArrayList<Vraag> getVragenLijst() {
         return VragenLijst;
     }
-    private static ArrayList<Vraag> VragenLijst = new ArrayList<>();
+    private static final ArrayList<Vraag> VragenLijst = new ArrayList<>();
 
-    private static void TestMultipleChoice(){
+    private static void TestMultipleChoice()
+    {
         Vraag Vraag1 = new Vraag(
                 "Je rijdt 's nachts met een aanhangwagen waarvan de toegestane maximummassa minder is dan 750 kilogram. Welke verlichting is verplicht? ",
                 "A) Mistachterlicht.",
@@ -32,6 +32,7 @@ public class Vragen {
         VragenLijst.add(Vraag2);
         VragenLijst.add(Vraag3);
     }
+
     private static void TestOpenVragen(){
         Vraag Vraag1 = new Vraag(
                 "Hoeveel wielen heeft een auto?",
@@ -46,6 +47,7 @@ public class Vragen {
         VragenLijst.add(Vraag2);
         VragenLijst.add(Vraag3);
     }
+
     public void NieuwMultipleChoice(String vraag, String antA, String antB, String antC, String antwoord){
         Scanner scan = new Scanner(System.in);
         System.out.println("Wat is de vraag die je wilt toevoegen?:");
@@ -60,6 +62,7 @@ public class Vragen {
         antwoord = scan.nextLine();
         Vraag NieuwVraag = new Vraag(vraag, antA, antB, antC, antwoord);
     }
+
     public void NieuwOpenVraag(String vraag, String antwoord){
         Scanner scan = new Scanner(System.in);
         System.out.println("Wat is de vraag die je wilt toevoegen?:");
@@ -68,5 +71,4 @@ public class Vragen {
         antwoord = scan.nextLine();
         Vraag nieuwVraag = new Vraag(vraag, antwoord);
     }
-
 }

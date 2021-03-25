@@ -14,6 +14,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Student" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/TypeExamen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Vragen" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Gebruikers" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
