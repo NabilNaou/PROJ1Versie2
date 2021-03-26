@@ -19,7 +19,7 @@ public class Student extends Gebruiker
 
     public static Student stuLijst;
 
-
+    //Nabil: Weg gecomment, errors.
     public static ArrayList<Student> studentenLijst = new ArrayList<>();
         /*{
             add(stuLijst = new Student(1,"Bob","Smit", "bob123"));
@@ -34,12 +34,34 @@ public class Student extends Gebruiker
         }
     }
 
-    // Get specific element
+
+    //Nabil: Zoekt naar een student in een studentenlijst (Hun ID)
+    public static Student zoekStudent(int studentID){
+        for(int i = 0; i < studentenLijst.size(); i++){
+            if(studentenLijst.get(i).getId() == studentID) {
+                return studentenLijst.get(i);
+            }
+        }
+        return null;
+    }
+
+    // Returnt hele lijst met studenten
     public static ArrayList<Student> getStudentenLijst() { return studentenLijst; }
 
+    //Nabil: Student kan zich inschrijven voor examen
     public static void nieuweInschrijving() {
         System.out.println("Voor welk examen wilt u zich inschrijven?");
-
+        Exam exam = new Exam("Wiskunde");
+        String temp = userInput.nextLine();
+        System.out.println(Student.zoekStudent(Login.getCurrentUser()));
+        if(Exam.zoekExamen(temp) != null){
+            Exam.zoekExamen(temp).addDeelnemer(Student.zoekStudent(Login.getCurrentUser()));
+            //Error omdat er geen current user is, wel functioneel.
+            System.out.println(Student.zoekStudent(Login.getCurrentUser()).getNaam() + " is succesvol ingeschreven voor " + temp);
+        }
+        else{
+            System.out.println("Dit examen is niet gevonden");
+        }
     }
 
     public static void studentVerwijderen() {

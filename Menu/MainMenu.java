@@ -65,7 +65,7 @@ public class MainMenu {
             }
             case "5" -> {
                 out.println("Examen Inschrijven");
-                StandardAction();
+                Student.nieuweInschrijving();
             }
             case "6" -> {
                 out.println("Welk examen wilt u afnemen?");
