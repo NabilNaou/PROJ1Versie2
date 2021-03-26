@@ -20,7 +20,6 @@ public class MainMenu {
         //ww = bob123   jan123
 
     public static void StandardAction() {
-
         String input = userInput.nextLine();
         Keuze(input); // Input de keuze
     }
@@ -58,11 +57,11 @@ public class MainMenu {
             }
             case "3" -> {
                 out.println("Nieuw Inschrijving");
-                Student.NieuweInschrijving();
+                Student.nieuweInschrijving();
             }
             case "4" -> {
                 out.println("Student Verwijderen");
-                Student.StudentVerwijderen();
+                Student.studentVerwijderen();
             }
             case "5" -> {
                 out.println("Examen Inschrijven");

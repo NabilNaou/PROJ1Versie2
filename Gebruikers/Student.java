@@ -20,12 +20,11 @@ public class Student extends Gebruiker
     public static Student stuLijst;
 
 
-    public static ArrayList<Student> studentenLijst = new ArrayList<>() {
-        {
+    public static ArrayList<Student> studentenLijst = new ArrayList<>();
+        /*{
             add(stuLijst = new Student(1,"Bob","Smit", "bob123"));
             add(stuLijst = new Student(2,"Tim","Kapel", "tim123"));
-        }
-    };
+        }*/
 
     // Get all data for every student (id,name,lastname)
     public static void getAllStudents() {
@@ -38,24 +37,36 @@ public class Student extends Gebruiker
     // Get specific element
     public static ArrayList<Student> getStudentenLijst() { return studentenLijst; }
 
-    public static void NieuweInschrijving() {
-        System.out.println("Voer uw ID, Naam, Achternaam en Wachtwoord in..");
+    public static void nieuweInschrijving() {
+        System.out.println("Voor welk examen wilt u zich inschrijven?");
+
     }
 
-    public static void StudentVerwijderen() {
+    public static void studentVerwijderen() {
         System.out.println("Welk student wilt u verwijderen?");
         String verwijderen = userInput.nextLine();
         for (int i = 0; i < studentenLijst.size(); i++){
-            if (studentenLijst.contains(verwijderen)){
-                studentenLijst.remove(verwijderen);
-                System.out.println(verwijderen + " is verwijdert");
+            if (studentenLijst.get(i).getNaam().equalsIgnoreCase(verwijderen)){
+                studentenLijst.remove(i);
+                System.out.println(verwijderen + " is verwijderd");
+                showAllStudents();
             }
             else {
                 System.out.println(verwijderen + " is niet geregistreerd");
+                showAllStudents();
             }
         }
     }
 
+    public static void showAllStudents(){
+        System.out.println("Overblijvende studenten: ");
+        for (int i = 0; i < studentenLijst.size(); i++) {
+            System.out.print(studentenLijst.get(i).getNaam() + ", ");
+
+        }
+        System.out.println();
+        System.out.println("-----------------");
+    }
     // New student
     public static void addStudent(Student newStudent){
         studentenLijst.add(newStudent);
