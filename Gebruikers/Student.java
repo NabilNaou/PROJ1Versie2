@@ -19,7 +19,7 @@ public class Student extends Gebruiker
 
     public static Student stuLijst;
 
-    //Nabil: Weg gecomment, errors.
+
     public static ArrayList<Student> studentenLijst = new ArrayList<>();
         /*{
             add(stuLijst = new Student(1,"Bob","Smit", "bob123"));

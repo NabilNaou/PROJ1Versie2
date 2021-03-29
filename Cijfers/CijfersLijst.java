@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class CijfersLijst {
     public static CijfersLijst lijst;
 
-    //N
+    //N: Cijferlijst
     public static ArrayList<CijfersLijst> CijferLijst = new ArrayList<>() {
         {
             add(lijst = new CijfersLijst());
