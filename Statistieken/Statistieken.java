@@ -9,7 +9,7 @@ public class Statistieken {
         int cijfersOpgeteld = 0;
     for(Exam exam : examens)
     {
-        if(exam.getStudentID() == StudentID)
+        // if(exam.getStudentID() == StudentID)
         {
             cijfersOpgeteld = cijfersOpgeteld + exam.getCijfer();
         }

@@ -3,17 +3,18 @@ import java.util.Scanner;
 
 public class Exam
 {
+    private static ArrayList<Exam> alleExamens = new ArrayList<>();
     private String ExamenNaam;
     private Integer Cijfer;
 
-    private ArrayList<Vraag> vragen;
-    private int StudentID;
+    private ArrayList<Vraag> vragen = new ArrayList<>();
+    private ArrayList<Student> deelnemers = new ArrayList<>();
     private Vraag vraag;
 
-    public Exam(int StudentID, ArrayList<Vraag> vragen, String ExamenNaam){
-        this.StudentID = StudentID;
-        this.vragen = vragen;
+    //Nabil: Aangepast zodat de examen word toegevoegd aan een alle examens arraylist
+    public Exam(String ExamenNaam){
         this.ExamenNaam = ExamenNaam;
+        alleExamens.add(this);
     }
 
     public void startTest(){
@@ -38,10 +39,29 @@ public class Exam
         }
         System.out.println("Jouw cijfer is:" + Cijfer * (10 / testLength));
     }
-    public Integer getStudentID(){
-        return StudentID;
+    //Nabil: Voegt deelnemer toe aan examen
+    public void addDeelnemer(Student student){
+        deelnemers.add(student);
     }
+
+    public void addExamen(Exam examen){
+        alleExamens.add(examen);
+    }
+
     public Integer getCijfer(){
         return Cijfer;
+    }
+    //Nabil: Returnt examen naam
+    public String getExamenNaam(){
+        return ExamenNaam;
+    }
+    //Nabil: Zoekt examen op naam, en returnt heel examen object.
+    public static Exam zoekExamen(String examenNaam){
+        for(int i = 0; i < alleExamens.size(); i++){
+            if(alleExamens.get(i).getExamenNaam().equalsIgnoreCase(examenNaam)){
+                return alleExamens.get(i);
+            }
+        }
+        return null;
     }
 }
