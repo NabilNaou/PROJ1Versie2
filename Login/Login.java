@@ -26,11 +26,9 @@ public class Login {
             case "1" -> {
                 choseLogin = checkEqual();
             }
-            case "2" -> Registreren.Registration();
-            default -> {
-                System.out.println("Wilt u: 1) inloggen of 2) registreren");
-                userChoice = sc.nextLine();
+            case "2" -> {
                 choseLogin = false;
+                Registreren.Registration();
             }
         }
         return choseLogin;
@@ -44,35 +42,32 @@ public class Login {
         //Checks if user is examinator or student
         if (userInput.equals("1") || userInput.equals("2")) {
 
-
             //Loops through ArrayList to see if entered user and password correspond with stored data
             if (userInput.equals("1")) {
                 System.out.println("Student gekozen...");
-                infoReq();
-
-                System.out.println("Before for-loop");
-                for (int i = 0; i < Student.studentenLijst.size(); i++) {
-                    System.out.println("Inside for-loop");
-                    tempUser = Student.studentenLijst.get(i).getNaam();
-                    tempPass = Student.studentenLijst.get(i).getWachtwoord();
-                    currentUser = i;
-                    System.out.println("Switching to user and password check method");
-                    if (userAndPassCheck()) {
-                        return correct = true;
+                if(infoReq()){
+                    for (int i = 0; i < Student.studentenLijst.size(); i++) {
+                        tempUser = Student.studentenLijst.get(i).getNaam();
+                        tempPass = Student.studentenLijst.get(i).getWachtwoord();
+                        currentUser = Student.studentenLijst.get(i).getId();
+                        System.out.println("Switching to user and password check method");
+                        if (userAndPassCheck()) {
+                            return correct = true;
+                        }
                     }
                 }
                 System.out.println("After for-loop");
 
             } else if (userInput.equals("2")) {
                 System.out.println("Examinator gekozen...");
-                infoReq();
-
-                for (int i = 0; i < Examinator.examinatorLijst.size(); i++) {
-                    tempUser = Examinator.examinatorLijst.get(i).getNaam();
-                    tempPass = Examinator.examinatorLijst.get(i).getWachtwoord();
-                    currentUser = i;
-                    if (userAndPassCheck()) {
-                        return correct = true;
+                if(infoReq()) {
+                    for (int i = 0; i < Examinator.examinatorLijst.size(); i++) {
+                        tempUser = Examinator.examinatorLijst.get(i).getNaam();
+                        tempPass = Examinator.examinatorLijst.get(i).getWachtwoord();
+                        currentUser = Examinator.examinatorLijst.get(i).getId();
+                        if (userAndPassCheck()) {
+                            return correct = true;
+                        }
                     }
                 }
             } else {
@@ -84,12 +79,13 @@ public class Login {
         return correct;
     }
 
-    public static void infoReq() {
+    public static boolean infoReq() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Voer uw naam in...");
         targetUser = sc.nextLine();
         System.out.println("Voer uw wachtwoord in...");
         targetPassword = sc.nextLine();
+        return true;
     }
 
     public static boolean userAndPassCheck() {

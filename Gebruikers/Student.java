@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 import static java.lang.System.in;
@@ -35,9 +34,8 @@ public class Student extends Gebruiker
         }
     }
 
-
-    //Nabil: Zoekt naar een student in een studentenlijst (Hun ID)
-    public static Student zoekStudent(int studentID){
+    //Nabil: Zoekt naar de id van een student in een studentenlijst
+    public static Student zoekStudentViaID(int studentID){
         for(int i = 0; i < studentenLijst.size(); i++){
             if(studentenLijst.get(i).getId() == studentID) {
                 return studentenLijst.get(i);
@@ -46,7 +44,7 @@ public class Student extends Gebruiker
         return null;
     }
 
-    // Returnt hele lijst met studenten
+    // Returned hele lijst met studenten
     public static ArrayList<Student> getStudentenLijst() { return studentenLijst; }
 
     //Nabil: Student kan zich inschrijven voor examen
@@ -54,15 +52,16 @@ public class Student extends Gebruiker
         System.out.println("Voor welk examen wilt u zich inschrijven?");
         Exam exam = new Exam("Wiskunde");
         String temp = userInput.nextLine();
-        System.out.println(Student.zoekStudent(Login.getCurrentUser()));
+        System.out.println(zoekStudentViaID(Login.getCurrentUser()));
         if(Exam.zoekExamen(temp) != null){
-            Exam.zoekExamen(temp).addDeelnemer(Student.zoekStudent(Login.getCurrentUser()));
+            Exam.zoekExamen(temp).addDeelnemer(zoekStudentViaID(Login.getCurrentUser()));
             //Error omdat er geen current user is, wel functioneel.
-            System.out.println(Student.zoekStudent(Login.getCurrentUser()).getNaam() + " is succesvol ingeschreven voor " + temp);
+            System.out.println(Student.zoekStudentViaID(Login.getCurrentUser()).getNaam() + " is succesvol ingeschreven voor " + temp);
         }
         else{
             System.out.println("Dit examen is niet gevonden");
         }
+        MainMenu.HoofdMenuText();
     }
 
     public static void studentVerwijderen() {
@@ -72,16 +71,16 @@ public class Student extends Gebruiker
             if (studentenLijst.get(i).getNaam().equalsIgnoreCase(verwijderen)){
                 studentenLijst.remove(i);
                 System.out.println(verwijderen + " is verwijderd");
-                showAllStudents();
+                showRemainingStudents();
             }
             else {
                 System.out.println(verwijderen + " is niet geregistreerd");
-                showAllStudents();
+                showRemainingStudents();
             }
         }
     }
 
-    public static void showAllStudents(){
+    public static void showRemainingStudents(){
         System.out.println("Overblijvende studenten: ");
         for (int i = 0; i < studentenLijst.size(); i++) {
             System.out.print(studentenLijst.get(i).getNaam() + ", ");

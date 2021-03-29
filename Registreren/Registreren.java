@@ -6,6 +6,11 @@ public class Registreren {
     public static String userName;
     public static String userSurname;
     public static String userPW;
+
+    public static String tempUser;
+    public static String tempPass;
+    public static int currentUser;
+
     public static boolean registered;
 
     public static void Details() {
@@ -31,15 +36,32 @@ public class Registreren {
             userID = Student.studentenLijst.size() + 1; //increment number
             Student newStudent = new Student(userID, userName, userSurname, userPW);
             Student.addStudent(newStudent);
-            registered = true;
-            System.out.println("Student geregistreerd");
+            for (int i = 0; i < Student.studentenLijst.size(); i++) {
+                tempUser = Student.studentenLijst.get(i).getNaam();
+                tempPass = Student.studentenLijst.get(i).getWachtwoord();
+                Login.currentUser = Student.studentenLijst.get(i).getId();
+                if (userName.equals(tempUser) && userPW.equals(tempPass)) {
+                    System.out.println("Student geregistreerd");
+                    registered = true;
+                    MainMenu.HoofdMenuText();
+                }
+            }
         } else if (userInput.equals("2")) {
             Details();
             userID = Examinator.examinatorLijst.size() + 1; //increment number
             Examinator newEx = new Examinator(userID, userName, userSurname, userPW);
             Examinator.addEx(newEx);
+            for (int i = 0; i < Examinator.examinatorLijst.size(); i++) {
+                tempUser = Examinator.examinatorLijst.get(i).getNaam();
+                tempPass = Examinator.examinatorLijst.get(i).getWachtwoord();
+                Login.currentUser = Examinator.examinatorLijst.get(i).getId();
+                if (userName.equals(tempUser) && userPW.equals(tempPass)) {
+                    System.out.println("Examinator geregistreerd");
+                    registered = true;
+                    MainMenu.HoofdMenuText();
+                }
+            }
             registered = true;
-            System.out.println("Examinator geregistreerd");
         }
         return registered;
     }

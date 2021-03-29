@@ -12,15 +12,10 @@ public class MainMenu {
         {
             HoofdMenuText();
         }
-        else if (Registreren.registered)
-        {
-            HoofdMenuText();
-        }
         else {
-            Login.chooseLogin();
+            LoginScherm();
         }
     }
-
         //student       Examinator
         //naam = Bob    Jan
         //ww = bob123   jan123
