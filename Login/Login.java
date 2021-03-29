@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -13,6 +14,7 @@ public class Login {
     public static String userChoice;
     public static boolean choseLogin;
     public static boolean correct;
+    public static boolean userPassCheck;
 
     public static boolean chooseLogin() {
         Scanner sc = new Scanner(System.in);
@@ -34,6 +36,54 @@ public class Login {
         return choseLogin;
     }
 
+    public static boolean checkEqual() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Bent u 1) student of 2) examinator?");
+        userInput = sc.nextLine();
+
+        //Checks if user is examinator or student
+        if (userInput.equals("1") || userInput.equals("2")) {
+
+
+            //Loops through ArrayList to see if entered user and password correspond with stored data
+            if (userInput.equals("1")) {
+                System.out.println("Student gekozen...");
+                infoReq();
+
+                System.out.println("Before for-loop");
+                for (int i = 0; i < Student.studentenLijst.size(); i++) {
+                    System.out.println("Inside for-loop");
+                    tempUser = Student.studentenLijst.get(i).getNaam();
+                    tempPass = Student.studentenLijst.get(i).getWachtwoord();
+                    currentUser = i;
+                    System.out.println("Switching to user and password check method");
+                    if (userAndPassCheck()) {
+                        return correct = true;
+                    }
+                }
+                System.out.println("After for-loop");
+
+            } else if (userInput.equals("2")) {
+                System.out.println("Examinator gekozen...");
+                infoReq();
+
+                for (int i = 0; i < Examinator.examinatorLijst.size(); i++) {
+                    tempUser = Examinator.examinatorLijst.get(i).getNaam();
+                    tempPass = Examinator.examinatorLijst.get(i).getWachtwoord();
+                    currentUser = i;
+                    if (userAndPassCheck()) {
+                        return correct = true;
+                    }
+                }
+            } else {
+                correct = false;
+                System.out.println("Probeer opnieuw...");
+                chooseLogin();
+            }
+        }
+        return correct;
+    }
+
     public static void infoReq() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Voer uw naam in...");
@@ -43,47 +93,14 @@ public class Login {
     }
 
     public static boolean userAndPassCheck() {
-        correct = false;
-        if (targetUser.equals(tempUser) & targetPassword.equals(tempPass)) {
-            System.out.println("Gegevens aan het checken...");
+        System.out.println("Gegevens aan het checken...");
+        if (targetUser.equals(tempUser) && targetPassword.equals(tempPass)) {
             System.out.println("login geslaagd");
-            correct = true;
-        }
-        return correct;
-    }
-
-    public static boolean checkEqual() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Bent u 1) student of 2) examinator?");
-        userInput = sc.nextLine();
-
-        //Checks if user is examinator or student
-        if (userInput.equals("1") || userInput.equals("2")) {
-            infoReq();
-
-            //Loops through ArrayList to see if entered user and password correspond with stored data
-            if (userInput.equals("1")) {
-                for (int i = 0; i < Student.studentenLijst.size(); i++) {
-                    tempUser = Student.studentenLijst.get(i).getNaam().toLowerCase();
-                    tempPass = Student.studentenLijst.get(i).getWachtwoord();
-                    currentUser = i;
-                    userAndPassCheck();
-                }
-            } else if (userInput.equals("2")) {
-                for (int i = 0; i < Examinator.examinatorLijst.size(); i++) {
-                    tempUser = Examinator.examinatorLijst.get(i).getNaam().toLowerCase();
-                    tempPass = Examinator.examinatorLijst.get(i).getWachtwoord();
-                    currentUser = i;
-                    userAndPassCheck();
-                }
-            }
+            userPassCheck = true;
         } else {
-            System.out.println("Probeer opnieuw...");
+            userPassCheck = false;
         }
-        if (userAndPassCheck()) {
-            correct = true;
-        }
-        return correct;
+        return userPassCheck;
     }
 
     public static int getCurrentUser() {
