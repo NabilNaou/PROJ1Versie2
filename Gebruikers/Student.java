@@ -20,11 +20,12 @@ public class Student extends Gebruiker
     public static Student stuLijst;
 
 
-    public static ArrayList<Student> studentenLijst = new ArrayList<>();
-        /*{
+    public static ArrayList<Student> studentenLijst = new ArrayList<>() {
+        {
             add(stuLijst = new Student(1,"Bob","Smit", "bob123"));
             add(stuLijst = new Student(2,"Tim","Kapel", "tim123"));
-        }*/
+        }
+    };
 
     // Get all data for every student (id,name,lastname)
     public static void getAllStudents() {
