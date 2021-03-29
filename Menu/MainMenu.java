@@ -8,12 +8,18 @@ public class MainMenu {
     private static Scanner userInput = new Scanner(in);
 
     public static void LoginScherm() {
-        if (Login.chooseLogin()) {
+        if (Login.chooseLogin())
+        {
             HoofdMenuText();
-            } else if (Registreren.registered) {
-            HoofdMenuText();
-            }
         }
+        else if (Registreren.registered)
+        {
+            HoofdMenuText();
+        }
+        else {
+            Login.chooseLogin();
+        }
+    }
 
         //student       Examinator
         //naam = Bob    Jan

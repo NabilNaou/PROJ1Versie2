@@ -19,13 +19,14 @@ public class Login {
         System.out.println("Wilt u: 1) inloggen of 2) registreren");
         userChoice = sc.nextLine();
 
-        switch (userChoice) {
+        switch (userChoice)
+        {
             case "1" -> {
-                choseLogin = true;
-                checkEqual();
+                choseLogin = checkEqual();
             }
             case "2" -> Registreren.Registration();
-            default -> { System.out.println("Wilt u: 1) inloggen of 2) registreren");
+            default -> {
+                System.out.println("Wilt u: 1) inloggen of 2) registreren");
                 userChoice = sc.nextLine();
                 choseLogin = false;
             }
