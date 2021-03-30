@@ -15,7 +15,7 @@ public class Gebruiker {
         return id;
     }
 
-    public void setId(Integer id) { id = id; }
+    public void setId(Integer id) { this.id = id; }
 
     public String getNaam() {
         return naam;
