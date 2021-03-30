@@ -21,8 +21,8 @@ public class Student extends Gebruiker
 
     public static ArrayList<Student> studentenLijst = new ArrayList<>() {
         {
-            add(stuLijst = new Student(1,"Bob","Smit", "bob123"));
-            add(stuLijst = new Student(2,"Tim","Kapel", "tim123"));
+            add(stuLijst = new Student(1,"bob","Smit", "bob123"));
+            add(stuLijst = new Student(2,"tim","Kapel", "tim123"));
         }
     };
 
