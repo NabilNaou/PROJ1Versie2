@@ -9,11 +9,11 @@ public class Registreren {
 
     public static String tempUser;
     public static String tempPass;
-    public static int currentUser;
+    //public static int currentUser;
 
     public static boolean registered;
 
-    public static void Details() {
+    public static boolean Details() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Voer in uw...");
         System.out.println("naam: ");
@@ -22,6 +22,7 @@ public class Registreren {
         userSurname = sc.nextLine();
         System.out.println("wachtwoord: ");
         userPW = sc.nextLine();
+        return true;
     }
 
     public static boolean Registration() {
@@ -44,6 +45,8 @@ public class Registreren {
                     System.out.println("Student geregistreerd");
                     registered = true;
                     MainMenu.HoofdMenuText();
+                } else {
+                    registered = false;
                 }
             }
         } else if (userInput.equals("2")) {
@@ -59,9 +62,10 @@ public class Registreren {
                     System.out.println("Examinator geregistreerd");
                     registered = true;
                     MainMenu.HoofdMenuText();
+                } else {
+                registered = false;
                 }
             }
-            registered = true;
         }
         return registered;
     }
