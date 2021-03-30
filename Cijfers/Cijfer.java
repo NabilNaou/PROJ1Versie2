@@ -18,3 +18,8 @@ public class Cijfer {
         return exam.getExamenNaam();
     }
 }
+
+
+
+
+
