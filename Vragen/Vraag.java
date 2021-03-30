@@ -1,6 +1,43 @@
 import java.util.ArrayList;
 
 public class Vraag {
+    private int ID;
+    private String description;
+    private String ans1;
+    private String ans2;
+    private String ans3;
+    private String answer;
+
+    public Vraag(String description, String ans1, String ans2, String ans3, String answer){
+        this.description = description;
+        this.ans1 = ans1;
+        this.ans2 = ans2;
+        this.ans3 = ans3;
+        this.answer = answer;
+    }
+
+    public String getVraag(){
+        return description;
+    }
+
+    public String getAntA(){
+        return ans1;
+    }
+
+    public String getAntB(){
+        return ans2;
+    }
+
+    public String getAntC(){
+        return ans3;
+    }
+    public String getAntwoord(){
+        return answer;
+    }
+    public Integer getID(){
+        return ID;
+    }
+    /*
     String Vraag;
     String AntA;
     String AntB;
@@ -54,5 +91,7 @@ public class Vraag {
     public void setAntC(String antC) {
         AntC = antC;
     }
+
+     */
 }
 
