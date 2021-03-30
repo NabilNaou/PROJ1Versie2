@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class CijfersLijst {
-    private Cijfer cijfer;
+
     private ArrayList<Cijfer> cijferList = new ArrayList<>();
 
     public void addCijfer(Cijfer cijfer){
