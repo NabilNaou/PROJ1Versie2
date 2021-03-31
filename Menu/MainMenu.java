@@ -44,6 +44,7 @@ public class MainMenu {
         switch (keuze) {
             case "1" -> {
                 out.println("Uw examenlijst...");
+                //TODO: Josue
                 StandardAction();
                  }
             case "2" -> {
@@ -74,17 +75,18 @@ public class MainMenu {
                 out.println("Type 2 voor boot theorie. ");
                 int beslissing = userInput.nextInt();
                 if(beslissing == 1){
-                    //TODO: actie aanmaken om de examen te starten.
+                    //TODO: Josue: actie aanmaken om de examen te starten.
                 }
                 StandardAction();
             }
             case "7" -> {
                 out.println("Is student geslaagd voor test?");
                 StandardAction();
-                //TODO: actie aanmaken om te kijken of student boven de voldoende punten staat.
+                //TODO: Jarrel: actie aanmaken om te kijken of student boven de voldoende punten staat.
             }
             case "8" -> {
                 out.println("Is student voor het examen geslaagd?");
+                //TODO: Jarrel: Check het verschil met 7 en verzin desnoods wat moois in plaats hiervan
                 StandardAction();
             }
             case "9" -> {
@@ -92,7 +94,7 @@ public class MainMenu {
                 StandardAction();
             }
             case "0" -> {
-                out.println("Succesfull Exit App...");
+                out.println("Succesfully Exited App...");
                 exit(0);
             }
             default -> {

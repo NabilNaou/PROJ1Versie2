@@ -4,13 +4,11 @@ import java.util.Collections;
 public class Vragen
 {
 
-        private String name;
-        //private int testPeriod;
-        private ArrayList<Vraag> vraagCollection = new ArrayList<>();
+    private String name;
+    private ArrayList<Vraag> vraagCollection = new ArrayList<>();
 
     public Vragen(String name) {
             this.name = name;
-            //this.testPeriod = testPeriod;
         }
 
         public ArrayList<Vraag> getVraagCollection() {
