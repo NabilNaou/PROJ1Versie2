@@ -8,6 +8,7 @@ public class Cijfer {
         this.exam = exam;
         this.student = student;
     }
+
     public int getCijfer() {
         return cijfer;
     }
@@ -18,8 +19,3 @@ public class Cijfer {
         return exam.getExamenNaam();
     }
 }
-
-
-
-
-

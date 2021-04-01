@@ -17,6 +17,7 @@ public class Statistieken {
         return cijfersOpgeteld / examensSize;
     }
 
+    // Jarrel -- < warning! >
     // Onvoldoendes filteren
     // Voldoendes filteren
     // Gemiddelde exames op basis van de naam van de id van een student (Done)
