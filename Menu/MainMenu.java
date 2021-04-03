@@ -35,6 +35,12 @@ public class MainMenu {
         out.println(" 7) Is student geslaagd voor test?");
         out.println(" 8) Is student voor het examen geslaagd?");
         out.println(" 9) Student met meeste examens gehaald");
+        out.println(" 10) Lijst met alle cijfers van alle examens");
+        out.println(" 11) Lijst met alle cijfers van een persoon per examen");
+        out.println(" 12) lijst met alle cijfers van een specifieke examen");
+        out.println(" 13) lijst met alle onvoldoendes");
+        out.println(" 14) lijst met alle voldoendes");
+        out.println(" 15) percentage Voldoendes/onvoldoendes");
         out.println(" 0) Exit");
         out.println("Uw keuze:");
         StandardAction();
@@ -78,25 +84,56 @@ public class MainMenu {
             case "6" -> {
                 out.println("Is student geslaagd voor test?");
                 StandardAction();
-                //TODO: Jarrel: actie aanmaken om te kijken of student boven de voldoende punten staat.
+
             }
             case "7" -> {
                 out.println("Welk exmanes heeft student gehaald?");
+                Statistieken.examenStatistiekenInfo();
                 StandardAction();
-                //TODO: Jarrel:
+
             }
             case "8" -> {
                 out.println("Welke student heeft de meeste examens gehaald?");
-                //TODO: Jarrel: Check het verschil met 7 en verzin desnoods wat moois in plaats hiervan
+
                 StandardAction();
             }
             case "9" -> {
-/*              out.println("Examen Inschrijven");
-                Student.nieuweInschrijving();
-*/
-                out.println();
+              out.println("Student met meeste examens gehaald");
+
                 StandardAction();
             }
+            case "10" -> {
+                out.println("Lijst met alle cijfers van alle examens");
+
+                StandardAction();
+            }
+            case "11" -> {
+                out.println("Lijst met alle cijfers van een persoon per examen");
+
+                StandardAction();
+            }
+            case "12" -> {
+                out.println("lijst met alle cijfers van een specifieke examen");
+
+                StandardAction();
+            }
+            case "13" -> {
+                out.println("lijst met alle onvoldoendes");
+
+                StandardAction();
+            }
+            case "14" -> {
+                out.println("lijst met alle voldoendes");
+
+                StandardAction();
+            }
+            case "15" -> {
+                out.println("percentage Voldoendes/onvoldoendes");
+
+                StandardAction();
+            }
+
+
             case "0" -> {
                 out.println("Succesfully Exited App...");
                 exit(0);

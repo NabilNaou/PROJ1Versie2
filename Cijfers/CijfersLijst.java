@@ -8,7 +8,11 @@ public class CijfersLijst {
     public void removeCijfer(Cijfer cijfer){
         cijferList.remove(cijfer);
     }
-    public ArrayList<Cijfer> getCijferList(){
+    public static ArrayList<Cijfer> getCijferList(){
         return cijferList;
+    }
+
+    public void getAllCijfers() {
+
     }
 }
