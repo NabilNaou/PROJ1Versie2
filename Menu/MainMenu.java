@@ -44,6 +44,7 @@ public class MainMenu {
         switch (keuze) {
             case "1" -> {
                 out.println("Uw examenlijst...");
+                //TODO: Josue
                 StandardAction();
                  }
             case "2" -> {
@@ -57,7 +58,7 @@ public class MainMenu {
                 StandardAction();
             }
             case "3" -> {
-                out.println("Nieuw Inschrijving");
+                out.println("Nieuw Student Inschrijving");
                 Student.nieuweInschrijving();
             }
             case "4" -> {
@@ -65,34 +66,39 @@ public class MainMenu {
                 Student.studentVerwijderen();
             }
             case "5" -> {
-                out.println("Examen Inschrijven");
-                Student.nieuweInschrijving();
-            }
-            case "6" -> {
                 out.println("Welk examen wilt u afnemen?");
                 out.println("Type 1 voor auto theorie.");
                 out.println("Type 2 voor boot theorie. ");
                 int beslissing = userInput.nextInt();
                 if(beslissing == 1){
-                    //TODO: actie aanmaken om de examen te starten.
+                    //TODO: Josue: actie aanmaken om de examen te starten.
                 }
                 StandardAction();
             }
-            case "7" -> {
+            case "6" -> {
                 out.println("Is student geslaagd voor test?");
                 StandardAction();
-                //TODO: actie aanmaken om te kijken of student boven de voldoende punten staat.
+                //TODO: Jarrel: actie aanmaken om te kijken of student boven de voldoende punten staat.
+            }
+            case "7" -> {
+                out.println("Welk exmanes heeft student gehaald?");
+                StandardAction();
+                //TODO: Jarrel:
             }
             case "8" -> {
-                out.println("Is student voor het examen geslaagd?");
+                out.println("Welke student heeft de meeste examens gehaald?");
+                //TODO: Jarrel: Check het verschil met 7 en verzin desnoods wat moois in plaats hiervan
                 StandardAction();
             }
             case "9" -> {
+/*              out.println("Examen Inschrijven");
+                Student.nieuweInschrijving();
+*/
                 out.println();
                 StandardAction();
             }
             case "0" -> {
-                out.println("Succesfull Exit App...");
+                out.println("Succesfully Exited App...");
                 exit(0);
             }
             default -> {
@@ -102,10 +108,8 @@ public class MainMenu {
         }
     }
 
-
     public static void main(String[] args) {
         LoginScherm();
-
         HoofdMenuText(); // Show Hoofd menu
         //StandardAction();
     }

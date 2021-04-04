@@ -10,7 +10,7 @@ public class Examinator extends Gebruiker
 
     public static ArrayList<Examinator> examinatorLijst = new ArrayList<>() {
         {
-            add(exLijst = new Examinator(1,"Jan","Wild", "jan123"));
+            add(exLijst = new Examinator(1,"Jan","wild", "jan123"));
         }
     };
 
