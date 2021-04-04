@@ -47,7 +47,7 @@ public class Student extends Gebruiker
     // Returned hele lijst met studenten
     public static ArrayList<Student> getStudentenLijst() { return studentenLijst; }
 
-    //Nabil: Student kan zich inschrijven voor examen
+    //Nabil: Student kan zich inschrijven voor examen. Student word geïnformeerd over inschrijving.
     public static void nieuweInschrijving() {
         System.out.println("Voor welk examen wilt u zich inschrijven?");
         Exam exam = new Exam("Wiskunde");
@@ -55,7 +55,6 @@ public class Student extends Gebruiker
         System.out.println(zoekStudentViaID(Login.getCurrentUser()));
         if(Exam.zoekExamen(temp) != null){
             Exam.zoekExamen(temp).addDeelnemer(zoekStudentViaID(Login.getCurrentUser()));
-            //Error omdat er geen current user is, wel functioneel.
             System.out.println(Student.zoekStudentViaID(Login.getCurrentUser()).getNaam() + " is succesvol ingeschreven voor " + temp);
         }
         else{
