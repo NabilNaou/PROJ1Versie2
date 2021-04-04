@@ -3,7 +3,7 @@ public class Cijfer {
     private Exam exam;
     private double cijfer;
 
-    public Cijfer(int cijfer, Exam exam, Student student){
+    public Cijfer(double cijfer, Exam exam, Student student){
         this.cijfer = cijfer;
         this.exam = exam;
         this.student = student;

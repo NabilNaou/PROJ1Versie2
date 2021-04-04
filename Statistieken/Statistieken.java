@@ -29,33 +29,45 @@ public class Statistieken {
     // Jarrel -- < warning! >
     // Onvoldoendes filteren
     public void onvoldoendesFilteren(){
+        String ret = "";
         ArrayList<Cijfer> onvoldoendes = new ArrayList<>();
         for(int i=0; i<cijfersLijst.size(); i++){
             if(cijfersLijst.get(i).getCijfer() < 5.5){
                 onvoldoendes.add(cijfersLijst.get(i));
             }
         }
-        for (Cijfer onvoldoende : onvoldoendes) {
-            System.out.println("Lijst met onvoldoendes:");
-            System.out.println(onvoldoende.toString());
+        if(onvoldoendes.size() <= 0){
+            ret = "Er zijn geen onvoldoendes\n";
+        }
+        else {
+            for (Cijfer onvoldoende : onvoldoendes) {
+                ret += "Lijst met onvoldoendes:\n" + onvoldoende.toString() + "\n";
+            }
         }
     }
 
     // Voldoendes filteren
-    public void voldoendesFilteren(){
+    public String voldoendesFilteren(){
+        String ret = "";
         ArrayList<Cijfer> voldoendes = new ArrayList<>();
         for(int i=0; i<cijfersLijst.size(); i++){
             if(cijfersLijst.get(i).getCijfer() >= 5.5){
                 voldoendes.add(cijfersLijst.get(i));
             }
         }
-        for (Cijfer voldoende : voldoendes) {
-            System.out.println("Lijst met onvoldoendes:");
-            System.out.println(voldoende.toString());
+        if(voldoendes.size() <= 0){
+            ret = "Er zijn geen voldoendes\n";
         }
+        else {
+            for (Cijfer voldoende : voldoendes) {
+                ret += "Lijst met voldoendes:\n" + voldoende.toString() + "\n";
+            }
+        }
+        return ret;
     }
 
-    public void getVoldoendeOnvoldoendeProcent(){
+    public String getVoldoendeOnvoldoendeProcent(){
+        String ret = "";
         ArrayList<Cijfer> voldoendes = new ArrayList<>();
         for(int i=0; i<cijfersLijst.size(); i++){
             if(cijfersLijst.get(i).getCijfer() >= 5.5){
@@ -68,10 +80,22 @@ public class Statistieken {
                 onvoldoendes.add(cijfersLijst.get(i));
             }
         }
-        double procentVoldoendes = voldoendes.size()/onvoldoendes.size() * 100;
-        double procentOnvoldoendes = onvoldoendes.size()/voldoendes.size() * 100;
-        System.out.println("Voldoendes= " + procentVoldoendes +
-                "\nOnvoldoendes= " + procentOnvoldoendes);
+        if(voldoendes.size() == 0 && onvoldoendes.size() == 0) {
+            ret = "Er zijn geen cijfers in de cijferlijst\n";
+        }
+        else if(voldoendes.size() == 0) {
+            ret = "procent voldoendes= 0%\n";
+        }
+        else if(onvoldoendes.size() == 0) {
+            ret = "procent voldoendes= 100%\n";
+        }
+        else {
+            double procentVoldoendes = voldoendes.size()/onvoldoendes.size() * 100;
+            double procentOnvoldoendes = onvoldoendes.size()/voldoendes.size() * 100;
+            ret = "Voldoendes= " + procentVoldoendes +
+                    "\nOnvoldoendes= " + procentOnvoldoendes + "\n";
+        }
+        return ret;
     }
 
     // Gemiddelde van de cijfers op basis van de naam van de id van een student (Done)
@@ -98,20 +122,8 @@ public class Statistieken {
         System.out.println("De gemiddelde van examennaam '" + naam + "' is " + gemcijfer);
     }
 
-    public void examenStatistiekenInfo() {
-        System.out.println("Voer de studentenId in:");
-        String studentenId = userInput.nextLine();
-
-        /*if(){
-
-        }
-        else{
-            System.out.println("StudentId is niet gevonden");
-        }*/
-        MainMenu.HoofdMenuText();
-    }
-
-    public void getStudentMetMeesteExamensGehaald() {
+    public String getStudentMetMeesteExamensGehaald() {
+        String ret = "";
         ArrayList<Cijfer> voldoendes = new ArrayList<>();
         for(int i=0; i<cijfersLijst.size(); i++){
             if(Double.compare(cijfersLijst.get(i).getCijfer(), 5.5) >= 0){
@@ -130,16 +142,17 @@ public class Statistieken {
             aantalExamensGehaaldPerStudent.add(k);
         }
 
-        System.out.println("De volgende student(en) heeft/hebben de meeste aantal examens gehaald:");
+        ret = "De volgende student(en) heeft/hebben de meeste aantal examens gehaald:\n";
         int maxAantal = Collections.max(aantalExamensGehaaldPerStudent);
         for(int i=0; i<aantalExamensGehaaldPerStudent.size(); i++){
             if(maxAantal == aantalExamensGehaaldPerStudent.get(i)){
-                System.out.println(Student.studentenLijst.get(i).getNaam());
+                ret += Student.studentenLijst.get(i).getNaam() + "\n";
             }
         }
+        return ret;
     }
 
-    public void getAllBehaaldeExamensStudent() {
+    public void getAllBehaaldeExamensStudentId() {
         System.out.println("Voer de studentenId in:");
         String studentId = userInput.nextLine();
         int aantal = 0;
@@ -161,6 +174,64 @@ public class Statistieken {
         }
     }
 
+    public void getAllBehaaldeExamensStudent() {
+        int aantal = 0;
+        ArrayList<String> examens = new ArrayList<>();
+        for(int i=0; i<cijfersLijst.size(); i++){
+            if((cijfersLijst.get(i).getStudentID() == Student.zoekStudentViaID(Login.getCurrentUser()).getId())
+                    && (Double.compare(cijfersLijst.get(i).getCijfer(), 5.5) >= 0)){
+                examens.add(cijfersLijst.get(i).getExamenNaam());
+                aantal++;
+            }
+        }
+        System.out.println("Aantal behaalde examens voor studentnaam '" + Student.zoekStudentViaID(Login.getCurrentUser()).getNaam() + "' is " + aantal);
+        if(examens.size() > 0){
+            System.out.println("De student heeft de volgende examens gehaald:");
 
+            for(int i=0; i<examens.size(); i++){
+                System.out.println(examens.get(i));
+            }
+        }
+    }
 
+    public void checkExamenGeslaagdStudentId() {
+        System.out.println("Voer de studentenId in:");
+        String studentId = userInput.nextLine();
+        System.out.println("Voer de examen in:");
+        String examenNaam = userInput.nextLine();
+        boolean check = false;
+        for(int i=0; i<cijfersLijst.size(); i++){
+            if((cijfersLijst.get(i).getStudentID() == Integer.parseInt(studentId))
+                    && (Double.compare(cijfersLijst.get(i).getCijfer(), 5.5) >= 0)
+                    && (examenNaam.equals(cijfersLijst.get(i).getExamenNaam()))){
+                check = true;
+                break;
+            }
+        }
+        if(check) {
+            System.out.println("Student is geslaagd voor deze examen");
+        }
+        else {
+            System.out.println("Student is niet geslaagd voor deze examen");
+        }
+    }
+
+    public void checkExamenGeslaagdStudent() {
+        System.out.println("Voer de examen in:");
+        String examenNaam = userInput.nextLine();
+        boolean check = false;
+        for (int i = 0; i < cijfersLijst.size(); i++) {
+            if ((cijfersLijst.get(i).getStudentID() == Student.zoekStudentViaID(Login.getCurrentUser()).getId())
+                    && (Double.compare(cijfersLijst.get(i).getCijfer(), 5.5) >= 0)
+                    && (examenNaam.equals(cijfersLijst.get(i).getExamenNaam()))) {
+                check = true;
+                break;
+            }
+        }
+        if (check) {
+            System.out.println("Student is geslaagd voor deze examen");
+        } else {
+            System.out.println("Student is niet geslaagd voor deze examen");
+        }
+    }
 }

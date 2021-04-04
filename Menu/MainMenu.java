@@ -35,12 +35,9 @@ public class MainMenu {
         out.println(" 7) Is student geslaagd voor test?");
         out.println(" 8) Is student voor het examen geslaagd?");
         out.println(" 9) Student met meeste examens gehaald");
-        out.println(" 10) Lijst met alle cijfers van alle examens");
-        out.println(" 11) Lijst met alle cijfers van een persoon per examen");
-        out.println(" 12) lijst met alle cijfers van een specifieke examen");
-        out.println(" 13) lijst met alle onvoldoendes");
-        out.println(" 14) lijst met alle voldoendes");
-        out.println(" 15) percentage Voldoendes/onvoldoendes");
+        out.println(" 10) lijst met alle onvoldoendes");
+        out.println(" 11) lijst met alle voldoendes");
+        out.println(" 12) percentage Voldoendes/onvoldoendes");
         out.println(" 0) Exit");
         out.println("Uw keuze:");
         StandardAction();
@@ -86,55 +83,61 @@ public class MainMenu {
                 StandardAction();
 
             }
-            case "7" -> {
-                out.println("Welk exmanes heeft student gehaald?");
+            case "8" -> {
+                out.println("Welk exmanes heeft een specifieke student gehaald?");
+                Statistieken statistieken = new Statistieken();
+                statistieken.getAllBehaaldeExamensStudentId();
+                StandardAction();
+
+            }
+            case "9" -> {
+                out.println("Welke examens heb ik(student) gehaald?");
                 Statistieken statistieken = new Statistieken();
                 statistieken.getAllBehaaldeExamensStudent();
                 StandardAction();
-
             }
-            case "8" -> {
-                out.println("Welke student heeft de meeste examens gehaald?");
+            case "10" -> {
+                out.println("Is student voor examen geslaagd?");
 
                 StandardAction();
             }
-            case "9" -> {
+            case "11" -> {
               out.println("Student met meeste examens gehaald");
                 Statistieken statistieken = new Statistieken();
                 statistieken.getStudentMetMeesteExamensGehaald();
                 StandardAction();
             }
-            case "10" -> {
-                out.println("Lijst met alle cijfers van alle examens");
 
-                StandardAction();
-            }
-            case "11" -> {
-                out.println("Lijst met alle cijfers van een persoon per examen");
-
-                StandardAction();
-            }
             case "12" -> {
-                out.println("lijst met alle cijfers van een specifieke examen");
-
+                out.println("lijst met alle onvoldoendes");
+                Statistieken statistieken = new Statistieken();
+                statistieken.onvoldoendesFilteren();
                 StandardAction();
             }
             case "13" -> {
-                out.println("lijst met alle onvoldoendes");
-
+                out.println("lijst met alle voldoendes");
+                Statistieken statistieken = new Statistieken();
+                statistieken.voldoendesFilteren();
                 StandardAction();
             }
             case "14" -> {
-                out.println("lijst met alle voldoendes");
-
+                out.println("percentage Voldoendes/onvoldoendes");
+                Statistieken statistieken = new Statistieken();
+                statistieken.getVoldoendeOnvoldoendeProcent();
                 StandardAction();
             }
             case "15" -> {
-                out.println("percentage Voldoendes/onvoldoendes");
-
+                out.println("Heb ik(student) een bepaalde examen gehaald?");
+                Statistieken statistieken = new Statistieken();
+                statistieken.checkExamenGeslaagdStudent();
                 StandardAction();
             }
-
+            case "16" -> {
+                out.println("Heeft een specifieke student een bepaalde examen gehaald?");
+                Statistieken statistieken = new Statistieken();
+                statistieken.checkExamenGeslaagdStudentId();
+                StandardAction();
+            }
 
             case "0" -> {
                 out.println("Succesfully Exited App...");
