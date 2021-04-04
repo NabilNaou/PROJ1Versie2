@@ -88,7 +88,8 @@ public class MainMenu {
             }
             case "7" -> {
                 out.println("Welk exmanes heeft student gehaald?");
-                Statistieken.examenStatistiekenInfo();
+                Statistieken statistieken = new Statistieken();
+                statistieken.getAllBehaaldeExamensStudent();
                 StandardAction();
 
             }
@@ -99,7 +100,8 @@ public class MainMenu {
             }
             case "9" -> {
               out.println("Student met meeste examens gehaald");
-
+                Statistieken statistieken = new Statistieken();
+                statistieken.getStudentMetMeesteExamensGehaald();
                 StandardAction();
             }
             case "10" -> {
