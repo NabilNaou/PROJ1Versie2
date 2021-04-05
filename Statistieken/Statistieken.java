@@ -28,7 +28,7 @@ public class Statistieken {
 
     // Jarrel -- < warning! >
     // Onvoldoendes filteren
-    public void onvoldoendesFilteren(){
+    public String onvoldoendesFilteren(){
         String ret = "";
         ArrayList<Cijfer> onvoldoendes = new ArrayList<>();
         for(int i=0; i<cijfersLijst.size(); i++){
@@ -40,10 +40,12 @@ public class Statistieken {
             ret = "Er zijn geen onvoldoendes\n";
         }
         else {
+            ret = "Lijst met onvoldoendes:\n";
             for (Cijfer onvoldoende : onvoldoendes) {
-                ret += "Lijst met onvoldoendes:\n" + onvoldoende.toString() + "\n";
+                ret += onvoldoende.toString() + "\n";
             }
         }
+        return ret;
     }
 
     // Voldoendes filteren
@@ -59,8 +61,9 @@ public class Statistieken {
             ret = "Er zijn geen voldoendes\n";
         }
         else {
+            ret = "Lijst met voldoendes:\n";
             for (Cijfer voldoende : voldoendes) {
-                ret += "Lijst met voldoendes:\n" + voldoende.toString() + "\n";
+                ret += voldoende.toString() + "\n";
             }
         }
         return ret;
