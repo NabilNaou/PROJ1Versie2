@@ -1,8 +1,5 @@
-import java.lang.reflect.Array;
 import java.util.*;
-
 import static java.lang.System.in;
-import static java.lang.System.out;
 
 public class Statistieken {
     private ArrayList<Exam> examens;

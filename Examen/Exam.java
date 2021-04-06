@@ -65,8 +65,6 @@ public class Exam
         Cijfer cijfer = new Cijfer(aantalgoed, huidigexame, huidig);
         huidig.persoonlijkeCijferlijst.addCijfer(cijfer);
         System.out.println("Uw heeft " + aantalgoed+ " vragen goed.");
-
-
     }
 
     //Nabil: Voegt deelnemer toe aan examen
@@ -77,7 +75,6 @@ public class Exam
     public void addExamen(Exam examen){
         alleExamens.add(examen);
     }
-
 
     //Nabil: Returnt examen naam
     public String getExamenNaam(){

@@ -17,9 +17,7 @@ public class Student extends Gebruiker
         super(id, naam, achternaam, wachtwoord);
     }
 
-
     public static Student stuLijst;
-
 
     public static ArrayList<Student> studentenLijst = new ArrayList<>() {
         {
@@ -71,19 +69,17 @@ public class Student extends Gebruiker
     public static void studentVerwijderen() {
         System.out.println("Welk student wilt u verwijderen?");
         String verwijderen = userInput.nextLine();
-        for (int i = 0; i < studentenLijst.size(); i++){
-            if (studentenLijst.get(i).getNaam().equalsIgnoreCase(verwijderen)){
+        for (int i = 0; i < studentenLijst.size(); i++) {
+            if (studentenLijst.get(i).getNaam().equalsIgnoreCase(verwijderen)) {
                 studentenLijst.remove(i);
                 System.out.println(verwijderen + " is verwijderd");
                 showRemainingStudents();
-            }
-            else {
+            } else {
                 System.out.println(verwijderen + " is niet geregistreerd");
                 showRemainingStudents();
             }
         }
     }
-
 
     public static void showRemainingStudents(){
         System.out.println("Overblijvende studenten: ");

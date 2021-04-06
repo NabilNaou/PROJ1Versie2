@@ -2,11 +2,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Vragenlijst{
-
-
     private static ArrayList<Vraag> AutoCollection = new ArrayList<>();
     private static ArrayList<Vraag> BotenCollection = new ArrayList<>();
-
 
     public ArrayList<Vraag> GetAutovragenlijst() {
         return AutoCollection;
@@ -54,5 +51,3 @@ public class Vragenlijst{
         shufflelijst(AutoCollection);
     }
 }
-
-
