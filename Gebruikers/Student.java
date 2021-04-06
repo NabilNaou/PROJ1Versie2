@@ -6,18 +6,18 @@ import static java.lang.System.in;
 public class Student extends Gebruiker
 {
     private static Scanner userInput = new Scanner(in);
-    private ArrayList<String> Resultaten; //TODO: type veranderen naar Examens zodat je een betere resultaat overzicht kan maken.
+
+    public CijfersLijst getPersoonlijkeCijferlijst() {
+        return persoonlijkeCijferlijst;
+    }
+
+    protected CijfersLijst persoonlijkeCijferlijst = new CijfersLijst();
 
     public Student(int id, String naam, String achternaam, String wachtwoord) {
         super(id, naam, achternaam, wachtwoord);
     }
 
-    public void addResultaat(String resultaat){
-        Resultaten.add(resultaat);
-    }
-
     public static Student stuLijst;
-
 
     public static ArrayList<Student> studentenLijst = new ArrayList<>() {
         {
@@ -47,15 +47,17 @@ public class Student extends Gebruiker
     // Returned hele lijst met studenten
     public static ArrayList<Student> getStudentenLijst() { return studentenLijst; }
 
-    //Nabil: Student kan zich inschrijven voor examen
+    //Nabil: Student kan zich inschrijven voor examen. Student word geïnformeerd over inschrijving.
     public static void nieuweInschrijving() {
         System.out.println("Voor welk examen wilt u zich inschrijven?");
-        Exam exam = new Exam("Wiskunde");
+        //Maakt de twee type examens aan die bestaan
+        Exam auto = new Exam("Auto");
+        Exam boot = new Exam("Boot");
+        //Gebruikers input word opgeslagen.. (1/2)
         String temp = userInput.nextLine();
-        System.out.println(zoekStudentViaID(Login.getCurrentUser()));
+        //Gebruikers input word alleen ingevoerd als de examen bestaat.. (2/2)
         if(Exam.zoekExamen(temp) != null){
             Exam.zoekExamen(temp).addDeelnemer(zoekStudentViaID(Login.getCurrentUser()));
-            //Error omdat er geen current user is, wel functioneel.
             System.out.println(Student.zoekStudentViaID(Login.getCurrentUser()).getNaam() + " is succesvol ingeschreven voor " + temp);
         }
         else{
@@ -64,16 +66,18 @@ public class Student extends Gebruiker
         MainMenu.HoofdMenuText();
     }
 
+    public void addcijfer(Cijfer cijfer){
+        persoonlijkeCijferlijst.addCijfer(cijfer);
+    }
     public static void studentVerwijderen() {
         System.out.println("Welk student wilt u verwijderen?");
         String verwijderen = userInput.nextLine();
-        for (int i = 0; i < studentenLijst.size(); i++){
-            if (studentenLijst.get(i).getNaam().equalsIgnoreCase(verwijderen)){
+        for (int i = 0; i < studentenLijst.size(); i++) {
+            if (studentenLijst.get(i).getNaam().equalsIgnoreCase(verwijderen)) {
                 studentenLijst.remove(i);
                 System.out.println(verwijderen + " is verwijderd");
                 showRemainingStudents();
-            }
-            else {
+            } else {
                 System.out.println(verwijderen + " is niet geregistreerd");
                 showRemainingStudents();
             }

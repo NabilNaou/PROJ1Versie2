@@ -5,14 +5,20 @@ public class CijfersLijst {
     public void addCijfer(Cijfer cijfer){
         cijferList.add(cijfer);
     }
+    public double getcijfer(String name) {
+        double cijfer;
+        for (Cijfer value : cijferList) {
+            if (name.equalsIgnoreCase(value.getExamenNaam())) {
+                cijfer = (int) value.getCijfer();
+                return cijfer;
+            }
+        }
+        return 0;
+    }
     public void removeCijfer(Cijfer cijfer){
         cijferList.remove(cijfer);
     }
     public static ArrayList<Cijfer> getCijferList(){
         return cijferList;
-    }
-
-    public void getAllCijfers() {
-
     }
 }
