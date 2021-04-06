@@ -1,15 +1,15 @@
 public class Cijfer {
     private Student student;
     private Exam exam;
-    private int cijfer;
+    private double cijfer;
 
-    public Cijfer(int cijfer, Exam exam, Student student){
+    public Cijfer(double cijfer, Exam exam, Student student){
         this.cijfer = cijfer;
         this.exam = exam;
         this.student = student;
     }
 
-    public int getCijfer() {
+    public double getCijfer() {
         return cijfer;
     }
     public Integer getStudentID(){
@@ -17,5 +17,12 @@ public class Cijfer {
     }
     public String getExamenNaam(){
         return exam.getExamenNaam();
+    }
+
+    @Override
+    public String toString() {
+        return "cijfer= " + cijfer +
+                "van student " + student +
+                "voor exam " + exam + "\n";
     }
 }
