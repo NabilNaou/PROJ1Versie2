@@ -32,15 +32,23 @@ public class Registreren {
         System.out.println("2) Examinator");
         userInput = sc.nextLine();
 
+        // Checks if user chose 1 or 2
         if (userInput.equals("1")) {
+            // Asks user for name, surname and password
             Details();
+            // Inserts userID by taking the arraylist size and adding +1
             userID = Student.studentenLijst.size() + 1; //increment number
             Student newStudent = new Student(userID, userName, userSurname, userPW);
             Student.addStudent(newStudent);
+            // Used a for-loop to check if the user now exists in the arraylist
             for (int i = 0; i < Student.studentenLijst.size(); i++) {
+                // tempUser is used a temporary variable that acts as username while comparing it to the users input
                 tempUser = Student.studentenLijst.get(i).getNaam();
+                // tempUser is used a temporary variable that acts as password while comparing it to the users input
                 tempPass = Student.studentenLijst.get(i).getWachtwoord();
+                // Makes currentUser the same as the users ID
                 Login.currentUser = Student.studentenLijst.get(i).getId();
+                // Compares user input with all options in the arraylist for both username and password
                 if (userName.equals(tempUser) && userPW.equals(tempPass)) {
                     System.out.println("Student geregistreerd");
                     registered = true;
