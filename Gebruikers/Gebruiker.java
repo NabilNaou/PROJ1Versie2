@@ -4,6 +4,7 @@ public class Gebruiker {
     private String achternaam;
     private String wachtwoord;
 
+    // dit is een gebruiker...
     public Gebruiker(int id, String naam, String achternaam, String wachtwoord) {
         this.id = id;
         this.naam = naam;

@@ -16,8 +16,8 @@ public class MainMenu {
             LoginScherm();
         }
     }
-        //student       Examinator
-        //naam = Bob    Jan
+        //Student       Examinator
+        //naam = bob    jan
         //ww = bob123   jan123
 
     public static void StandardAction() {
@@ -34,7 +34,6 @@ public class MainMenu {
         out.println(" 6) Is student geslaagd voor test?");
         out.println(" 7) Is student voor het examen geslaagd?");
         out.println(" 8) Student met meeste examens gehaald");
-        out.println(" 9) ////");
         out.println(" 0) Exit");
         out.println("Uw keuze:");
         StandardAction();
@@ -87,13 +86,6 @@ public class MainMenu {
             case "8" -> {
                 out.println("Welke student heeft de meeste examens gehaald?");
                 //TODO: Jarrel: Check het verschil met 7 en verzin desnoods wat moois in plaats hiervan
-                StandardAction();
-            }
-            case "9" -> {
-/*              out.println("Examen Inschrijven");
-                Student.nieuweInschrijving();
-*/
-                out.println();
                 StandardAction();
             }
             case "0" -> {
