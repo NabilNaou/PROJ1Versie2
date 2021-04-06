@@ -50,9 +50,12 @@ public class Student extends Gebruiker
     //Nabil: Student kan zich inschrijven voor examen. Student word geïnformeerd over inschrijving.
     public static void nieuweInschrijving() {
         System.out.println("Voor welk examen wilt u zich inschrijven?");
-        Exam exam = new Exam("Wiskunde");
+        //Maakt de twee type examens aan die bestaan
+        Exam auto = new Exam("Auto");
+        Exam boot = new Exam("Boot");
+        //Gebruikers input word opgeslagen.. (1/2)
         String temp = userInput.nextLine();
-        //System.out.println(zoekStudentViaID(Login.getCurrentUser()));
+        //Gebruikers input word alleen ingevoerd als de examen bestaat.. (2/2)
         if(Exam.zoekExamen(temp) != null){
             Exam.zoekExamen(temp).addDeelnemer(zoekStudentViaID(Login.getCurrentUser()));
             System.out.println(Student.zoekStudentViaID(Login.getCurrentUser()).getNaam() + " is succesvol ingeschreven voor " + temp);
