@@ -29,9 +29,13 @@ public class Student extends Gebruiker
 
     // Get all data for every student (id,name,lastname)
     public static void getAllStudents() {
-        for (Student student : Database.Studentenlijst )
-        {
-            System.out.println(student.getId() + " " + student.getNaam() + " " + student.getAchternaam());
+        if(Database.Studentenlijst.size() == 0){
+            System.out.println("er zijn geen studenten geregisteerd.");
+        }else{
+            for (Student student : Database.Studentenlijst )
+            {
+                System.out.println(student.getId() + " " + student.getNaam() + " " + student.getAchternaam());
+            }
         }
     }
 
@@ -47,8 +51,7 @@ public class Student extends Gebruiker
 
     //Nabil: Student kan zich inschrijven voor examen. Student word geïnformeerd over inschrijving.
     public static void nieuweInschrijving() {
-        System.out.println("Voor welk examen wilt u zich inschrijven?");
-        Exam exam = new Exam("type 1 voor AutoExamen of 2 voor VaarExamen");
+        System.out.println("type 1 voor AutoExamen of 2 voor VaarExamen");
         Student student = zoekStudentViaID(Login.getCurrentUser());
         int temp = userInput.nextInt();
         if(alIngeschreven(student)) {
@@ -76,7 +79,7 @@ public class Student extends Gebruiker
         student.persoonlijkeCijferlijst.addCijfer(cijfer);
     }
     public static void studentVerwijderen() {
-        System.out.println("Welk student wilt u verwijderen?");
+        System.out.println("geef de naam op van de student dat uw wilt u verwijderen?");
         String verwijderen = userInput.nextLine();
         System.out.println("voor welke exame wilt U deze student verwijderen? type 1 voor auto of 2 voor vaar");
         int type = userInput.nextInt();

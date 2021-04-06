@@ -47,7 +47,7 @@ public class MainMenu {
                 StandardAction();
                  }
             case "2" -> {
-                if (Login.userInput.equals("2")) {
+                if (keuze.equals("2")) {
                     out.println("StudentNr - Student");
                     Student.getAllStudents();
                 } else {
