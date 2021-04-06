@@ -38,7 +38,7 @@ public class Examinator extends Gebruiker
         } else {
             Student index = Database.Studentenlijst.get(0);
             int huidigeaantal = 0;
-            for (int i = 0; i > Database.Studentenlijst.size(); i++) {
+            for (int i = 0; i <= Database.Studentenlijst.size(); i++) {
                 index = Database.Studentenlijst.get(i);
                 if (huidigeaantal < index.persoonlijkeCijferlijst.getcijfer().size()) {
                     huidigeaantal = index.persoonlijkeCijferlijst.getcijfer().size();

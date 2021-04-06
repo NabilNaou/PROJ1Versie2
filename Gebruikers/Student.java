@@ -51,13 +51,24 @@ public class Student extends Gebruiker
         Exam exam = new Exam("type 1 voor AutoExamen of 2 voor VaarExamen");
         Student student = zoekStudentViaID(Login.getCurrentUser());
         int temp = userInput.nextInt();
-        if(temp == 1){
-            Database.AutoExamenDeelnemers.add(student);
-        }else if ( temp == 2){
-            Database.VaarExamenDeelnemers.add(student);
+        if(alIngeschreven(student)) {
+            if (temp == 1) {
+                Database.AutoExamenDeelnemers.add(student);
+            } else if (temp == 2) {
+                Database.VaarExamenDeelnemers.add(student);
+            }
+        }else{
+            System.out.println("Uw bent al ingeschreven voor deze examen.");
         }
         System.out.println(Student.zoekStudentViaID(Login.getCurrentUser()).getNaam() + " is succesvol ingeschreven voor " + temp);
         MainMenu.HoofdMenuText();
+    }
+    public static boolean alIngeschreven(Student target){
+        for(int i = 0; i < Database.AutoExamenDeelnemers.size(); i++){
+            if(target.equals(Database.AutoExamenDeelnemers.get(i))|| target.equals(Database.VaarExamenDeelnemers.get(i))){
+                return true;
+            }
+        }return false;
     }
 
     public void addcijfer(Cijfer cijfer){
