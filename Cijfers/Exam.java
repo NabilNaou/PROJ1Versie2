@@ -1,3 +1,4 @@
+import javax.xml.crypto.Data;
 import java.util.Scanner;
 
 import static java.lang.System.in;
@@ -6,7 +7,6 @@ public class Exam
 {
     private String ExamenNaam;
     protected int inlogid = Login.getCurrentUser();
-    Student huidig = Student.zoekStudentViaID(inlogid);
 
     //Maakt een nieuwe exame aan de naam die je meegeeft en met een lijst van deelnemers.
     public Exam(String ExamenNaam){
@@ -51,7 +51,7 @@ public class Exam
             }
         }
         Cijfer cijfer = new Cijfer(aantalgoed, nieuw, huidig);
-        huidig.persoonlijkeCijferlijst.addCijfer(cijfer);
+        Database.addCijfer(cijfer);
         System.out.println("Uw heeft " + aantalgoed+ " vragen goed.");
     }
 }

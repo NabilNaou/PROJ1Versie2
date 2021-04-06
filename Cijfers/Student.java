@@ -6,7 +6,6 @@ import static java.lang.System.in;
 public class Student extends Gebruiker
 {
     private static Scanner userInput = new Scanner(in);
-    protected CijfersLijst persoonlijkeCijferlijst;
     public int studentNummer;
 
     public Student(int studentNummer, String naam, String achternaam, String wachtwoord) {
