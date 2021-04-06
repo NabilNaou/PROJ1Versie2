@@ -6,31 +6,25 @@ import static java.lang.System.in;
 public class Student extends Gebruiker
 {
     private static Scanner userInput = new Scanner(in);
+    public static Database database;
+    protected CijfersLijst persoonlijkeCijferlijst;
 
     public CijfersLijst getPersoonlijkeCijferlijst() {
         return persoonlijkeCijferlijst;
     }
 
-    protected CijfersLijst persoonlijkeCijferlijst = new CijfersLijst();
+
 
     public Student(int id, String naam, String achternaam, String wachtwoord) {
         super(id, naam, achternaam, wachtwoord);
+        persoonlijkeCijferlijst = new CijfersLijst();
     }
 
 
-    public static Student stuLijst;
-
-
-    public static ArrayList<Student> studentenLijst = new ArrayList<>() {
-        {
-            add(stuLijst = new Student(1,"bob","Smit", "bob123"));
-            add(stuLijst = new Student(2,"tim","Kapel", "tim123"));
-        }
-    };
 
     // Get all data for every student (id,name,lastname)
     public static void getAllStudents() {
-        for (Student student : studentenLijst)
+        for (Student student : database.Studentenlijst )
         {
             System.out.println(student.getId() + " " + student.getNaam() + " " + student.getAchternaam());
         }
@@ -38,63 +32,71 @@ public class Student extends Gebruiker
 
     //Nabil: Zoekt naar de id van een student in een studentenlijst
     public static Student zoekStudentViaID(int studentID){
-        for(int i = 0; i < studentenLijst.size(); i++){
-            if(studentenLijst.get(i).getId() == studentID) {
-                return studentenLijst.get(i);
+        for(int i = 0; i < database.Studentenlijst.size(); i++){
+            if(database.Studentenlijst.get(i).getId() == studentID) {
+                return database.Studentenlijst.get(i);
             }
         }
         return null;
     }
 
-    // Returned hele lijst met studenten
-    public static ArrayList<Student> getStudentenLijst() { return studentenLijst; }
-
     //Nabil: Student kan zich inschrijven voor examen. Student word geïnformeerd over inschrijving.
     public static void nieuweInschrijving() {
         System.out.println("Voor welk examen wilt u zich inschrijven?");
-        Exam exam = new Exam("Wiskunde");
-        String temp = userInput.nextLine();
-        System.out.println(zoekStudentViaID(Login.getCurrentUser()));
-        if(Exam.zoekExamen(temp) != null){
-            Exam.zoekExamen(temp).addDeelnemer(zoekStudentViaID(Login.getCurrentUser()));
-            System.out.println(Student.zoekStudentViaID(Login.getCurrentUser()).getNaam() + " is succesvol ingeschreven voor " + temp);
+        Exam exam = new Exam("type 1 voor AutoExamen of 2 voor VaarExamen");
+        Student student = zoekStudentViaID(Login.getCurrentUser());
+        int temp = userInput.nextInt();
+        if(temp == 1){
+            database.AutoExamenDeelnemers.add(student);
+        }else if ( temp == 2){
+            database.VaarExamenDeelnemers.add(student);
         }
-        else{
-            System.out.println("Dit examen is niet gevonden");
-        }
+        System.out.println(Student.zoekStudentViaID(Login.getCurrentUser()).getNaam() + " is succesvol ingeschreven voor " + temp);
         MainMenu.HoofdMenuText();
     }
+
     public void addcijfer(Cijfer cijfer){
-        persoonlijkeCijferlijst.addCijfer(cijfer);
+        Student student = zoekStudentViaID(Login.getCurrentUser());
+        student.persoonlijkeCijferlijst.addCijfer(cijfer);
     }
     public static void studentVerwijderen() {
         System.out.println("Welk student wilt u verwijderen?");
         String verwijderen = userInput.nextLine();
-        for (int i = 0; i < studentenLijst.size(); i++){
-            if (studentenLijst.get(i).getNaam().equalsIgnoreCase(verwijderen)){
-                studentenLijst.remove(i);
-                System.out.println(verwijderen + " is verwijderd");
-                showRemainingStudents();
+        System.out.println("voor welke exame wilt U deze student verwijderen? type 1 voor auto of 2 voor vaar");
+        int type = userInput.nextInt();
+        if(type == 1){
+            for (int i = 0; i < database.AutoExamenDeelnemers.size(); i++){
+                if(verwijderen.equalsIgnoreCase(database.AutoExamenDeelnemers.get(i).getNaam())){
+                    database.AutoExamenDeelnemers.remove(i);
+                    System.out.println(verwijderen + " is verwijderd.");
+                    showRemainingStudents(1);
+                }
             }
-            else {
-                System.out.println(verwijderen + " is niet geregistreerd");
-                showRemainingStudents();
+        }else if (type == 2){
+            for (int i = 0; i < database.AutoExamenDeelnemers.size(); i++) {
+                database.VaarExamenDeelnemers.remove(i);
+                System.out.println(verwijderen + " is verwijderd.");
+                showRemainingStudents(2);
             }
         }
     }
 
-
-    public static void showRemainingStudents(){
+    public static void showRemainingStudents(int type){
         System.out.println("Overblijvende studenten: ");
-        for (int i = 0; i < studentenLijst.size(); i++) {
-            System.out.print(studentenLijst.get(i).getNaam() + ", ");
-
+        if(type == 1) {
+            for (int i = 0; i < database.AutoExamenDeelnemers.size(); i++) {
+                System.out.print(database.AutoExamenDeelnemers.get(i).getNaam() + ", ");
+            }
+        }else if(type == 2){
+            for (int i = 0; i < database.VaarExamenDeelnemers.size(); i++) {
+                System.out.print(database.VaarExamenDeelnemers.get(i).getNaam() + ", ");
+            }
         }
         System.out.println();
         System.out.println("-----------------");
     }
     // New student
     public static void addStudent(Student newStudent){
-        studentenLijst.add(newStudent);
+        database.Studentenlijst.add(newStudent);
     }
 }

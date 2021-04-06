@@ -1,24 +1,23 @@
 import java.util.ArrayList;
 
 public class CijfersLijst {
-    private ArrayList<Cijfer> cijferList = new ArrayList<>();
+    private static ArrayList<Cijfer> cijferList = new ArrayList<>();
     public void addCijfer(Cijfer cijfer){
         cijferList.add(cijfer);
     }
-    public int getcijfer(String name) {
-        int cijfer;
-        for (Cijfer value : cijferList) {
-            if (name.equalsIgnoreCase(value.getExamenNaam())) {
-                cijfer = value.getCijfer();
-                return cijfer;
+    public ArrayList<Double> getcijfer(Exam exam, Student student) {
+        double cijfer;
+        ArrayList<Double> lijst = new ArrayList<Double>();
+        for(int i = 0; i < cijferList.size(); i++){
+            if(student.equals(cijferList.get(i))){
+                lijst.add(cijferList.get(i).getCijfer());
             }
-        }
-        return 0;
+        }return lijst;
     }
     public void removeCijfer(Cijfer cijfer){
         cijferList.remove(cijfer);
     }
-    public ArrayList<Cijfer> getCijferList(){
+    public static ArrayList<Cijfer> getCijferList(){
         return cijferList;
     }
 }

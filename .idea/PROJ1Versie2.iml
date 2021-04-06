@@ -17,6 +17,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Gebruikers" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/lib" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/Database" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

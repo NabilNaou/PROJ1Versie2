@@ -5,29 +5,21 @@ import static java.lang.System.in;
 
 public class Exam
 {
-    private static ArrayList<Exam> alleExamens = new ArrayList<>();    //een lijst met alle examens
-    protected ArrayList<Student> deelnemers;  //een lijst met deelnemers
+    public static Database database;
+
+
     private String ExamenNaam;
     protected int inlogid = Login.getCurrentUser();
     Student huidig = Student.zoekStudentViaID(inlogid);
 
     public void MeesteExamens(Student target){
-        int amount = 0;
-        for(int i = 0; i < alleExamens.size(); i++){
-            for (Student deelnemer : deelnemers) {
-                if (deelnemer.equals(target)) {
-                    amount++;
-                }
-            }
-        }
-        System.out.println("de student "+ target.getNaam() + "heeft met "+amount +" het meeste exames afgenomen" );
+    //TODO: josue dit afmaken.
     }
 
     //Maakt een nieuwe exame aan de naam die je meegeeft en met een lijst van deelnemers.
     public Exam(String ExamenNaam){
         this.ExamenNaam = ExamenNaam;
-        deelnemers = new ArrayList<>();
-        alleExamens.add(this);
+        database.alleExamens.add(this);
     }
 
     public static void startExamen(int beslissing){
@@ -70,12 +62,19 @@ public class Exam
     }
 
     //Nabil: Voegt deelnemer toe aan examen
-    public void addDeelnemer(Student student){
-        deelnemers.add(student);
+    public void addDeelnemer(Student student, int typeExame){
+        if(typeExame == 1) {
+            database.AutoExamenDeelnemers.add(student);
+        }else{
+            if(typeExame == 2){
+                database.VaarExamenDeelnemers.add(student);
+            }
+        }
+
     }
 
     public void addExamen(Exam examen){
-        alleExamens.add(examen);
+        database.alleExamens.add(examen);
     }
 
 
@@ -86,21 +85,11 @@ public class Exam
 
     //Nabil: Zoekt examen op naam, en returnt heel examen object.
     public static Exam zoekExamen(String examenNaam){
-        for(int i = 0; i < alleExamens.size(); i++){
-            if(alleExamens.get(i).getExamenNaam().equalsIgnoreCase(examenNaam)){
-                return alleExamens.get(i);
+        for(int i = 0; i < database.alleExamens.size(); i++){
+            if(database.alleExamens.get(i).getExamenNaam().equalsIgnoreCase(examenNaam)){
+                return database.alleExamens.get(i);
             }
         }
         return null;
-    }
-
-    public int getCijfer(int a) {
-        String naam;
-        if (a == 1){
-            naam = "autoexamen";
-        }else{
-            naam = "Bootexamen";
-        }
-        return huidig.getPersoonlijkeCijferlijst().getcijfer(naam);
     }
 }
