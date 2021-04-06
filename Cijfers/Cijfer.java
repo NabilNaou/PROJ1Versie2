@@ -12,7 +12,7 @@ public class Cijfer {
     public double getCijfer() {
         return cijfer;
     }
-    public Integer getStudentID(){
+    public int getStudentID(){
         return student.getId();
     }
     public String getExamenNaam(){
