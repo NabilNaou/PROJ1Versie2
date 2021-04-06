@@ -5,8 +5,8 @@ public class CijfersLijst {
     public void addCijfer(Cijfer cijfer){
         cijferList.add(cijfer);
     }
-    public int getcijfer(String name) {
-        int cijfer;
+    public double getcijfer(String name) {
+        double cijfer;
         for (Cijfer value : cijferList) {
             if (name.equalsIgnoreCase(value.getExamenNaam())) {
                 cijfer = value.getCijfer();
