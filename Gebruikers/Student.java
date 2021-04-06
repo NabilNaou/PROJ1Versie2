@@ -9,8 +9,12 @@ public class Student extends Gebruiker
     public static Database database;
     protected CijfersLijst persoonlijkeCijferlijst;
 
-    public CijfersLijst getPersoonlijkeCijferlijst() {
-        return persoonlijkeCijferlijst;
+    public void getPersoonlijkeCijferlijst() {
+        ArrayList<Double> lijst = persoonlijkeCijferlijst.getcijfer();
+        for(int i = 0; i < lijst.size(); i++){
+            System.out.println(lijst.get(i));
+        }
+
     }
 
 
@@ -19,6 +23,8 @@ public class Student extends Gebruiker
         super(id, naam, achternaam, wachtwoord);
         persoonlijkeCijferlijst = new CijfersLijst();
     }
+
+
 
 
 

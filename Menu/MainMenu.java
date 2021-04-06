@@ -86,7 +86,7 @@ public class MainMenu {
             }
             case "8" -> {
                 out.println("Welke student heeft de meeste examens gehaald?");
-                //TODO: Jarrel: Check het verschil met 7 en verzin desnoods wat moois in plaats hiervan
+                Examinator.meesteExames();
                 StandardAction();
             }
             case "9" -> {

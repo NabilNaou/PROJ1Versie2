@@ -1,19 +1,18 @@
 import java.util.ArrayList;
 
 public class CijfersLijst {
-    private static ArrayList<Cijfer> cijferList = new ArrayList<>();
+    protected static ArrayList<Cijfer> cijferList = new ArrayList<>();
     public void addCijfer(Cijfer cijfer){
         cijferList.add(cijfer);
     }
-    public ArrayList<Double> getcijfer(Exam exam, Student student) {
-        double cijfer;
+    public ArrayList<Double> getcijfer() {
         ArrayList<Double> lijst = new ArrayList<Double>();
+        Cijfer cijfer = null;
         for(int i = 0; i < cijferList.size(); i++){
-            if(student.equals(cijferList.get(i))){
-                lijst.add(cijferList.get(i).getCijfer());
-            }
-        }return lijst;
-    }
+            lijst.add(cijfer.getCijfer());
+            }return lijst;
+        }
+
     public void removeCijfer(Cijfer cijfer){
         cijferList.remove(cijfer);
     }

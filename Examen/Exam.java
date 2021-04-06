@@ -12,9 +12,6 @@ public class Exam
     protected int inlogid = Login.getCurrentUser();
     Student huidig = Student.zoekStudentViaID(inlogid);
 
-    public void MeesteExamens(Student target){
-    //TODO: josue dit afmaken.
-    }
 
     //Maakt een nieuwe exame aan de naam die je meegeeft en met een lijst van deelnemers.
     public Exam(String ExamenNaam){
@@ -24,16 +21,17 @@ public class Exam
 
     public static void startExamen(int beslissing){
         int stuID = Login.getCurrentUser();
-        Exam huidigexame;
+        Exam nieuw;
         Student huidig = Student.zoekStudentViaID(stuID);
+        String Naam = Student.zoekStudentViaID(stuID).getNaam();
 
         if(beslissing == 1){
-            huidigexame = new Exam("autoexamen");
+            nieuw = new Exam("autoexamen");
         }else{
-            huidigexame = new Exam("Bootexamen");
+            nieuw = new Exam("Bootexamen");
         }
-        int inlogid = Login.getCurrentUser();
-        String Naam = Student.zoekStudentViaID(inlogid).getNaam();
+
+
         int a = 0;
         int aantalgoed = 0;
         Vragenlijst lijst = new Vragenlijst();
@@ -54,11 +52,9 @@ public class Exam
                 aantalgoed++;
             }
         }
-        Cijfer cijfer = new Cijfer(aantalgoed, huidigexame, huidig);
+        Cijfer cijfer = new Cijfer(aantalgoed, nieuw, huidig);
         huidig.persoonlijkeCijferlijst.addCijfer(cijfer);
         System.out.println("Uw heeft " + aantalgoed+ " vragen goed.");
-
-
     }
 
     //Nabil: Voegt deelnemer toe aan examen
