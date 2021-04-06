@@ -50,7 +50,7 @@ public class Login {
                     for (int i = 0; i < Database.studentenLijst.size(); i++) {
                         tempUser = Database.studentenLijst.get(i).getNaam();
                         tempPass = Database.studentenLijst.get(i).getWachtwoord();
-                        currentUser = Database.studentenLijst.get(i).getId();
+                        currentUser = Database.studentenLijst.get(i).getStudentNummer();
                         System.out.println("Switching to user and password check method");
                         if (userAndPassCheck()) {
                             return correct = true;

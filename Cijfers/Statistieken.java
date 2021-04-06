@@ -137,7 +137,7 @@ public class Statistieken {
         for(int i=0; i<Database.studentenLijst.size(); i++) {
             int k = 0;
             for(int j=0; j<voldoendes.size(); i++){
-                if(voldoendes.get(j).getStudentID() == Database.studentenLijst.get(i).getId()){
+                if(voldoendes.get(j).getStudentID() == Database.studentenLijst.get(i).getStudentNummer()){
                     k++;
                 }
             }
@@ -180,7 +180,7 @@ public class Statistieken {
         int aantal = 0;
         ArrayList<String> examens = new ArrayList<>();
         for(int i=0; i<cijfersLijst.size(); i++){
-            if((cijfersLijst.get(i).getStudentID() == Student.zoekStudentViaID(Login.getCurrentUser()).getId())
+            if((cijfersLijst.get(i).getStudentID() == Student.zoekStudentViaID(Login.getCurrentUser()).getStudentNummer())
                     && (Double.compare(cijfersLijst.get(i).getCijfer(), 5.5) >= 0)){
                 examens.add(cijfersLijst.get(i).getExamenNaam());
                 aantal++;
@@ -223,7 +223,7 @@ public class Statistieken {
         String examenNaam = userInput.nextLine();
         boolean check = false;
         for (int i = 0; i < cijfersLijst.size(); i++) {
-            if ((cijfersLijst.get(i).getStudentID() == Student.zoekStudentViaID(Login.getCurrentUser()).getId())
+            if ((cijfersLijst.get(i).getStudentID() == Student.zoekStudentViaID(Login.getCurrentUser()).getStudentNummer())
                     && (Double.compare(cijfersLijst.get(i).getCijfer(), 5.5) >= 0)
                     && (examenNaam.equals(cijfersLijst.get(i).getExamenNaam()))) {
                 check = true;

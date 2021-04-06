@@ -7,6 +7,7 @@ public class Student extends Gebruiker
 {
     private static Scanner userInput = new Scanner(in);
     protected CijfersLijst persoonlijkeCijferlijst;
+    public int studentNummer;
 
     public void getPersoonlijkeCijferlijst() {
         ArrayList<Double> lijst = persoonlijkeCijferlijst.getcijfer();
@@ -16,29 +17,24 @@ public class Student extends Gebruiker
 
     }
 
-
-
-    public Student(int id, String naam, String achternaam, String wachtwoord) {
-        super(id, naam, achternaam, wachtwoord);
+    public Student(int studentNummer, String naam, String achternaam, String wachtwoord) {
+        super(naam, achternaam, wachtwoord);
+        this.studentNummer = studentNummer;
         persoonlijkeCijferlijst = new CijfersLijst();
     }
-
-
-
-
 
     // Get all data for every student (id,name,lastname)
     public static void getAllStudents() {
         for (Student student : Database.studentenLijst )
         {
-            System.out.println(student.getId() + " " + student.getNaam() + " " + student.getAchternaam());
+            System.out.println(student.getStudentNummer() + " " + student.getNaam() + " " + student.getAchternaam());
         }
     }
 
     //Nabil: Zoekt naar de id van een student in een studentenlijst
     public static Student zoekStudentViaID(int studentID){
         for(int i = 0; i < Database.studentenLijst.size(); i++){
-            if(Database.studentenLijst.get(i).getId() == studentID) {
+            if(Database.studentenLijst.get(i).getStudentNummer() == studentID) {
                 return Database.studentenLijst.get(i);
             }
         }
@@ -114,5 +110,9 @@ public class Student extends Gebruiker
     // New student
     public static void addStudent(Student newStudent){
         Database.studentenLijst.add(newStudent);
+    }
+
+    public int getStudentNummer() {
+        return studentNummer;
     }
 }

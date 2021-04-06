@@ -1,21 +1,13 @@
 public class Gebruiker {
-    private int id;
     private String naam;
     private String achternaam;
     private String wachtwoord;
 
-    public Gebruiker(int id, String naam, String achternaam, String wachtwoord) {
-        this.id = id;
+    public Gebruiker(String naam, String achternaam, String wachtwoord) {
         this.naam = naam;
         this.achternaam = achternaam;
         this.wachtwoord = wachtwoord;
     }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) { this.id = id; }
 
     public String getNaam() {
         return naam;

@@ -13,7 +13,7 @@ public class Cijfer {
         return cijfer;
     }
     public Integer getStudentID(){
-        return student.getId();
+        return student.getStudentNummer();
     }
     public String getExamenNaam(){
         return exam.getExamenNaam();

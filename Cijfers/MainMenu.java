@@ -17,7 +17,7 @@ public class MainMenu {
         }
     }
         //student       Examinator
-        //naam = Bob    Jan
+        //naam = bob    jan
         //ww = bob123   jan123
 
     public static void StandardAction() {

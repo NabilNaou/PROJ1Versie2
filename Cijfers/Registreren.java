@@ -47,7 +47,7 @@ public class Registreren {
                 // tempUser is used a temporary variable that acts as password while comparing it to the users input
                 tempPass = Database.studentenLijst.get(i).getWachtwoord();
                 // Makes currentUser the same as the users ID
-                Login.currentUser = Database.studentenLijst.get(i).getId();
+                Login.currentUser = Database.studentenLijst.get(i).getStudentNummer();
                 // Compares user input with all options in the arraylist for both username and password
                 if (userName.equals(tempUser) && userPW.equals(tempPass)) {
                     System.out.println("Student geregistreerd");
