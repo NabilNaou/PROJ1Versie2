@@ -54,7 +54,7 @@ public class Student extends Gebruiker
         System.out.println("Voor welk examen wilt u zich inschrijven?");
         Exam exam = new Exam("Wiskunde");
         String temp = userInput.nextLine();
-        System.out.println(zoekStudentViaID(Login.getCurrentUser()));
+        //System.out.println(zoekStudentViaID(Login.getCurrentUser()));
         if(Exam.zoekExamen(temp) != null){
             Exam.zoekExamen(temp).addDeelnemer(zoekStudentViaID(Login.getCurrentUser()));
             System.out.println(Student.zoekStudentViaID(Login.getCurrentUser()).getNaam() + " is succesvol ingeschreven voor " + temp);
@@ -64,6 +64,7 @@ public class Student extends Gebruiker
         }
         MainMenu.HoofdMenuText();
     }
+
     public void addcijfer(Cijfer cijfer){
         persoonlijkeCijferlijst.addCijfer(cijfer);
     }

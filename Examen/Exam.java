@@ -101,6 +101,6 @@ public class Exam
         }else{
             naam = "Bootexamen";
         }
-        return huidig.getPersoonlijkeCijferlijst().getcijfer(naam);
+        return (int) huidig.getPersoonlijkeCijferlijst().getcijfer(naam);
     }
 }
