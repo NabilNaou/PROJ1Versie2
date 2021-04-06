@@ -13,7 +13,7 @@ class LoginTest {
 
         // choice is 2
         Login.userChoice = "2"; // keuze 1 of 2
-        Login.choseLogin= Registreren.registered = true; // True als registratie kompleet is.
+        Login.choseLogin= Registreren.registered = true; // True als registratie compleet is.
         assertTrue(Login.choseLogin);
     }
 
@@ -33,7 +33,7 @@ class LoginTest {
 
     @org.junit.jupiter.api.Test
     void userAndPassCheck() {
-        // simualte user input
+        // simulate user input
         Login.targetUser = "tim";
         Login.tempUser = "tim";
         assertEquals(Login.targetUser,Login.tempUser);
