@@ -14,21 +14,7 @@ public class Examinator extends Gebruiker
         }
     };
 
-    // Get all data for every examinator
-    public static ArrayList<Examinator> getAllExaminators() {
-        for (Examinator examinator : examinatorLijst)
-        {
-            System.out.println(examinator.getId() + " " + examinator.getNaam() + " " + examinator.getAchternaam());
-        }
-        return examinatorLijst;
-    }
-
-    public static ArrayList<Examinator> getExaminatorLijst() { return examinatorLijst; }
-
     public static void addEx(Examinator newEx){
         examinatorLijst.add(newEx);
     }
-
-
-
 }
