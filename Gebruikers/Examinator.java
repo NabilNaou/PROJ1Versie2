@@ -28,4 +28,7 @@ public class Examinator extends Gebruiker
     public static void addEx(Examinator newEx){
         examinatorLijst.add(newEx);
     }
+
+
+
 }

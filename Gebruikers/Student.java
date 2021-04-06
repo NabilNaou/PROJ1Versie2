@@ -6,15 +6,17 @@ import static java.lang.System.in;
 public class Student extends Gebruiker
 {
     private static Scanner userInput = new Scanner(in);
-    private ArrayList<String> Resultaten; //TODO: type veranderen naar Examens zodat je een betere resultaat overzicht kan maken.
+
+    public CijfersLijst getPersoonlijkeCijferlijst() {
+        return persoonlijkeCijferlijst;
+    }
+
+    protected CijfersLijst persoonlijkeCijferlijst = new CijfersLijst();
 
     public Student(int id, String naam, String achternaam, String wachtwoord) {
         super(id, naam, achternaam, wachtwoord);
     }
 
-    public void addResultaat(String resultaat){
-        Resultaten.add(resultaat);
-    }
 
     public static Student stuLijst;
 
@@ -62,7 +64,9 @@ public class Student extends Gebruiker
         }
         MainMenu.HoofdMenuText();
     }
-
+    public void addcijfer(Cijfer cijfer){
+        persoonlijkeCijferlijst.addCijfer(cijfer);
+    }
     public static void studentVerwijderen() {
         System.out.println("Welk student wilt u verwijderen?");
         String verwijderen = userInput.nextLine();
@@ -78,6 +82,7 @@ public class Student extends Gebruiker
             }
         }
     }
+
 
     public static void showRemainingStudents(){
         System.out.println("Overblijvende studenten: ");

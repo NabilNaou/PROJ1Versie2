@@ -30,11 +30,11 @@ public class MainMenu {
         out.println(" 2) Lijst met studenten");
         out.println(" 3) Nieuw Inschrijving");
         out.println(" 4) Student Verwijderen");
-        out.println(" 5) Examen Inschrijven");
-        out.println(" 6) Examen afnemen");
-        out.println(" 7) Is student geslaagd voor test?");
-        out.println(" 8) Is student voor het examen geslaagd?");
-        out.println(" 9) Student met meeste examens gehaald");
+        out.println(" 5) Examen afnemen");
+        out.println(" 6) Is student geslaagd voor test?");
+        out.println(" 7) Is student voor het examen geslaagd?");
+        out.println(" 8) Student met meeste examens gehaald");
+        out.println(" 9) ////");
         out.println(" 0) Exit");
         out.println("Uw keuze:");
         StandardAction();
@@ -43,8 +43,7 @@ public class MainMenu {
     public static void Keuze(String keuze){
         switch (keuze) {
             case "1" -> {
-                out.println("Uw examenlijst...");
-                //TODO: Josue
+                out.println("Uw kunt een Auto Examen of een Examen Vaarbewijs afnemen.");
                 StandardAction();
                  }
             case "2" -> {
@@ -71,7 +70,7 @@ public class MainMenu {
                 out.println("Type 2 voor boot theorie. ");
                 int beslissing = userInput.nextInt();
                 if(beslissing == 1){
-                    //TODO: Josue: actie aanmaken om de examen te starten.
+                    Exam.startExamen( beslissing);
                 }
                 StandardAction();
             }
@@ -81,7 +80,7 @@ public class MainMenu {
                 //TODO: Jarrel: actie aanmaken om te kijken of student boven de voldoende punten staat.
             }
             case "7" -> {
-                out.println("Welk exmanes heeft student gehaald?");
+                out.println("Welk exames heeft student gehaald?");
                 StandardAction();
                 //TODO: Jarrel:
             }

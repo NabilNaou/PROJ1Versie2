@@ -11,7 +11,7 @@ public class Statistieken {
     {
         // if(exam.getStudentID() == StudentID)
         {
-            cijfersOpgeteld = cijfersOpgeteld + exam.getCijfer();
+            cijfersOpgeteld = cijfersOpgeteld + exam.getCijfer(1);
         }
     }
         return cijfersOpgeteld / examensSize;
