@@ -6,7 +6,6 @@ import static java.lang.System.out;
 
 public class Statistieken {
     private ArrayList<Exam> examens;
-    private ArrayList<Cijfer> cijfersLijst = CijfersLijst.getCijferList();
     private static Scanner userInput = new Scanner(in);
 
     // Jarrel -- < warning! >
@@ -14,9 +13,9 @@ public class Statistieken {
     public String onvoldoendesFilteren(){
         String ret = "";
         ArrayList<Cijfer> onvoldoendes = new ArrayList<>();
-        for(int i=0; i<cijfersLijst.size(); i++){
-            if(cijfersLijst.get(i).getCijfer() < 5.5){
-                onvoldoendes.add(cijfersLijst.get(i));
+        for(int i=0; i< CijfersLijst.getCijferList().size(); i++){
+            if(CijfersLijst.getCijferList().get(i).getCijfer() < 5.5){
+                onvoldoendes.add(CijfersLijst.getCijferList().get(i));
             }
         }
         if(onvoldoendes.size() <= 0){
@@ -35,9 +34,9 @@ public class Statistieken {
     public String voldoendesFilteren(){
         String ret = "";
         ArrayList<Cijfer> voldoendes = new ArrayList<>();
-        for(int i=0; i<cijfersLijst.size(); i++){
-            if(cijfersLijst.get(i).getCijfer() >= 5.5){
-                voldoendes.add(cijfersLijst.get(i));
+        for(int i=0; i<CijfersLijst.getCijferList().size(); i++){
+            if(CijfersLijst.getCijferList().get(i).getCijfer() >= 5.5){
+                voldoendes.add(CijfersLijst.getCijferList().get(i));
             }
         }
         if(voldoendes.size() <= 0){
@@ -55,15 +54,15 @@ public class Statistieken {
     public String getVoldoendeOnvoldoendeProcent(){
         String ret = "";
         ArrayList<Cijfer> voldoendes = new ArrayList<>();
-        for(int i=0; i<cijfersLijst.size(); i++){
-            if(cijfersLijst.get(i).getCijfer() >= 5.5){
-                voldoendes.add(cijfersLijst.get(i));
+        for(int i=0; i<CijfersLijst.getCijferList().size(); i++){
+            if(CijfersLijst.getCijferList().get(i).getCijfer() >= 5.5){
+                voldoendes.add(CijfersLijst.getCijferList().get(i));
             }
         }
         ArrayList<Cijfer> onvoldoendes = new ArrayList<>();
-        for(int i=0; i<cijfersLijst.size(); i++){
-            if(cijfersLijst.get(i).getCijfer() < 5.5){
-                onvoldoendes.add(cijfersLijst.get(i));
+        for(int i=0; i<CijfersLijst.getCijferList().size(); i++){
+            if(CijfersLijst.getCijferList().get(i).getCijfer() < 5.5){
+                onvoldoendes.add(CijfersLijst.getCijferList().get(i));
             }
         }
         if(voldoendes.size() == 0 && onvoldoendes.size() == 0) {
@@ -87,9 +86,9 @@ public class Statistieken {
     public String getStudentMetMeesteExamensGehaald() {
         String ret = "";
         ArrayList<Cijfer> voldoendes = new ArrayList<>();
-        for(int i=0; i<cijfersLijst.size(); i++){
-            if(Double.compare(cijfersLijst.get(i).getCijfer(), 5.5) >= 0){
-                voldoendes.add(cijfersLijst.get(i));
+        for(int i=0; i<CijfersLijst.getCijferList().size(); i++){
+            if(Double.compare(CijfersLijst.getCijferList().get(i).getCijfer(), 5.5) >= 0){
+                voldoendes.add(CijfersLijst.getCijferList().get(i));
             }
         }
         ArrayList<Integer> aantalExamensGehaaldPerStudent = new ArrayList<>();
@@ -119,10 +118,10 @@ public class Statistieken {
         String studentId = userInput.nextLine();
         int aantal = 0;
         ArrayList<String> examens = new ArrayList<>();
-        for(int i=0; i<cijfersLijst.size(); i++){
-            if((cijfersLijst.get(i).getStudentID() == Integer.parseInt(studentId))
-                    && (Double.compare(cijfersLijst.get(i).getCijfer(), 5.5) >= 0)){
-                examens.add(cijfersLijst.get(i).getExamenNaam());
+        for(int i=0; i<CijfersLijst.getCijferList().size(); i++){
+            if((CijfersLijst.getCijferList().get(i).getStudentID() == Integer.parseInt(studentId))
+                    && (Double.compare(CijfersLijst.getCijferList().get(i).getCijfer(), 5.5) >= 0)){
+                examens.add(CijfersLijst.getCijferList().get(i).getExamenNaam());
                 aantal++;
             }
         }
@@ -139,10 +138,10 @@ public class Statistieken {
     public void getAllBehaaldeExamensStudent() {
         int aantal = 0;
         ArrayList<String> examens = new ArrayList<>();
-        for(int i=0; i<cijfersLijst.size(); i++){
-            if((cijfersLijst.get(i).getStudentID() == Student.zoekStudentViaID(Login.getCurrentUser()).getStudentNummer())
-                    && (Double.compare(cijfersLijst.get(i).getCijfer(), 5.5) >= 0)){
-                examens.add(cijfersLijst.get(i).getExamenNaam());
+        for(int i=0; i<CijfersLijst.getCijferList().size(); i++){
+            if((CijfersLijst.getCijferList().get(i).getStudentID() == Student.zoekStudentViaID(Login.getCurrentUser()).getStudentNummer())
+                    && (Double.compare(CijfersLijst.getCijferList().get(i).getCijfer(), 5.5) >= 0)){
+                examens.add(CijfersLijst.getCijferList().get(i).getExamenNaam());
                 aantal++;
             }
         }
@@ -162,10 +161,10 @@ public class Statistieken {
         System.out.println("Voer de examen in:");
         String examenNaam = userInput.nextLine();
         boolean check = false;
-        for(int i=0; i<cijfersLijst.size(); i++){
-            if((cijfersLijst.get(i).getStudentID() == Integer.parseInt(studentId))
-                    && (Double.compare(cijfersLijst.get(i).getCijfer(), 5.5) >= 0)
-                    && (examenNaam.equals(cijfersLijst.get(i).getExamenNaam()))){
+        for(int i=0; i<CijfersLijst.getCijferList().size(); i++){
+            if((CijfersLijst.getCijferList().get(i).getStudentID() == Integer.parseInt(studentId))
+                    && (Double.compare(CijfersLijst.getCijferList().get(i).getCijfer(), 5.5) >= 0)
+                    && (examenNaam.equals(CijfersLijst.getCijferList().get(i).getExamenNaam()))){
                 check = true;
                 break;
             }
@@ -182,10 +181,10 @@ public class Statistieken {
         System.out.println("Voer de examen in:");
         String examenNaam = userInput.nextLine();
         boolean check = false;
-        for (int i = 0; i < cijfersLijst.size(); i++) {
-            if ((cijfersLijst.get(i).getStudentID() == Student.zoekStudentViaID(Login.getCurrentUser()).getStudentNummer())
-                    && (Double.compare(cijfersLijst.get(i).getCijfer(), 5.5) >= 0)
-                    && (examenNaam.equals(cijfersLijst.get(i).getExamenNaam()))) {
+        for (int i = 0; i < CijfersLijst.getCijferList().size(); i++) {
+            if ((CijfersLijst.getCijferList().get(i).getStudentID() == Student.zoekStudentViaID(Login.getCurrentUser()).getStudentNummer())
+                    && (Double.compare(CijfersLijst.getCijferList().get(i).getCijfer(), 5.5) >= 0)
+                    && (examenNaam.equals(CijfersLijst.getCijferList().get(i).getExamenNaam()))) {
                 check = true;
                 break;
             }
