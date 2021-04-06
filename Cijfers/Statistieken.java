@@ -84,30 +84,6 @@ public class Statistieken {
         return ret;
     }
 
-    // Gemiddelde van de cijfers op basis van de naam van de id van een student (Done)
-    public void gemiddeldeCijferStudent(int studentId){
-        double totaalcijfer = 0;
-        for(int i=0; i<cijfersLijst.size(); i++){
-            if(cijfersLijst.get(i).getStudentID() == studentId){
-                totaalcijfer += cijfersLijst.get(i).getCijfer();
-            }
-        }
-        double gemcijfer = totaalcijfer/(cijfersLijst.size()-1);
-        System.out.println("De gemiddelde van studentId '" + studentId + "' is " + gemcijfer);
-    }
-
-    // Gemiddelde van de cijfers op basis van de naam van de examen
-    public void gemiddeldeCijferExamen(String naam){
-        double totaalcijfer = 0;
-        for(int i=0; i<cijfersLijst.size(); i++) {
-            if (cijfersLijst.get(i).getExamenNaam().equals(naam)) {
-                totaalcijfer += cijfersLijst.get(i).getCijfer();
-            }
-        }
-        double gemcijfer = totaalcijfer/(cijfersLijst.size()-1);
-        System.out.println("De gemiddelde van examennaam '" + naam + "' is " + gemcijfer);
-    }
-
     public String getStudentMetMeesteExamensGehaald() {
         String ret = "";
         ArrayList<Cijfer> voldoendes = new ArrayList<>();
@@ -198,7 +174,7 @@ public class Statistieken {
             System.out.println("Student is geslaagd voor deze examen");
         }
         else {
-            System.out.println("Student is niet geslaagd voor deze examen");
+            System.out.println("Student is niet geslaagd voor deze examen of de examen bestaat niet");
         }
     }
 
@@ -217,7 +193,7 @@ public class Statistieken {
         if (check) {
             System.out.println("Student is geslaagd voor deze examen");
         } else {
-            System.out.println("Student is niet geslaagd voor deze examen");
+            System.out.println("Student is niet geslaagd voor deze examen of de examen bestaat niet");
         }
     }
 }

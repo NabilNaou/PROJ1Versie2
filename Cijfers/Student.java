@@ -9,18 +9,9 @@ public class Student extends Gebruiker
     protected CijfersLijst persoonlijkeCijferlijst;
     public int studentNummer;
 
-    public void getPersoonlijkeCijferlijst() {
-        ArrayList<Double> lijst = persoonlijkeCijferlijst.getcijfer();
-        for(int i = 0; i < lijst.size(); i++){
-            System.out.println(lijst.get(i));
-        }
-
-    }
-
     public Student(int studentNummer, String naam, String achternaam, String wachtwoord) {
         super(naam, achternaam, wachtwoord);
         this.studentNummer = studentNummer;
-        persoonlijkeCijferlijst = new CijfersLijst();
     }
 
     // Get all data for every student (id,name,lastname)
@@ -67,10 +58,6 @@ public class Student extends Gebruiker
         }return false;
     }
 
-    public void addcijfer(Cijfer cijfer){
-        Student student = zoekStudentViaID(Login.getCurrentUser());
-        student.persoonlijkeCijferlijst.addCijfer(cijfer);
-    }
     public static void studentVerwijderen() {
         System.out.println("Welk student wilt u verwijderen?");
         String verwijderen = userInput.nextLine();

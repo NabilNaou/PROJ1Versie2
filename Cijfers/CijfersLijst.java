@@ -7,14 +7,6 @@ public class CijfersLijst {
         cijferList.add(cijfer);
     }
 
-    public ArrayList<Double> getcijfer() {
-        ArrayList<Double> lijst = new ArrayList<Double>();
-        Cijfer cijfer = null;
-        for(int i = 0; i < cijferList.size(); i++){
-            lijst.add(cijfer.getCijfer());
-            }return lijst;
-        }
-
     public static ArrayList<Cijfer> getCijferList(){
         return cijferList;
     }

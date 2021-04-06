@@ -31,10 +31,14 @@ public class MainMenu {
         out.println(" 3) Nieuw Inschrijving");
         out.println(" 4) Student Verwijderen");
         out.println(" 5) Examen afnemen");
-        out.println(" 6) Is student geslaagd voor test?");
-        out.println(" 7) Is student voor het examen geslaagd?");
-        out.println(" 8) Student met meeste examens gehaald");
-        out.println(" 9) ////");
+        out.println(" 6) haal lijst met onvoldoendes op");
+        out.println(" 7) haal krijg lijst met voldoendes op");
+        out.println(" 8) Krijg de percentage voldoende/onvoldoende");
+        out.println(" 9) De student die de meeste examens heeft gehaald");
+        out.println(" 10) Haal al de behaalde examens van een specifieke student op");
+        out.println(" 11) Haal alle behaalde examens op van de ingelogde gebruiker");
+        out.println(" 12) Check of een specifieke student geslaagd is voor een bepaalde examen");
+        out.println(" 13) Check ingelogde gebruiker geslaagd is voor een bepaalde examen");
         out.println(" 0) Exit");
         out.println("Uw keuze:");
         StandardAction();
@@ -75,27 +79,54 @@ public class MainMenu {
                 StandardAction();
             }
             case "6" -> {
-                out.println("Is student geslaagd voor test?");
+                Statistieken statistieken = new Statistieken();
+                out.println("haal lijst met onvoldoendes op");
+                statistieken.onvoldoendesFilteren();
                 StandardAction();
-                //TODO: Jarrel: actie aanmaken om te kijken of student boven de voldoende punten staat.
             }
             case "7" -> {
-                out.println("Welk exames heeft student gehaald?");
+                Statistieken statistieken = new Statistieken();
+                out.println("haal krijg lijst met voldoendes op");
+                statistieken.voldoendesFilteren();
                 StandardAction();
-                //TODO: Jarrel:
             }
             case "8" -> {
-                out.println("Welke student heeft de meeste examens gehaald?");
-                Examinator.meesteExames();
+                Statistieken statistieken = new Statistieken();
+                out.println("Krijg de percentage voldoende/onvoldoende");
+                statistieken.getVoldoendeOnvoldoendeProcent();
                 StandardAction();
             }
             case "9" -> {
-/*              out.println("Examen Inschrijven");
-                Student.nieuweInschrijving();
-*/
-                out.println();
+                Statistieken statistieken = new Statistieken();
+                out.println("De student die de meeste examens heeft gehaald");
+                statistieken.getStudentMetMeesteExamensGehaald();
                 StandardAction();
             }
+            case "10" -> {
+                Statistieken statistieken = new Statistieken();
+                out.println("Haal al de behaalde examens van een specifieke student op");
+                statistieken.getAllBehaaldeExamensStudentId();
+                StandardAction();
+            }
+            case "11" -> {
+                Statistieken statistieken = new Statistieken();
+                out.println("Haal alle behaalde examens op van de ingelogde gebruiker");
+                statistieken.getAllBehaaldeExamensStudent();
+                StandardAction();
+            }
+            case "12" -> {
+                Statistieken statistieken = new Statistieken();
+                out.println("Check of een specifieke student geslaagd is voor een bepaalde examen");
+                statistieken.checkExamenGeslaagdStudentId();
+                StandardAction();
+            }
+            case "13" -> {
+                Statistieken statistieken = new Statistieken();
+                out.println("Check ingelogde gebruiker geslaagd is voor een bepaalde examen");
+                statistieken.checkExamenGeslaagdStudentId();
+                StandardAction();
+            }
+
             case "0" -> {
                 out.println("Succesfully Exited App...");
                 exit(0);

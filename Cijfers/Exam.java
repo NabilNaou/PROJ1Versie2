@@ -14,6 +14,10 @@ public class Exam
         Database.alleExamens.add(this);
     }
 
+    public String getExamenNaam() {
+        return ExamenNaam;
+    }
+
     public static void startExamen(int beslissing){
         int stuID = Login.getCurrentUser();
         Exam nieuw;
