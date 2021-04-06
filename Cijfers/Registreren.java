@@ -59,14 +59,14 @@ public class Registreren {
             }
         } else if (userInput.equals("2")) {
             Details();
-            userID = Database.Examinatorlijst.size() + 1; //increment number
+            userID = Database.examinatorlijst.size() + 1; //increment number
             Examinator newEx = new Examinator(userID, userName, userSurname, userPW);
-            Database.Examinatorlijst.add(newEx);
+            Database.examinatorlijst.add(newEx);
 
-            for (int i = 0; i < Database.Examinatorlijst.size(); i++) {
-                tempUser = Database.Examinatorlijst.get(i).getNaam();
-                tempPass = Database.Examinatorlijst.get(i).getWachtwoord();
-                Login.currentUser = Database.Examinatorlijst.get(i).getId();
+            for (int i = 0; i < Database.examinatorlijst.size(); i++) {
+                tempUser = Database.examinatorlijst.get(i).getNaam();
+                tempPass = Database.examinatorlijst.get(i).getWachtwoord();
+                Login.currentUser = Database.examinatorlijst.get(i).getId();
                 if (userName.equals(tempUser) && userPW.equals(tempPass)) {
                     System.out.println("Examinator geregistreerd");
                     registered = true;

@@ -1,5 +1,3 @@
-import java.sql.SQLOutput;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Login {
@@ -62,10 +60,10 @@ public class Login {
             } else if (userInput.equals("2")) {
                 System.out.println("Examinator gekozen...");
                 if(infoReq()) {
-                    for (int i = 0; i < Database.Examinatorlijst.size(); i++) {
-                        tempUser = Database.Examinatorlijst.get(i).getNaam();
-                        tempPass = Database.Examinatorlijst.get(i).getWachtwoord();
-                        currentUser = Database.Examinatorlijst.get(i).getId();
+                    for (int i = 0; i < Database.examinatorlijst.size(); i++) {
+                        tempUser = Database.examinatorlijst.get(i).getNaam();
+                        tempPass = Database.examinatorlijst.get(i).getWachtwoord();
+                        currentUser = Database.examinatorlijst.get(i).getId();
                         if (userAndPassCheck()) {
                             return correct = true;
                         }

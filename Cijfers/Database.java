@@ -10,8 +10,8 @@ public class Database {
             add(stuLijst = new Student(2,"tim","Kapel", "tim123"));
         }
     };
-    
-    public static ArrayList<Examinator> Examinatorlijst = new ArrayList<>();
+
+    public static ArrayList<Examinator> examinatorlijst = new ArrayList<>();
     public static ArrayList<Exam> alleExamens = new ArrayList<>();
     public static ArrayList<Student> AutoExamenDeelnemers = new ArrayList<>();
     public static ArrayList<Student> VaarExamenDeelnemers = new ArrayList<>();

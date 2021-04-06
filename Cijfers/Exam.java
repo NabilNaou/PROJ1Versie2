@@ -4,12 +4,9 @@ import static java.lang.System.in;
 
 public class Exam
 {
-
-
     private String ExamenNaam;
     protected int inlogid = Login.getCurrentUser();
     Student huidig = Student.zoekStudentViaID(inlogid);
-
 
     //Maakt een nieuwe exame aan de naam die je meegeeft en met een lijst van deelnemers.
     public Exam(String ExamenNaam){
@@ -24,11 +21,10 @@ public class Exam
         String Naam = Student.zoekStudentViaID(stuID).getNaam();
 
         if(beslissing == 1){
-            nieuw = new Exam("autoexamen");
+            nieuw = new Exam("Autoexamen");
         }else{
             nieuw = new Exam("Bootexamen");
         }
-
 
         int a = 0;
         int aantalgoed = 0;
@@ -53,37 +49,5 @@ public class Exam
         Cijfer cijfer = new Cijfer(aantalgoed, nieuw, huidig);
         huidig.persoonlijkeCijferlijst.addCijfer(cijfer);
         System.out.println("Uw heeft " + aantalgoed+ " vragen goed.");
-    }
-
-    //Nabil: Voegt deelnemer toe aan examen
-    public void addDeelnemer(Student student, int typeExame){
-        if(typeExame == 1) {
-            Database.AutoExamenDeelnemers.add(student);
-        }else{
-            if(typeExame == 2){
-                Database.VaarExamenDeelnemers.add(student);
-            }
-        }
-
-    }
-
-    public void addExamen(Exam examen){
-        Database.alleExamens.add(examen);
-    }
-
-
-    //Nabil: Returnt examen naam
-    public String getExamenNaam(){
-        return ExamenNaam;
-    }
-
-    //Nabil: Zoekt examen op naam, en returnt heel examen object.
-    public static Exam zoekExamen(String examenNaam){
-        for(int i = 0; i < Database.alleExamens.size(); i++){
-            if(Database.alleExamens.get(i).getExamenNaam().equalsIgnoreCase(examenNaam)){
-                return Database.alleExamens.get(i);
-            }
-        }
-        return null;
     }
 }
