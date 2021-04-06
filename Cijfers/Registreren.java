@@ -37,17 +37,17 @@ public class Registreren {
             // Asks user for name, surname and password
             Details();
             // Inserts userID by taking the arraylist size and adding +1
-            userID = Database.Studentenlijst.size() + 1; //increment number
+            userID = Database.studentenLijst.size() + 1; //increment number
             Student newStudent = new Student(userID, userName, userSurname, userPW);
             Student.addStudent(newStudent);
             // Used a for-loop to check if the user now exists in the arraylist
-            for (int i = 0; i < Database.Studentenlijst.size(); i++) {
+            for (int i = 0; i < Database.studentenLijst.size(); i++) {
                 // tempUser is used a temporary variable that acts as username while comparing it to the users input
-                tempUser = Database.Studentenlijst.get(i).getNaam();
+                tempUser = Database.studentenLijst.get(i).getNaam();
                 // tempUser is used a temporary variable that acts as password while comparing it to the users input
-                tempPass = Database.Studentenlijst.get(i).getWachtwoord();
+                tempPass = Database.studentenLijst.get(i).getWachtwoord();
                 // Makes currentUser the same as the users ID
-                Login.currentUser = Database.Studentenlijst.get(i).getId();
+                Login.currentUser = Database.studentenLijst.get(i).getId();
                 // Compares user input with all options in the arraylist for both username and password
                 if (userName.equals(tempUser) && userPW.equals(tempPass)) {
                     System.out.println("Student geregistreerd");

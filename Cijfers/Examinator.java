@@ -33,13 +33,13 @@ public class Examinator extends Gebruiker
     }
 
     public static void meesteExames() {
-        if (Database.Studentenlijst.size() == 0) {
+        if (Database.studentenLijst.size() == 0) {
             System.out.println(" niemand heeft nog een examen afgenomen");
         } else {
-            Student index = Database.Studentenlijst.get(0);
+            Student index = Database.studentenLijst.get(0);
             int huidigeaantal = 0;
-            for (int i = 0; i <= Database.Studentenlijst.size(); i++) {
-                index = Database.Studentenlijst.get(i);
+            for (int i = 0; i <= Database.studentenLijst.size(); i++) {
+                index = Database.studentenLijst.get(i);
                 if (huidigeaantal < index.persoonlijkeCijferlijst.getcijfer().size()) {
                     huidigeaantal = index.persoonlijkeCijferlijst.getcijfer().size();
                 }

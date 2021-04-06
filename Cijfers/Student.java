@@ -29,7 +29,7 @@ public class Student extends Gebruiker
 
     // Get all data for every student (id,name,lastname)
     public static void getAllStudents() {
-        for (Student student : Database.Studentenlijst )
+        for (Student student : Database.studentenLijst )
         {
             System.out.println(student.getId() + " " + student.getNaam() + " " + student.getAchternaam());
         }
@@ -37,9 +37,9 @@ public class Student extends Gebruiker
 
     //Nabil: Zoekt naar de id van een student in een studentenlijst
     public static Student zoekStudentViaID(int studentID){
-        for(int i = 0; i < Database.Studentenlijst.size(); i++){
-            if(Database.Studentenlijst.get(i).getId() == studentID) {
-                return Database.Studentenlijst.get(i);
+        for(int i = 0; i < Database.studentenLijst.size(); i++){
+            if(Database.studentenLijst.get(i).getId() == studentID) {
+                return Database.studentenLijst.get(i);
             }
         }
         return null;
@@ -113,6 +113,6 @@ public class Student extends Gebruiker
     }
     // New student
     public static void addStudent(Student newStudent){
-        Database.Studentenlijst.add(newStudent);
+        Database.studentenLijst.add(newStudent);
     }
 }

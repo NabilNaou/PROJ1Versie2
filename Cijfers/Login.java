@@ -47,10 +47,10 @@ public class Login {
             if (userInput.equals("1")) {
                 System.out.println("Student gekozen...");
                 if(infoReq()){
-                    for (int i = 0; i < Database.Studentenlijst.size(); i++) {
-                        tempUser = Database.Studentenlijst.get(i).getNaam();
-                        tempPass = Database.Studentenlijst.get(i).getWachtwoord();
-                        currentUser = Database.Studentenlijst.get(i).getId();
+                    for (int i = 0; i < Database.studentenLijst.size(); i++) {
+                        tempUser = Database.studentenLijst.get(i).getNaam();
+                        tempPass = Database.studentenLijst.get(i).getWachtwoord();
+                        currentUser = Database.studentenLijst.get(i).getId();
                         System.out.println("Switching to user and password check method");
                         if (userAndPassCheck()) {
                             return correct = true;

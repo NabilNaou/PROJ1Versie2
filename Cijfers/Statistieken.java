@@ -134,10 +134,10 @@ public class Statistieken {
         }
         ArrayList<Integer> aantalExamensGehaaldPerStudent = new ArrayList<>();
 
-        for(int i=0; i<Database.Studentenlijst.size(); i++) {
+        for(int i=0; i<Database.studentenLijst.size(); i++) {
             int k = 0;
             for(int j=0; j<voldoendes.size(); i++){
-                if(voldoendes.get(j).getStudentID() == Database.Studentenlijst.get(i).getId()){
+                if(voldoendes.get(j).getStudentID() == Database.studentenLijst.get(i).getId()){
                     k++;
                 }
             }
@@ -148,7 +148,7 @@ public class Statistieken {
         int maxAantal = Collections.max(aantalExamensGehaaldPerStudent);
         for(int i=0; i<aantalExamensGehaaldPerStudent.size(); i++){
             if(maxAantal == aantalExamensGehaaldPerStudent.get(i)){
-                ret += Database.Studentenlijst.get(i).getNaam() + "\n";
+                ret += Database.studentenLijst.get(i).getNaam() + "\n";
             }
         }
         return ret;
