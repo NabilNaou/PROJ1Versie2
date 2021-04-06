@@ -174,7 +174,8 @@ public class Statistieken {
         }
     }
 
-    public void getAllBehaaldeExamensStudent() {
+    public String getAllBehaaldeExamensStudent() {
+        String ret = "";
         int aantal = 0;
         ArrayList<String> examens = new ArrayList<>();
         for(int i=0; i<cijfersLijst.size(); i++){
@@ -184,14 +185,15 @@ public class Statistieken {
                 aantal++;
             }
         }
-        System.out.println("Aantal behaalde examens voor studentnaam '" + Student.zoekStudentViaID(Login.getCurrentUser()).getNaam() + "' is " + aantal);
+        ret = "Aantal behaalde examens voor studentnaam '" + Student.zoekStudentViaID(Login.getCurrentUser()).getNaam() + "' is " + aantal + "\n";
         if(examens.size() > 0){
-            System.out.println("De student heeft de volgende examens gehaald:");
+            ret += "De student heeft de volgende examens gehaald:\n";
 
             for(int i=0; i<examens.size(); i++){
-                System.out.println(examens.get(i));
+                ret += examens.get(i) + "\n";
             }
         }
+        return ret;
     }
 
     public void checkExamenGeslaagdStudentId() {
@@ -212,7 +214,7 @@ public class Statistieken {
             System.out.println("Student is geslaagd voor deze examen");
         }
         else {
-            System.out.println("Student is niet geslaagd voor deze examen");
+            System.out.println("Student is niet geslaagd voor deze examen\nof de examen bestaat niet");
         }
     }
 
@@ -231,7 +233,7 @@ public class Statistieken {
         if (check) {
             System.out.println("Student is geslaagd voor deze examen");
         } else {
-            System.out.println("Student is niet geslaagd voor deze examen");
+            System.out.println("Student is niet geslaagd voor deze examen\nof de examen bestaat niet");
         }
     }
 }
