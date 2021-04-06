@@ -1,11 +1,9 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import static java.lang.System.in;
 
 public class Exam
 {
-    public static Database database;
 
 
     private String ExamenNaam;
@@ -16,7 +14,7 @@ public class Exam
     //Maakt een nieuwe exame aan de naam die je meegeeft en met een lijst van deelnemers.
     public Exam(String ExamenNaam){
         this.ExamenNaam = ExamenNaam;
-        database.alleExamens.add(this);
+        Database.alleExamens.add(this);
     }
 
     public static void startExamen(int beslissing){
@@ -60,17 +58,17 @@ public class Exam
     //Nabil: Voegt deelnemer toe aan examen
     public void addDeelnemer(Student student, int typeExame){
         if(typeExame == 1) {
-            database.AutoExamenDeelnemers.add(student);
+            Database.AutoExamenDeelnemers.add(student);
         }else{
             if(typeExame == 2){
-                database.VaarExamenDeelnemers.add(student);
+                Database.VaarExamenDeelnemers.add(student);
             }
         }
 
     }
 
     public void addExamen(Exam examen){
-        database.alleExamens.add(examen);
+        Database.alleExamens.add(examen);
     }
 
 
@@ -81,9 +79,9 @@ public class Exam
 
     //Nabil: Zoekt examen op naam, en returnt heel examen object.
     public static Exam zoekExamen(String examenNaam){
-        for(int i = 0; i < database.alleExamens.size(); i++){
-            if(database.alleExamens.get(i).getExamenNaam().equalsIgnoreCase(examenNaam)){
-                return database.alleExamens.get(i);
+        for(int i = 0; i < Database.alleExamens.size(); i++){
+            if(Database.alleExamens.get(i).getExamenNaam().equalsIgnoreCase(examenNaam)){
+                return Database.alleExamens.get(i);
             }
         }
         return null;

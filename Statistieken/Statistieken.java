@@ -7,7 +7,6 @@ import static java.lang.System.out;
 public class Statistieken {
     private ArrayList<Exam> examens;
     private ArrayList<Cijfer> cijfersLijst = CijfersLijst.getCijferList();
-    private static Database database;
     private static Scanner userInput = new Scanner(in);
 
     //Dit heeft jarrel niet gemaakt
@@ -135,10 +134,10 @@ public class Statistieken {
         }
         ArrayList<Integer> aantalExamensGehaaldPerStudent = new ArrayList<>();
 
-        for(int i=0; i<database.Studentenlijst.size(); i++) {
+        for(int i=0; i<Database.Studentenlijst.size(); i++) {
             int k = 0;
             for(int j=0; j<voldoendes.size(); i++){
-                if(voldoendes.get(j).getStudentID() == database.Studentenlijst.get(i).getId()){
+                if(voldoendes.get(j).getStudentID() == Database.Studentenlijst.get(i).getId()){
                     k++;
                 }
             }
@@ -149,7 +148,7 @@ public class Statistieken {
         int maxAantal = Collections.max(aantalExamensGehaaldPerStudent);
         for(int i=0; i<aantalExamensGehaaldPerStudent.size(); i++){
             if(maxAantal == aantalExamensGehaaldPerStudent.get(i)){
-                ret += database.Studentenlijst.get(i).getNaam() + "\n";
+                ret += Database.Studentenlijst.get(i).getNaam() + "\n";
             }
         }
         return ret;

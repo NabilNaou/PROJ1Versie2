@@ -6,7 +6,6 @@ import static java.lang.System.in;
 public class Student extends Gebruiker
 {
     private static Scanner userInput = new Scanner(in);
-    public static Database database;
     protected CijfersLijst persoonlijkeCijferlijst;
 
     public void getPersoonlijkeCijferlijst() {
@@ -30,7 +29,7 @@ public class Student extends Gebruiker
 
     // Get all data for every student (id,name,lastname)
     public static void getAllStudents() {
-        for (Student student : database.Studentenlijst )
+        for (Student student : Database.Studentenlijst )
         {
             System.out.println(student.getId() + " " + student.getNaam() + " " + student.getAchternaam());
         }
@@ -38,9 +37,9 @@ public class Student extends Gebruiker
 
     //Nabil: Zoekt naar de id van een student in een studentenlijst
     public static Student zoekStudentViaID(int studentID){
-        for(int i = 0; i < database.Studentenlijst.size(); i++){
-            if(database.Studentenlijst.get(i).getId() == studentID) {
-                return database.Studentenlijst.get(i);
+        for(int i = 0; i < Database.Studentenlijst.size(); i++){
+            if(Database.Studentenlijst.get(i).getId() == studentID) {
+                return Database.Studentenlijst.get(i);
             }
         }
         return null;
@@ -53,9 +52,9 @@ public class Student extends Gebruiker
         Student student = zoekStudentViaID(Login.getCurrentUser());
         int temp = userInput.nextInt();
         if(temp == 1){
-            database.AutoExamenDeelnemers.add(student);
+            Database.AutoExamenDeelnemers.add(student);
         }else if ( temp == 2){
-            database.VaarExamenDeelnemers.add(student);
+            Database.VaarExamenDeelnemers.add(student);
         }
         System.out.println(Student.zoekStudentViaID(Login.getCurrentUser()).getNaam() + " is succesvol ingeschreven voor " + temp);
         MainMenu.HoofdMenuText();
@@ -71,16 +70,16 @@ public class Student extends Gebruiker
         System.out.println("voor welke exame wilt U deze student verwijderen? type 1 voor auto of 2 voor vaar");
         int type = userInput.nextInt();
         if(type == 1){
-            for (int i = 0; i < database.AutoExamenDeelnemers.size(); i++){
-                if(verwijderen.equalsIgnoreCase(database.AutoExamenDeelnemers.get(i).getNaam())){
-                    database.AutoExamenDeelnemers.remove(i);
+            for (int i = 0; i < Database.AutoExamenDeelnemers.size(); i++){
+                if(verwijderen.equalsIgnoreCase(Database.AutoExamenDeelnemers.get(i).getNaam())){
+                    Database.AutoExamenDeelnemers.remove(i);
                     System.out.println(verwijderen + " is verwijderd.");
                     showRemainingStudents(1);
                 }
             }
         }else if (type == 2){
-            for (int i = 0; i < database.AutoExamenDeelnemers.size(); i++) {
-                database.VaarExamenDeelnemers.remove(i);
+            for (int i = 0; i < Database.AutoExamenDeelnemers.size(); i++) {
+                Database.VaarExamenDeelnemers.remove(i);
                 System.out.println(verwijderen + " is verwijderd.");
                 showRemainingStudents(2);
             }
@@ -90,12 +89,12 @@ public class Student extends Gebruiker
     public static void showRemainingStudents(int type){
         System.out.println("Overblijvende studenten: ");
         if(type == 1) {
-            for (int i = 0; i < database.AutoExamenDeelnemers.size(); i++) {
-                System.out.print(database.AutoExamenDeelnemers.get(i).getNaam() + ", ");
+            for (int i = 0; i < Database.AutoExamenDeelnemers.size(); i++) {
+                System.out.print(Database.AutoExamenDeelnemers.get(i).getNaam() + ", ");
             }
         }else if(type == 2){
-            for (int i = 0; i < database.VaarExamenDeelnemers.size(); i++) {
-                System.out.print(database.VaarExamenDeelnemers.get(i).getNaam() + ", ");
+            for (int i = 0; i < Database.VaarExamenDeelnemers.size(); i++) {
+                System.out.print(Database.VaarExamenDeelnemers.get(i).getNaam() + ", ");
             }
         }
         System.out.println();
@@ -103,6 +102,6 @@ public class Student extends Gebruiker
     }
     // New student
     public static void addStudent(Student newStudent){
-        database.Studentenlijst.add(newStudent);
+        Database.Studentenlijst.add(newStudent);
     }
 }
