@@ -34,6 +34,7 @@ public class Vraag {
     public String getAntwoord(){
         return answer;
     }
+
     public Integer newID(){
         ID++;
         return ID;

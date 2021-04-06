@@ -9,22 +9,6 @@ public class Statistieken {
     private ArrayList<Cijfer> cijfersLijst = CijfersLijst.getCijferList();
     private static Scanner userInput = new Scanner(in);
 
-    //Dit heeft jarrel niet gemaakt
-    // Gemiddelde van de exames op basis van de naam van de id van een student (Done)
-    /*public Integer getGemiddeldeByID(int StudentID)
-    {
-        int examensSize = examens.size();
-        int cijfersOpgeteld = 0;
-    for(Exam exam : examens)
-    {
-        // if(exam.getStudentID() == StudentID)
-        {
-            cijfersOpgeteld = cijfersOpgeteld + exam.getCijfer(1);
-        }
-    }
-        return cijfersOpgeteld / examensSize;
-    }*/
-
     // Jarrel -- < warning! >
     // Onvoldoendes filteren
     public String onvoldoendesFilteren(){

@@ -26,14 +26,6 @@ public class Vragenlijst {
         }
     }
 
-    public void removeQuestionByID(int a, Integer ID) {
-        if( a == 1) {
-            AutoCollection.removeIf(vraag -> ID.equals(vraag.getID()));
-        }else{
-            BotenCollection.removeIf(vraag -> ID.equals(vraag.getID()));
-        }
-    }
-
     public ArrayList<Vraag> shufflelijst(ArrayList a) {
         ArrayList<Vraag> Test = new ArrayList<Vraag>();
         Test = a;

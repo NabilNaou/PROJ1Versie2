@@ -12,6 +12,7 @@ public class Cijfer {
     public double getCijfer() {
         return cijfer;
     }
+
     public Integer getStudentID(){
         return student.getStudentNummer();
     }
