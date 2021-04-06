@@ -108,6 +108,7 @@ public class MainMenu {
     }
 
     public static void main(String[] args) {
+        Database.mockdata();
         LoginScherm();
         HoofdMenuText(); // Show Hoofd menu
         //StandardAction();

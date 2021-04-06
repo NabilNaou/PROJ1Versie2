@@ -28,10 +28,6 @@ public class Examinator extends Gebruiker
 
     public static ArrayList<Examinator> getExaminatorLijst() { return examinatorLijst; }
 
-    public static void addEx(Examinator newEx){
-        examinatorLijst.add(newEx);
-    }
-
     public static void meesteExames() {
         if (Database.Studentenlijst.size() == 0) {
             System.out.println(" niemand heeft nog een examen afgenomen");
