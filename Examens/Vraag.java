@@ -1,5 +1,6 @@
-public class Vraag {
-    private int ID;
+// Josue en Michael
+public class Vraag{
+    private static int ID = 0;
     private String description;
     private String ansA;
     private String ansB;
@@ -12,6 +13,7 @@ public class Vraag {
         this.ansB = ansB;
         this.ansC = ansC;
         this.answer = answer;
+        ID = newID();
     }
 
     public String getVraag(){
@@ -34,8 +36,12 @@ public class Vraag {
         return answer;
     }
 
+    public Integer newID(){
+        ID++;
+        return ID;
+    }
+
     public Integer getID(){
         return ID;
     }
 }
-

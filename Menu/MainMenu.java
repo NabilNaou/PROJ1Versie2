@@ -2,108 +2,145 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+import static java.lang.System.*;
+
 public class MainMenu {
-    private static Scanner userInput = new Scanner(System.in);
-    private static Examen examen = new Examen();
+    private static Scanner userInput = new Scanner(in);
 
     public static void LoginScherm() {
-        if (Login.chooseLogin()) {
+        if (Login.chooseLogin())
+        {
             HoofdMenuText();
-            } else if (Registreren.registered) {
-            HoofdMenuText();
-            }
         }
-
+        else {
+            LoginScherm();
+        }
+    }
         //student       Examinator
-        //naam = Bob    Jan
+        //naam = bob    jan
         //ww = bob123   jan123
 
     public static void StandardAction() {
-
         String input = userInput.nextLine();
         Keuze(input); // Input de keuze
     }
     public static void HoofdMenuText(){
-        System.out.println("Menu");
-        System.out.println(" 1) Lijst met examens");
-        System.out.println(" 2) Lijst met studenten");
-        System.out.println(" 3) Nieuw Inschrijving");
-        System.out.println(" 4) Student Verwijderen");
-        System.out.println(" 5) Examen Inschrijven");
-        System.out.println(" 6) Examen afnemen");
-        System.out.println(" 7) Is student geslaagd voor test?");
-        System.out.println(" 8) Is student voor het examen geslaagd?");
-        System.out.println(" 9) Student met meeste exmans gehaald");
-        System.out.println(" 0) Exit");
-        System.out.println("Uw keuze:");
+        out.println("Menu");
+        out.println(" 1) Lijst met examens");
+        out.println(" 2) Lijst met studenten");
+        out.println(" 3) Nieuw Inschrijving");
+        out.println(" 4) Student Verwijderen");
+        out.println(" 5) Examen afnemen");
+        out.println(" 6) haal lijst met onvoldoendes op");
+        out.println(" 7) haal krijg lijst met voldoendes op");
+        out.println(" 8) Krijg de percentage voldoende/onvoldoende");
+        //out.println(" 9) De student die de meeste examens heeft gehaald");
+        out.println(" 9 Haal al de behaalde examens van een specifieke student op");
+        out.println(" 10) Haal alle behaalde examens op van de ingelogde gebruiker");
+        out.println(" 11) Check of een specifieke student geslaagd is voor een bepaalde examen");
+        out.println(" 12) Check ingelogde gebruiker geslaagd is voor een bepaalde examen");
+        out.println(" 0) Exit");
+        out.println("Uw keuze:");
         StandardAction();
     }
 
     public static void Keuze(String keuze){
         switch (keuze) {
             case "1" -> {
-                System.out.println("Uw examenlijst...");
+                out.println("Uw kunt een Auto Examen of een Examen Vaarbewijs afnemen.");
                 StandardAction();
                  }
             case "2" -> {
                 if (Login.userInput.equals("2")) {
-                    System.out.println("StudentNr - Student");
+                    out.println("StudentNr - Student");
                     Student.getAllStudents();
                 } else {
-                    System.out.println("Unauthorised access");
+                    out.println("Unauthorised access");
+                    Student.getAllStudents();
                 }
                 StandardAction();
             }
             case "3" -> {
-                System.out.println("Nieuw Inschrijving");
-                StandardAction();
+                out.println("Nieuw Student Inschrijving");
+                Student.nieuweInschrijving();
             }
             case "4" -> {
-                System.out.println("Student Verwijderen");
-                StandardAction();
+                out.println("Student Verwijderen");
+                Student.studentVerwijderen();
             }
             case "5" -> {
-                System.out.println("Examen Inschrijven");
-                StandardAction();
-            }
-            case "6" -> {
-                System.out.println("Welk examen wilt u afnemen?");
-                System.out.println("Type 1 voor auto theorie.");
-                System.out.println("Type 2 voor boot theorie. ");
+                out.println("Welk examen wilt u afnemen?");
+                out.println("Type 1 voor auto theorie.");
+                out.println("Type 2 voor boot theorie. ");
                 int beslissing = userInput.nextInt();
                 if(beslissing == 1){
-                    examen.StartAutoExamen();
+                    Exam.startExamen( beslissing);
                 }
                 StandardAction();
             }
+            case "6" -> {
+                Statistieken statistieken = new Statistieken();
+                out.println("haal lijst met onvoldoendes op");
+                statistieken.onvoldoendesFilteren();
+                StandardAction();
+            }
             case "7" -> {
-                System.out.println("Is student geslaagd voor test?");
+                Statistieken statistieken = new Statistieken();
+                out.println("haal krijg lijst met voldoendes op");
+                statistieken.voldoendesFilteren();
                 StandardAction();
             }
             case "8" -> {
-                System.out.println("Is student voor het examen geslaagd?");
+                Statistieken statistieken = new Statistieken();
+                out.println("Krijg de percentage voldoende/onvoldoende");
+                statistieken.getVoldoendeOnvoldoendeProcent();
                 StandardAction();
             }
             case "9" -> {
-                System.out.println();
+                Statistieken statistieken = new Statistieken();
+                out.println("De student die de meeste examens heeft gehaald");
+                statistieken.getStudentMetMeesteExamensGehaald();
                 StandardAction();
             }
+            case "10" -> {
+                Statistieken statistieken = new Statistieken();
+                out.println("Haal al de behaalde examens van een specifieke student op");
+                statistieken.getAllBehaaldeExamensStudentId();
+                StandardAction();
+            }
+            case "11" -> {
+                Statistieken statistieken = new Statistieken();
+                out.println("Haal alle behaalde examens op van de ingelogde gebruiker");
+                statistieken.getAllBehaaldeExamensStudent();
+                StandardAction();
+            }
+            case "12" -> {
+                Statistieken statistieken = new Statistieken();
+                out.println("Check of een specifieke student geslaagd is voor een bepaalde examen");
+                statistieken.checkExamenGeslaagdStudentId();
+                StandardAction();
+            }
+            case "13" -> {
+                Statistieken statistieken = new Statistieken();
+                out.println("Check ingelogde gebruiker geslaagd is voor een bepaalde examen");
+                statistieken.checkExamenGeslaagdStudentId();
+                StandardAction();
+            }
+
             case "0" -> {
-                System.out.println("Succesfull Exit App...");
-                System.exit(0);
+                out.println("Succesfully Exited App...");
+                exit(0);
             }
             default -> {
-                System.out.println("Maak een keuze...");
+                out.println("Maak een keuze...");
                 StandardAction();
             }
         }
     }
 
-
     public static void main(String[] args) {
         LoginScherm();
-
-        //HoofdMenuText(); // Show Hoofd menu
+        HoofdMenuText(); // Show Hoofd menu
         //StandardAction();
     }
 }

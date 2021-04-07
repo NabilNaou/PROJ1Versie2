@@ -1,3 +1,4 @@
+// Michael en Jarrel
 public class Cijfer {
     private Student student;
     private Exam exam;
@@ -12,8 +13,9 @@ public class Cijfer {
     public double getCijfer() {
         return cijfer;
     }
+
     public Integer getStudentID(){
-        return student.getId();
+        return student.getStudentNummer();
     }
     public String getExamenNaam(){
         return exam.getExamenNaam();
