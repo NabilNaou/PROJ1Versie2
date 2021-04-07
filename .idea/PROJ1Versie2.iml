@@ -18,6 +18,11 @@
       <sourceFolder url="file://$MODULE_DIR$/Tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/lib" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/Database" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Cijfers" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/DB" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Examens" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Statistiek" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/Project/Cijfers" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
