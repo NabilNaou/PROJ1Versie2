@@ -1,13 +1,10 @@
-import java.lang.reflect.Array;
 import java.util.*;
-
 import static java.lang.System.in;
-import static java.lang.System.out;
 
 public class Statistieken {
     private static Scanner userInput = new Scanner(in);
 
-    // Jarrel -- < warning! >
+    // Jarrel:
     // Onvoldoendes filteren
     public String onvoldoendesFilteren(){
         String ret = "";

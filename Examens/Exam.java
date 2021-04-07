@@ -1,6 +1,8 @@
 import java.util.Scanner;
 import static java.lang.System.in;
 
+
+// Josue en Michael
 public class Exam
 {
     private String examenNaam;

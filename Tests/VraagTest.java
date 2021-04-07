@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class VraagTest {
+class VraagTest{
     Vraag vraag = new Vraag("des", "ansA", "ansB", "ansC", "answer");
     @Test
     void getVraag() {

@@ -1,8 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class GebruikerTest
-{
+class GebruikerTest{
     Gebruiker user = new Gebruiker("tim","osman","tim123");
 
     @Test

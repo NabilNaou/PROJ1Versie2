@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-class StatistiekenTest {
+class StatistiekenTest{
     // Jarrel: Test niet werkend, vanwege wijziging van Josue (Database veranderd).. Moet nog gefixed worden.
     @Test
     void onvoldoendesFilteren() {
