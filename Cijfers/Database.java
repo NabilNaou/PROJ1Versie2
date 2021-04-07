@@ -11,14 +11,7 @@ public class Database {
         }
     };
 
-    private static ArrayList<Cijfer> cijferList = new ArrayList<>(){
-        {
-            add(new Cijfer(5.5, alleExamens.get(1), studentenLijst.get(1)));
-            add(new Cijfer(5.4, alleExamens.get(1), studentenLijst.get(2)));
-            add(new Cijfer(5.6, alleExamens.get(2), studentenLijst.get(1)));
-            add(new Cijfer(5.2, alleExamens.get(2), studentenLijst.get(2)));
-        }
-    };
+    private static ArrayList<Cijfer> cijferList = new ArrayList<>();
 
     public static Examinator exLijst;
 
