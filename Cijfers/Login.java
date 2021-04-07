@@ -1,5 +1,3 @@
-import java.sql.SQLOutput;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Login {
@@ -16,6 +14,7 @@ public class Login {
     public static boolean correct;
     public static boolean userPassCheck;
 
+
     public static boolean chooseLogin() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Wilt u: 1) inloggen of 2) registreren");
@@ -23,9 +22,7 @@ public class Login {
 
         switch (userChoice)
         {
-            case "1" -> {
-                choseLogin = checkEqual();
-            }
+            case "1" -> choseLogin = checkEqual();
             case "2" -> {
                 choseLogin = false;
                 Registreren.Registration();
@@ -46,10 +43,10 @@ public class Login {
             if (userInput.equals("1")) {
                 System.out.println("Student gekozen...");
                 if(infoReq()){
-                    for (int i = 0; i < Student.studentenLijst.size(); i++) {
-                        tempUser = Student.studentenLijst.get(i).getNaam();
-                        tempPass = Student.studentenLijst.get(i).getWachtwoord();
-                        currentUser = Student.studentenLijst.get(i).getId();
+                    for (int i = 0; i < Database.studentenLijst.size(); i++) {
+                        tempUser = Database.studentenLijst.get(i).getNaam();
+                        tempPass = Database.studentenLijst.get(i).getWachtwoord();
+                        currentUser = Database.studentenLijst.get(i).getStudentNummer();
                         System.out.println("Switching to user and password check method");
                         if (userAndPassCheck()) {
                             return correct = true;
@@ -61,10 +58,10 @@ public class Login {
             } else if (userInput.equals("2")) {
                 System.out.println("Examinator gekozen...");
                 if(infoReq()) {
-                    for (int i = 0; i < Examinator.examinatorLijst.size(); i++) {
-                        tempUser = Examinator.examinatorLijst.get(i).getNaam();
-                        tempPass = Examinator.examinatorLijst.get(i).getWachtwoord();
-                        currentUser = Examinator.examinatorLijst.get(i).getId();
+                    for (int i = 0; i < Database.examinatorlijst.size(); i++) {
+                        tempUser = Database.examinatorlijst.get(i).getNaam();
+                        tempPass = Database.examinatorlijst.get(i).getWachtwoord();
+                        currentUser = Database.examinatorlijst.get(i).getId();
                         if (userAndPassCheck()) {
                             return correct = true;
                         }
