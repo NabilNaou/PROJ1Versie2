@@ -1,7 +1,6 @@
 import javax.xml.crypto.Data;
 import java.util.ArrayList;
 
-
 public class Examinator extends Gebruiker
 {
     public int id;
@@ -11,14 +10,6 @@ public class Examinator extends Gebruiker
         this.id = id;
     }
 
-//    public static Examinator exLijst;
-//
-//    public static ArrayList<Examinator> examinatorLijst = new ArrayList<>() {
-//        {
-//            add(exLijst = new Examinator(1,"Jan","wild", "jan123"));
-//        }
-//    };
-
 //    public static void meesteExames() {
 //        if (Database.studentenLijst.size() == 0) {
 //            System.out.println(" niemand heeft nog een examen afgenomen");
@@ -27,8 +18,8 @@ public class Examinator extends Gebruiker
 //            int huidigeaantal = 0;
 //            for (int i = 0; i <= Database.studentenLijst.size(); i++) {
 //                index = Database.studentenLijst.get(i);
-//                if (huidigeaantal < index.persoonlijkeCijferlijst.getcijfer().size()) {
-//                    huidigeaantal = index.persoonlijkeCijferlijst.getcijfer().size();
+//                if (huidigeaantal < index.Database.cijferList().size()) {
+//                    huidigeaantal = index.cijferList.getcijfer().size();
 //                }
 //            }
 //            System.out.println("student " + index.getNaam() + " heeft " + huidigeaantal + " examens gedaan.");

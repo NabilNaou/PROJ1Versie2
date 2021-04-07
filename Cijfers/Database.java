@@ -11,7 +11,14 @@ public class Database {
         }
     };
 
-    private static ArrayList<Cijfer> cijferList = new ArrayList<>();
+    private static ArrayList<Cijfer> cijferList = new ArrayList<>(){
+        {
+            add(new Cijfer(5.5, alleExamens.get(1), studentenLijst.get(1)));
+            add(new Cijfer(5.4, alleExamens.get(1), studentenLijst.get(2)));
+            add(new Cijfer(5.6, alleExamens.get(2), studentenLijst.get(1)));
+            add(new Cijfer(5.2, alleExamens.get(2), studentenLijst.get(2)));
+        }
+    };
 
     public static Examinator exLijst;
 
@@ -21,7 +28,6 @@ public class Database {
         }
     };
 
-    //public static ArrayList<Examinator> examinatorlijst = new ArrayList<>();
     public static ArrayList<Exam> alleExamens = new ArrayList<>();
     public static ArrayList<Student> AutoExamenDeelnemers = new ArrayList<>();
     public static ArrayList<Student> VaarExamenDeelnemers = new ArrayList<>();
