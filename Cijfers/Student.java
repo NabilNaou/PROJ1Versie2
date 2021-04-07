@@ -60,7 +60,7 @@ public class Student extends Gebruiker
     public static void studentVerwijderen() {
         System.out.println("Welk student wilt u verwijderen?");
         String verwijderen = userInput.nextLine();
-        System.out.println("voor welke exame wilt U deze student verwijderen? type 1 voor auto of 2 voor vaar");
+        System.out.println("voor welke examen wilt U deze student verwijderen? type 1 voor auto of 2 voor vaar");
         int type = userInput.nextInt();
         if(type == 1){
             for (int i = 0; i < Database.AutoExamenDeelnemers.size(); i++){

@@ -5,17 +5,17 @@ import static java.lang.System.in;
 
 public class Exam
 {
-    private String ExamenNaam;
+    private String examenNaam;
     protected int inlogid = Login.getCurrentUser();
 
     //Maakt een nieuwe exame aan de naam die je meegeeft en met een lijst van deelnemers.
     public Exam(String ExamenNaam){
-        this.ExamenNaam = ExamenNaam;
+        this.examenNaam = ExamenNaam;
         Database.alleExamens.add(this);
     }
 
     public String getExamenNaam() {
-        return ExamenNaam;
+        return examenNaam;
     }
 
     public static void startExamen(int beslissing){
