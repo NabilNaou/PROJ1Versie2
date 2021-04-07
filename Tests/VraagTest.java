@@ -1,8 +1,6 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class VraagTest {
     Vraag vraag = new Vraag("des", "ansA", "ansB", "ansC", "answer");
     @Test

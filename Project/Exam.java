@@ -1,6 +1,4 @@
-import javax.xml.crypto.Data;
 import java.util.Scanner;
-
 import static java.lang.System.in;
 
 public class Exam
@@ -50,6 +48,7 @@ public class Exam
                 aantalgoed++;
             }
         }
+
         Cijfer cijfer = new Cijfer(aantalgoed, nieuw, huidig);
         Database.addCijfer(cijfer);
         System.out.println("Uw heeft " + aantalgoed+ " vragen goed.");

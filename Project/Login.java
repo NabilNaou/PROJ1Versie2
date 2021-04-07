@@ -14,7 +14,6 @@ public class Login {
     public static boolean correct;
     public static boolean userPassCheck;
 
-
     public static boolean chooseLogin() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Wilt u: 1) inloggen of 2) registreren");

@@ -9,7 +9,6 @@ public class Registreren {
 
     public static String tempUser;
     public static String tempPass;
-    //public static int currentUser;
 
     public static boolean registered;
 

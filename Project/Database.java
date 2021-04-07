@@ -1,9 +1,8 @@
 import java.util.ArrayList;
 
-public class Database {
-
+public class Database
+{
     public static Student stuLijst;
-
     public static ArrayList<Student> studentenLijst = new ArrayList<>() {
         {
             add(stuLijst = new Student(1,"bob","Smit", "bob123"));
@@ -12,9 +11,7 @@ public class Database {
     };
 
     private static ArrayList<Cijfer> cijferList = new ArrayList<>();
-
     public static Examinator exLijst;
-
     public static ArrayList<Examinator> examinatorlijst = new ArrayList<>() {
         {
             add(exLijst = new Examinator(1,"Jan","wild", "jan123"));
@@ -32,11 +29,11 @@ public class Database {
     public static ArrayList<Cijfer> getCijferList(){
         return cijferList;
     }
-
-
 }
 
-/*public class Database {
+/* Josue:
+
+public class Database {
 
     public static Student stuLijst;
 
@@ -64,11 +61,8 @@ public class Database {
     };
 
     public static ArrayList<Examinator> examinatorlijst = new ArrayList<>();
-
     public static ArrayList<Student> AutoExamenDeelnemers = new ArrayList<>();
     public static ArrayList<Student> VaarExamenDeelnemers = new ArrayList<>();
-
-
 
     public static void addCijfer(Cijfer cijfer){
         cijferList.add(cijfer);
@@ -77,7 +71,5 @@ public class Database {
     public static ArrayList<Cijfer> getCijferList(){
         return cijferList;
     }
-
-
-
-}*/
+}
+*/
