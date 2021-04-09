@@ -1,4 +1,3 @@
-// Michael en Jarrel
 public class Cijfer {
     private Student student;
     private Exam exam;

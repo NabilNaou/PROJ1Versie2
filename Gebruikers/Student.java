@@ -91,7 +91,7 @@ public class Student extends Gebruiker
         System.out.println();
         System.out.println("-----------------");
     }
-    // New student
+
     public static void addStudent(Student newStudent){
         Database.studentenLijst.add(newStudent);
     }

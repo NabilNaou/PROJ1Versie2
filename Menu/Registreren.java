@@ -43,7 +43,7 @@ public class Registreren {
             for (int i = 0; i < Database.studentenLijst.size(); i++) {
                 // tempUser is used a temporary variable that acts as username while comparing it to the users input
                 tempUser = Database.studentenLijst.get(i).getNaam();
-                // tempUser is used a temporary variable that acts as password while comparing it to the users input
+                // tempPass is used a temporary variable that acts as password while comparing it to the users input
                 tempPass = Database.studentenLijst.get(i).getWachtwoord();
                 // Makes currentUser the same as the users ID
                 Login.currentUser = Database.studentenLijst.get(i).getStudentNummer();
@@ -58,7 +58,7 @@ public class Registreren {
             }
         } else if (userInput.equals("2")) {
             Details();
-            userID = Database.examinatorlijst.size() + 1; //increment number
+            userID = Database.examinatorlijst.size() + 1;
             Examinator newEx = new Examinator(userID, userName, userSurname, userPW);
             Database.examinatorlijst.add(newEx);
 

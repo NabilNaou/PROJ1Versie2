@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-// Josue en Michael
 public class Vragenlijst{
     private static ArrayList<Vraag> AutoCollection = new ArrayList<>();
     private static ArrayList<Vraag> BotenCollection = new ArrayList<>();

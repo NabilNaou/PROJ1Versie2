@@ -2,13 +2,12 @@ import java.util.Scanner;
 import static java.lang.System.in;
 
 
-// Josue en Michael
 public class Exam
 {
     private String examenNaam;
     protected int inlogid = Login.getCurrentUser();
 
-    //Maakt een nieuwe exame aan de naam die je meegeeft en met een lijst van deelnemers.
+    //Nabil: Maakt een nieuwe examen, en geeft dit door.
     public Exam(String ExamenNaam){
         this.examenNaam = ExamenNaam;
         Database.alleExamens.add(this);

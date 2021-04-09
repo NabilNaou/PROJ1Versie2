@@ -4,8 +4,7 @@ import static java.lang.System.in;
 public class Statistieken {
     private static Scanner userInput = new Scanner(in);
 
-    // Jarrel:
-    // Onvoldoendes filteren
+    // Jarrel: Onvoldoendes filteren, en voldoendes filteren
     public String onvoldoendesFilteren(){
         String ret = "";
         ArrayList<Cijfer> onvoldoendes = new ArrayList<>();
@@ -26,7 +25,6 @@ public class Statistieken {
         return ret;
     }
 
-    // Voldoendes filteren
     public String voldoendesFilteren(){
         String ret = "";
         ArrayList<Cijfer> voldoendes = new ArrayList<>();

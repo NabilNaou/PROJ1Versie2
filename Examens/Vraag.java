@@ -1,4 +1,3 @@
-// Josue en Michael
 public class Vraag{
     private static int ID = 0;
     private String description;
