@@ -32,8 +32,7 @@ public class Student extends Gebruiker
 
     //Nabil: Student kan zich inschrijven voor examen. Student word geïnformeerd over inschrijving.
     public static void nieuweInschrijving() {
-        System.out.println("Voor welk examen wilt u zich inschrijven?");
-        Exam exam = new Exam("type 1 voor AutoExamen of 2 voor VaarExamen");
+        System.out.println("Typ 1 om u in te schrijven voor het auto examen, en 2 voor het rij examen.");
         Student student = zoekStudentViaID(Login.getCurrentUser());
         int temp = userInput.nextInt();
         if(alIngeschreven(student)) {
@@ -43,7 +42,7 @@ public class Student extends Gebruiker
                 Database.VaarExamenDeelnemers.add(student);
             }
         }else{
-            System.out.println("Uw bent al ingeschreven voor deze examen.");
+            System.out.println("U bent al ingeschreven voor dit examen.");
         }
         System.out.println(Student.zoekStudentViaID(Login.getCurrentUser()).getNaam() + " is succesvol ingeschreven voor " + temp);
         MainMenu.HoofdMenuText();
