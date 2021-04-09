@@ -1,5 +1,4 @@
-import java.util.Arrays;
-import java.util.List;
+
 import java.util.Scanner;
 
 import static java.lang.System.*;
@@ -22,7 +21,7 @@ public class MainMenu {
 
     public static void StandardAction() {
         String input = userInput.nextLine();
-        Keuze(input); // Input de keuze
+        Keuze(input);
     }
     public static void HoofdMenuText(){
         out.println("Menu");
@@ -140,7 +139,6 @@ public class MainMenu {
 
     public static void main(String[] args) {
         LoginScherm();
-        HoofdMenuText(); // Show Hoofd menu
-        //StandardAction();
+        HoofdMenuText();
     }
 }

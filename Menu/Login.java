@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class Login {
-    // check if User exist in LedenLijst
     public static int currentUser;
     public static String userInput;
     public static String targetUser;
