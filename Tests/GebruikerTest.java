@@ -1,24 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.net.UnknownServiceException;
-
-import static org.junit.jupiter.api.Assertions.*;
-
-class GebruikerTest
-{
-    Gebruiker user = new Gebruiker(100,"tim","osman","tim123");
-
-    @Test
-    void getId() {
-        Assertions.assertEquals(100,user.getId());
-    }
-
-    @Test
-    void setId() {
-        user.setId(5);
-        Assertions.assertEquals(5,user.getId());
-    }
+class GebruikerTest{
+    Gebruiker user = new Gebruiker("tim","osman","tim123");
 
     @Test
     void getNaam() {

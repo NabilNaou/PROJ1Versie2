@@ -1,6 +1,6 @@
 import static org.junit.jupiter.api.Assertions.*;
 
-class LoginTest {
+class LoginTest{
     @org.junit.jupiter.api.Test
     void chooseLogin() {
         // simulate user input

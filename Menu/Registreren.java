@@ -9,7 +9,6 @@ public class Registreren {
 
     public static String tempUser;
     public static String tempPass;
-    //public static int currentUser;
 
     public static boolean registered;
 
@@ -32,15 +31,23 @@ public class Registreren {
         System.out.println("2) Examinator");
         userInput = sc.nextLine();
 
+        // Checks if user chose 1 or 2
         if (userInput.equals("1")) {
+            // Asks user for name, surname and password
             Details();
-            userID = Student.studentenLijst.size() + 1; //increment number
+            // Inserts userID by taking the arraylist size and adding +1
+            userID = Database.studentenLijst.size() + 1; //increment number
             Student newStudent = new Student(userID, userName, userSurname, userPW);
             Student.addStudent(newStudent);
-            for (int i = 0; i < Student.studentenLijst.size(); i++) {
-                tempUser = Student.studentenLijst.get(i).getNaam();
-                tempPass = Student.studentenLijst.get(i).getWachtwoord();
-                Login.currentUser = Student.studentenLijst.get(i).getId();
+            // Used a for-loop to check if the user now exists in the arraylist
+            for (int i = 0; i < Database.studentenLijst.size(); i++) {
+                // tempUser is used a temporary variable that acts as username while comparing it to the users input
+                tempUser = Database.studentenLijst.get(i).getNaam();
+                // tempPass is used a temporary variable that acts as password while comparing it to the users input
+                tempPass = Database.studentenLijst.get(i).getWachtwoord();
+                // Makes currentUser the same as the users ID
+                Login.currentUser = Database.studentenLijst.get(i).getStudentNummer();
+                // Compares user input with all options in the arraylist for both username and password
                 if (userName.equals(tempUser) && userPW.equals(tempPass)) {
                     System.out.println("Student geregistreerd");
                     registered = true;
@@ -51,13 +58,14 @@ public class Registreren {
             }
         } else if (userInput.equals("2")) {
             Details();
-            userID = Examinator.examinatorLijst.size() + 1; //increment number
+            userID = Database.examinatorlijst.size() + 1;
             Examinator newEx = new Examinator(userID, userName, userSurname, userPW);
-            Examinator.addEx(newEx);
-            for (int i = 0; i < Examinator.examinatorLijst.size(); i++) {
-                tempUser = Examinator.examinatorLijst.get(i).getNaam();
-                tempPass = Examinator.examinatorLijst.get(i).getWachtwoord();
-                Login.currentUser = Examinator.examinatorLijst.get(i).getId();
+            Database.examinatorlijst.add(newEx);
+
+            for (int i = 0; i < Database.examinatorlijst.size(); i++) {
+                tempUser = Database.examinatorlijst.get(i).getNaam();
+                tempPass = Database.examinatorlijst.get(i).getWachtwoord();
+                Login.currentUser = Database.examinatorlijst.get(i).getId();
                 if (userName.equals(tempUser) && userPW.equals(tempPass)) {
                     System.out.println("Examinator geregistreerd");
                     registered = true;

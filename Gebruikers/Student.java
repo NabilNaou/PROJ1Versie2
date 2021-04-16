@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import static java.lang.System.in;
@@ -6,95 +5,98 @@ import static java.lang.System.in;
 public class Student extends Gebruiker
 {
     private static Scanner userInput = new Scanner(in);
+    public int studentNummer;
 
-    public CijfersLijst getPersoonlijkeCijferlijst() {
-        return persoonlijkeCijferlijst;
+    public Student(int studentNummer, String naam, String achternaam, String wachtwoord) {
+        super(naam, achternaam, wachtwoord);
+        this.studentNummer = studentNummer;
     }
-
-    protected CijfersLijst persoonlijkeCijferlijst = new CijfersLijst();
-
-    public Student(int id, String naam, String achternaam, String wachtwoord) {
-        super(id, naam, achternaam, wachtwoord);
-    }
-
-    public static Student stuLijst;
-
-    public static ArrayList<Student> studentenLijst = new ArrayList<>() {
-        {
-            add(stuLijst = new Student(1,"bob","Smit", "bob123"));
-            add(stuLijst = new Student(2,"tim","Kapel", "tim123"));
-        }
-    };
 
     // Get all data for every student (id,name,lastname)
     public static void getAllStudents() {
-        for (Student student : studentenLijst)
+        for (Student student : Database.studentenLijst )
         {
-            System.out.println(student.getId() + " " + student.getNaam() + " " + student.getAchternaam());
+            System.out.println(student.getStudentNummer() + " " + student.getNaam() + " " + student.getAchternaam());
         }
     }
 
     //Nabil: Zoekt naar de id van een student in een studentenlijst
     public static Student zoekStudentViaID(int studentID){
-        for(int i = 0; i < studentenLijst.size(); i++){
-            if(studentenLijst.get(i).getId() == studentID) {
-                return studentenLijst.get(i);
+        for(int i = 0; i < Database.studentenLijst.size(); i++){
+            if(Database.studentenLijst.get(i).getStudentNummer() == studentID) {
+                return Database.studentenLijst.get(i);
             }
         }
         return null;
     }
 
-    // Returned hele lijst met studenten
-    public static ArrayList<Student> getStudentenLijst() { return studentenLijst; }
-
     //Nabil: Student kan zich inschrijven voor examen. Student word geïnformeerd over inschrijving.
     public static void nieuweInschrijving() {
-        System.out.println("Voor welk examen wilt u zich inschrijven?");
-        //Maakt de twee type examens aan die bestaan
-        Exam auto = new Exam("Auto");
-        Exam boot = new Exam("Boot");
-        //Gebruikers input word opgeslagen.. (1/2)
-        String temp = userInput.nextLine();
-        //Gebruikers input word alleen ingevoerd als de examen bestaat.. (2/2)
-        if(Exam.zoekExamen(temp) != null){
-            Exam.zoekExamen(temp).addDeelnemer(zoekStudentViaID(Login.getCurrentUser()));
-            System.out.println(Student.zoekStudentViaID(Login.getCurrentUser()).getNaam() + " is succesvol ingeschreven voor " + temp);
+        System.out.println("Typ 1 om u in te schrijven voor het auto examen, en 2 voor het rij examen.");
+        Student student = zoekStudentViaID(Login.getCurrentUser());
+        int temp = userInput.nextInt();
+        if(alIngeschreven(student)) {
+            if (temp == 1) {
+                Database.AutoExamenDeelnemers.add(student);
+            } else if (temp == 2) {
+                Database.VaarExamenDeelnemers.add(student);
+            }
+        }else{
+            System.out.println("U bent al ingeschreven voor dit examen.");
         }
-        else{
-            System.out.println("Dit examen is niet gevonden");
-        }
+        System.out.println(Student.zoekStudentViaID(Login.getCurrentUser()).getNaam() + " is succesvol ingeschreven voor " + temp);
         MainMenu.HoofdMenuText();
     }
-
-    public void addcijfer(Cijfer cijfer){
-        persoonlijkeCijferlijst.addCijfer(cijfer);
+    public static boolean alIngeschreven(Student target){
+        for(int i = 0; i < Database.AutoExamenDeelnemers.size(); i++){
+            if(target.equals(Database.AutoExamenDeelnemers.get(i))|| target.equals(Database.VaarExamenDeelnemers.get(i))){
+                return true;
+            }
+        }return false;
     }
+
     public static void studentVerwijderen() {
         System.out.println("Welk student wilt u verwijderen?");
         String verwijderen = userInput.nextLine();
-        for (int i = 0; i < studentenLijst.size(); i++) {
-            if (studentenLijst.get(i).getNaam().equalsIgnoreCase(verwijderen)) {
-                studentenLijst.remove(i);
-                System.out.println(verwijderen + " is verwijderd");
-                showRemainingStudents();
-            } else {
-                System.out.println(verwijderen + " is niet geregistreerd");
-                showRemainingStudents();
+        System.out.println("voor welke examen wilt U deze student verwijderen? type 1 voor auto of 2 voor vaar");
+        int type = userInput.nextInt();
+        if(type == 1){
+            for (int i = 0; i < Database.AutoExamenDeelnemers.size(); i++){
+                if(verwijderen.equalsIgnoreCase(Database.AutoExamenDeelnemers.get(i).getNaam())){
+                    Database.AutoExamenDeelnemers.remove(i);
+                    System.out.println(verwijderen + " is verwijderd.");
+                    showRemainingStudents(1);
+                }
+            }
+        }else if (type == 2){
+            for (int i = 0; i < Database.AutoExamenDeelnemers.size(); i++) {
+                Database.VaarExamenDeelnemers.remove(i);
+                System.out.println(verwijderen + " is verwijderd.");
+                showRemainingStudents(2);
             }
         }
     }
 
-    public static void showRemainingStudents(){
+    public static void showRemainingStudents(int type){
         System.out.println("Overblijvende studenten: ");
-        for (int i = 0; i < studentenLijst.size(); i++) {
-            System.out.print(studentenLijst.get(i).getNaam() + ", ");
-
+        if(type == 1) {
+            for (int i = 0; i < Database.AutoExamenDeelnemers.size(); i++) {
+                System.out.print(Database.AutoExamenDeelnemers.get(i).getNaam() + ", ");
+            }
+        }else if(type == 2){
+            for (int i = 0; i < Database.VaarExamenDeelnemers.size(); i++) {
+                System.out.print(Database.VaarExamenDeelnemers.get(i).getNaam() + ", ");
+            }
         }
         System.out.println();
         System.out.println("-----------------");
     }
-    // New student
+
     public static void addStudent(Student newStudent){
-        studentenLijst.add(newStudent);
+        Database.studentenLijst.add(newStudent);
+    }
+
+    public int getStudentNummer() {
+        return studentNummer;
     }
 }

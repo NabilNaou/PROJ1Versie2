@@ -1,9 +1,7 @@
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-class RegistrerenTest {
-
+class RegistrerenTest{
     @Test
     void details() {
         Registreren.userName = "Rick";
@@ -14,7 +12,6 @@ class RegistrerenTest {
         Registreren.tempPass = "RickyV";
         assertEquals(Registreren.userPW,Registreren.tempPass);
     }
-
 
     @Test
     void registration() {

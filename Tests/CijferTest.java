@@ -1,10 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class CijferTest {
-
+class CijferTest{
     Student student = new Student(1, "Mark", "Vazovski", "123");
     Exam exam = new Exam("TestExamen");
     Cijfer cijfer = new Cijfer(2.0, exam, student);
