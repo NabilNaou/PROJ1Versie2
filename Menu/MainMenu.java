@@ -33,11 +33,14 @@ public class MainMenu {
         out.println(" 6) haal lijst met onvoldoendes op");
         out.println(" 7) haal krijg lijst met voldoendes op");
         out.println(" 8) Krijg de percentage voldoende/onvoldoende");
-        //out.println(" 9) De student die de meeste examens heeft gehaald");
-        out.println(" 9 Haal al de behaalde examens van een specifieke student op");
-        out.println(" 10) Haal alle behaalde examens op van de ingelogde gebruiker");
-        out.println(" 11) Check of een specifieke student geslaagd is voor een bepaalde examen");
-        out.println(" 12) Check ingelogde gebruiker geslaagd is voor een bepaalde examen");
+        out.println(" 9 De student die de meeste examens heeft gehaald");
+        out.println(" 10) Haal al de behaalde examens van een specifieke student op");
+        out.println(" 11) Haal alle behaalde examens op van de ingelogde gebruiker");
+        out.println(" 12) Check of een specifieke student geslaagd is voor een bepaalde examen");
+        out.println(" 13) Check ingelogde gebruiker geslaagd is voor een bepaalde examen");
+        out.println(" 14) Examen vraag toevoegen");
+
+
         out.println(" 0) Exit");
         out.println("Uw keuze:");
         StandardAction();
@@ -72,8 +75,9 @@ public class MainMenu {
                 out.println("Type 1 voor auto theorie.");
                 out.println("Type 2 voor boot theorie. ");
                 int beslissing = userInput.nextInt();
-                if(beslissing == 1){
+                if(beslissing == 1){/*
                     Exam.startExamen( beslissing);
+*/
                 }
                 StandardAction();
             }
@@ -125,11 +129,15 @@ public class MainMenu {
                 statistieken.checkExamenGeslaagdStudentId();
                 StandardAction();
             }
-
+            case "14" -> {
+                Exam.addVraag();
+            }
             case "0" -> {
                 out.println("Succesfully Exited App...");
                 exit(0);
             }
+
+
             default -> {
                 out.println("Maak een keuze...");
                 StandardAction();
@@ -138,7 +146,6 @@ public class MainMenu {
     }
 
     public static void main(String[] args) {
-        LoginScherm();
-        HoofdMenuText();
+
     }
 }

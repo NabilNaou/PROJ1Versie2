@@ -12,46 +12,50 @@ public class Exam
         this.examenNaam = ExamenNaam;
         Database.alleExamens.add(this);
     }
+    public static void addVraag(){
+        int input;
+        System.out.println("type 1 voor openvraag of type 2 voor meerkeuzevraag?");
+        Scanner userInput = new Scanner(in);
+        input = userInput.nextInt();
+
+        if(input == 1){
+            Vraag nieuwvraag = new Vraag();
+            System.out.println("Wat wilt u dat de vraag is?");
+            nieuwvraag.description = userInput.nextLine();
+            System.out.println("En Wat is het corrected antwoord?");
+            String antwoord = userInput.nextLine();
+            nieuwvraag.antwoorden.add(antwoord);
+        }else if(input == 2){
+            int aantal;
+            Vraag nieuwevraag = new Vraag();
+            System.out.println("Kies een getal tussen 1-26 voor het aantal antwoorden.");
+            aantal = userInput.nextInt();
+            if(aantal < 1 | aantal > 26) {
+                System.out.println("sorry maar u heeft een verkeerd getal ingevoerd.");
+            }if(aantal > 0 & aantal < 26) {
+                System.out.println("Wat wilt u dat de vraag is?");
+                String vraag = userInput.nextLine();
+                char x = 'a';
+                nieuwevraag.description = userInput.nextLine();
+                for (int i = 0; i < aantal; i++) {
+                    System.out.println("Antwoord " + x + " moet zijn?");
+                    String antwoord = userInput.nextLine();
+                    nieuwevraag.antwoorden.add(antwoord);
+                    x++;
+                }
+                System.out.println("Uw vraag is toegevoegd.");
+            }
+        }if (input < 1 | input > 2){
+            System.out.println("sorry maar u heeft een verkeerd getal ingevoerd.");
+        }
+    }
+
 
     public String getExamenNaam() {
         return examenNaam;
     }
 
-    public static void startExamen(int beslissing){
-        int stuID = Login.getCurrentUser();
-        Exam nieuw;
-        Student huidig = Student.zoekStudentViaID(stuID);
-        String Naam = Student.zoekStudentViaID(stuID).getNaam();
-
-        if(beslissing == 1){
-            nieuw = new Exam("Autoexamen");
-        }else{
-            nieuw = new Exam("Bootexamen");
-        }
-
-        int a = 0;
-        int aantalgoed = 0;
-        Vragenlijst lijst = new Vragenlijst();
-        lijst.MockDataBase();
-        Scanner userInput = new Scanner(in);
-
-        while(a < lijst.GetAutovragenlijst().size()){
-            Vraag vraag = lijst.getvraag(a);
-            String input;
-            System.out.println("vraag "+ (a + 1) +" "+ vraag.getVraag());
-            System.out.println(vraag.getAntA());
-            System.out.println(vraag.getAntB());
-            System.out.println(vraag.getAntC());
-            System.out.println("Uw antwoord: ");
-            input = userInput.nextLine();
-            a++;
-            if(input.equalsIgnoreCase(vraag.getAntwoord())){
-                aantalgoed++;
-            }
-        }
-
-        Cijfer cijfer = new Cijfer(aantalgoed, nieuw, huidig);
-        Database.addCijfer(cijfer);
-        System.out.println("Uw heeft " + aantalgoed+ " vragen goed.");
-    }
+   public static void startExamen(int beslissing) {
+//TODO
+   }
 }
