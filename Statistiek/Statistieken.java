@@ -189,4 +189,14 @@ public class Statistieken {
             System.out.println("Student is niet geslaagd voor deze examen of de examen bestaat niet");
         }
     }
+    public static void printtoetsenenuitslag(int studentid){
+
+        for(int i = 0; i < Database.studentenLijst.size(); i++) {
+            if(Database.studentenLijst.get(i).studentNummer == studentid) {
+                for (int x = 0; x < Database.studentenLijst.get(i).cijferlijst.size(); x++) {
+                    System.out.println(Database.studentenLijst.get(i).cijferlijst.get(x).getToetsNaam() + " " + Database.studentenLijst.get(i).cijferlijst.get(x).getUitslag());
+                }
+            }
+        }
+    }
 }

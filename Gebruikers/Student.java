@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import static java.lang.System.in;
@@ -6,10 +7,13 @@ public class Student extends Gebruiker
 {
     private static Scanner userInput = new Scanner(in);
     public int studentNummer;
+    public ArrayList<Toetsen> cijferlijst;
+
 
     public Student(int studentNummer, String naam, String achternaam, String wachtwoord) {
         super(naam, achternaam, wachtwoord);
         this.studentNummer = studentNummer;
+        this.cijferlijst = new ArrayList<>();
     }
 
     // Get all data for every student (id,name,lastname)

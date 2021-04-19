@@ -39,6 +39,7 @@ public class MainMenu {
         out.println(" 12) Check of een specifieke student geslaagd is voor een bepaalde examen");
         out.println(" 13) Check ingelogde gebruiker geslaagd is voor een bepaalde examen");
         out.println(" 14) Examen vraag toevoegen");
+        out.println(" 15) Print al je cijfers");
 
 
         out.println(" 0) Exit");
@@ -72,12 +73,14 @@ public class MainMenu {
             }
             case "5" -> {
                 out.println("Welk examen wilt u afnemen?");
-                out.println("Type 1 voor auto theorie.");
-                out.println("Type 2 voor boot theorie. ");
+                out.println("Type 1 voor Multiple choice vragen.");
+                out.println("Type 2 voor Open Vragen");
                 int beslissing = userInput.nextInt();
-                if(beslissing == 1){/*
-                    Exam.startExamen( beslissing);
-*/
+                if(beslissing < 1 | beslissing > 2){
+                    out.println("Sorry maar dat is geen juiste optie");
+                    StandardAction();
+                }else{
+                    Exam.startExamen(beslissing);
                 }
                 StandardAction();
             }
@@ -132,6 +135,10 @@ public class MainMenu {
             case "14" -> {
                 Exam.addVraag();
             }
+            case "15" -> {
+                int inlogid = Login.getCurrentUser();
+                Statistieken.printtoetsenenuitslag(inlogid);
+            }
             case "0" -> {
                 out.println("Succesfully Exited App...");
                 exit(0);
@@ -146,6 +153,8 @@ public class MainMenu {
     }
 
     public static void main(String[] args) {
-
+        Database.mockdata();
+        LoginScherm();
+        HoofdMenuText();
     }
 }
