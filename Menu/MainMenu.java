@@ -48,7 +48,7 @@ public class MainMenu {
     }
 
     public static void Keuze(String keuze){
-  /*      switch (keuze) {
+        switch (keuze) {
             case "1" -> {
                 out.println("Uw kunt een Auto Examen of een Examen Vaarbewijs afnemen.");
                 StandardAction();
@@ -149,7 +149,7 @@ public class MainMenu {
                 out.println("Maak een keuze...");
                 StandardAction();
             }
-        }*/
+        }
     }
 
     public static void main(String[] args) {
