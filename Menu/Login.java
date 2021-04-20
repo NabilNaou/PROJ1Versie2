@@ -20,11 +20,11 @@ public class Login {
 
         switch (userChoice)
         {
- /*           case "1" -> choseLogin = checkEqual();
+/*            case "1" -> choseLogin = checkEqual();
             case "2" -> {
                 choseLogin = false;
-                Registreren.Registration();*/
-            }
+                Registreren.Registration();
+            }*/
         }
         return choseLogin;
     }
